@@ -107,7 +107,7 @@
 迭代器
 装饰器
 闭包">
-<meta property="og:updated_time" content="2017-03-31T06:30:26.021Z">
+<meta property="og:updated_time" content="2017-04-01T00:59:20.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python函数">
 <meta name="twitter:description" content="待完善。。。
@@ -368,49 +368,50 @@
 </div>
 <a id="more"></a>
 <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><blockquote>
-<p>起作用的区域：</p>
+<p>即作用范围：</p>
 </blockquote>
 <p><strong>LEGB规则</strong>（优先顺序）<br>locals -&gt; enclosing -&gt; globals -&gt; builtins</p>
 <ul>
-<li>locals：<strong>局部变量</strong>，当前所在命名空间（如函数、模块），其中：函数的参数也属于命名空间内的变量</li>
-<li>enclosing：<strong>外部嵌套函数</strong>的命名空间（如闭包）</li>
-<li>globals：<strong>全局变量</strong>，函数定义所在模块的命名空间</li>
-<li>builtins：<strong>内建模块</strong>的命名空间</li>
+<li><code>locals</code>：<strong>局部变量</strong>，当前所在命名空间（如函数、模块），其中：函数的参数也属于命名空间内的变量</li>
+<li><code>enclosing</code>：<strong>外部嵌套函数</strong>的命名空间（如闭包）</li>
+<li><code>globals</code>：<strong>全局变量</strong>，函数定义所在模块的命名空间</li>
+<li><code>builtins</code>：<strong>内建模块</strong>的命名空间</li>
 </ul>
 <h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><blockquote>
-<p>一边循环一边计算的机制，称为生成器：generator</p>
+<p>一边<strong>循环</strong>一边<strong>计算</strong>的机制，称为生成器：<code>generator</code></p>
 </blockquote>
 <p><strong>生成器特点</strong>：</p>
 <ol>
-<li>节约内存</li>
+<li>节约<strong>内存</strong></li>
 <li>迭代到下一次的调用时，所使用的参数都是第一次所保留下的，即是说，在整个所有函数调用的参数都是第一次所调用时保留的，而不是新创建的</li>
+<li>生成器也是<strong>可迭代对象</strong>，可以使用<code>for</code>迭代</li>
 </ol>
 <h3 id="创建生成器方法1"><a href="#创建生成器方法1" class="headerlink" title="创建生成器方法1"></a>创建生成器方法1</h3><blockquote>
-<p>将列表生成式的[]改成()</p>
+<p>将列表生成式的<code>[ ]</code>改成<code>( )</code></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">G = (x*2 for x in range(5))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">G = (x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>))</div></pre></td></tr></table></figure>
 <p><strong>启动生成器</strong></p>
 <blockquote>
-<p>可以使用next()函数获得生成器的下一个返回值：<br><strong>next</strong>()与next()方法相同</p>
+<ul>
+<li>可以使用<code>next()</code>函数获得生成器的下一个返回值</li>
+<li><code>__next__()</code>与<code>next()</code>方法相同</li>
+<li>实际运用中，使用for循环</li>
+</ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">next(G)</div><div class="line"># 输出结果0</div><div class="line">...</div></pre></td></tr></table></figure>
-<blockquote>
-<p>实际使用中使用for循环启动生成器</p>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">next(G)</div><div class="line"><span class="comment"># 输出结果0</span></div><div class="line">G.__next__()</div><div class="line"><span class="comment"># 输出结果1</span></div><div class="line">...</div></pre></td></tr></table></figure>
 <h3 id="创建生成器方法2"><a href="#创建生成器方法2" class="headerlink" title="创建生成器方法2"></a>创建生成器方法2</h3><blockquote>
-<p>使用yield关键字，每次执行时在yield位置阻断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def fib(times):</div><div class="line">    n = 0</div><div class="line">    a, b = 0, 1</div><div class="line">    while n &lt; times:</div><div class="line">        yield b</div><div class="line">        a, b = b, a+b</div><div class="line">        n += 1</div><div class="line">    return &quot;done&quot;</div><div class="line"></div><div class="line">F = fib(5)</div><div class="line">print(next(F))  # 调用生成器</div></pre></td></tr></table></figure></p>
+<p>使用<code>yield</code>关键字</p>
 </blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(times)</span>:</span></div><div class="line">    n = <span class="number">0</span></div><div class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> n &lt; times:</div><div class="line">        <span class="keyword">yield</span> b		<span class="comment">#执行时每次在yield位置阻断</span></div><div class="line">        a, b = b, a+b</div><div class="line">        n += <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"done"</span></div><div class="line"></div><div class="line">F = fib(<span class="number">5</span>)</div><div class="line">print(next(F))  <span class="comment"># 调用生成器</span></div></pre></td></tr></table></figure>
 <p><strong>使用send方法调用</strong>：</p>
 <blockquote>
-<p>需要先用next()调用一次</p>
+<p>需要先用<code>next()</code>调用一次</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">F = fib()</div><div class="line">print(next(F))</div><div class="line">print(F.send(&quot;haha&quot;))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">F = fib()</div><div class="line">print(next(F))	<span class="comment"># 使用next启动</span></div><div class="line">print(F.send(<span class="string">"haha"</span>))</div></pre></td></tr></table></figure>
 <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><blockquote>
 <p><strong>迭代</strong>：访问集合元素的一种方式<br><strong>迭代器</strong>：可以记住遍历位置的对象</p>
 </blockquote>
-<h3 id="可迭代对象（lterable）"><a href="#可迭代对象（lterable）" class="headerlink" title="可迭代对象（lterable）"></a>可迭代对象（lterable）</h3><ol>
-<li>集合数据类型</li>
-</ol>
+<h3 id="可迭代对象（lterable）"><a href="#可迭代对象（lterable）" class="headerlink" title="可迭代对象（lterable）"></a>可迭代对象（lterable）</h3><p><strong>集合数据类型</strong></p>
 <ul>
 <li>list</li>
 <li>tuple</li>
@@ -418,14 +419,12 @@
 <li>set</li>
 <li>str</li>
 </ul>
-<ol>
-<li>generator</li>
-</ol>
+<p><strong>generator</strong></p>
 <ul>
 <li>生成器</li>
-<li>带yield的generator function</li>
+<li>带<code>yield</code>的generator function</li>
 </ul>
-<h3 id="判断是否可迭代-isinstance"><a href="#判断是否可迭代-isinstance" class="headerlink" title="判断是否可迭代(isinstance)"></a>判断是否可迭代(isinstance)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#导入模块</div><div class="line">from collections import Iterable</div><div class="line"></div><div class="line">isinstance(object, Iterable)</div></pre></td></tr></table></figure>
+<h3 id="判断是否可迭代-isinstance"><a href="#判断是否可迭代-isinstance" class="headerlink" title="判断是否可迭代(isinstance)"></a>判断是否可迭代(isinstance)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入模块</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</div><div class="line"></div><div class="line">isinstance(object, Iterable)</div></pre></td></tr></table></figure>
 <h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p><strong>代码原则</strong>：</p>
 <ul>
 <li><strong>封闭</strong>：封装已实现的功能代码块，尽量不做更改</li>
@@ -438,13 +437,13 @@
 <li>在调用<strong>被装饰函数</strong>时Python解释器将该函数作为<strong>装饰函数</strong>的<strong>参数</strong>传递到装饰函数的<strong>闭包函数</strong>中</li>
 <li>最终输出结果为传递到闭包函数中调用的<strong>被装饰函数</strong>，可在调用之前添加“装饰”代码</li>
 </ol>
-<p><strong>装饰器示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 定义装饰函数</div><div class="line">def w1(func):   # 执行到此处，将w1函数加载到内存</div><div class="line">    def inner():</div><div class="line">        print(&quot;验证&quot;)</div><div class="line">        func()</div><div class="line">    return inner</div><div class="line"></div><div class="line"></div><div class="line">@w1     # 将装饰器下的函数作为w1（装饰函数）的参数</div><div class="line">def f1():</div><div class="line">    print(&quot;f1&quot;)</div><div class="line"></div><div class="line">f1()    # 调用装饰后的函数</div></pre></td></tr></table></figure></p>
+<p><strong>装饰器示例</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义装饰函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">w1</span><span class="params">(func)</span>:</span>   <span class="comment"># 执行到此处，将w1函数加载到内存</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">"验证"</span>)</div><div class="line">        func()</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@w1     # 将装饰器下的函数作为w1（装饰函数）的参数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"f1"</span>)</div><div class="line"></div><div class="line">f1()    <span class="comment"># 调用装饰后的函数</span></div></pre></td></tr></table></figure></p>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
 <p>内部函数对外部函数作用域里(非全局)变量的引用（非全局变量），则称内部函数为闭包</p>
 </blockquote>
-<p><strong>例1</strong>：局部变量是<strong>可变类型</strong>，如list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def counter(start=0):</div><div class="line">    count=[start]</div><div class="line">    def incr():</div><div class="line">        count[0] += 1</div><div class="line">        return count[0]</div><div class="line">    return incr     # 此处返回闭包的结果，即内部函数</div><div class="line"></div><div class="line">c = counter(10)     # 此时c指向内部函数</div><div class="line">print(c())          # 调用闭包（内部）函数</div></pre></td></tr></table></figure></p>
-<p><strong>例2</strong>：局部变量是<strong>不可变类型</strong>，如str，使用nonlocal（py3）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def counter(start=0):</div><div class="line">    def incr():</div><div class="line">        nonlocal start</div><div class="line">        start += 1</div><div class="line">        return start</div><div class="line">    return incr</div><div class="line"></div><div class="line">c1 = counter(10)</div><div class="line">print(c1())</div></pre></td></tr></table></figure></p>
-<p><strong>例3</strong>：实际应用例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def line_conf(a, b):</div><div class="line">    def line(x):</div><div class="line">        return a * x + b</div><div class="line">    return line</div><div class="line"></div><div class="line">line1 = line_conf(1, 1)</div><div class="line">line2 = line_conf(4, 5)</div><div class="line">print(line1(5))</div><div class="line">print(line2(5))</div></pre></td></tr></table></figure></p>
+<p><strong>例1</strong>：局部变量是<strong>可变类型</strong>，如list<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(start=<span class="number">0</span>)</span>:</span></div><div class="line">    count=[start]</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">incr</span><span class="params">()</span>:</span></div><div class="line">        count[<span class="number">0</span>] += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> count[<span class="number">0</span>]</div><div class="line">    <span class="keyword">return</span> incr     <span class="comment"># 此处返回闭包的结果，即内部函数</span></div><div class="line"></div><div class="line">c = counter(<span class="number">10</span>)     <span class="comment"># 此时c指向内部函数</span></div><div class="line">print(c())          <span class="comment"># 调用闭包（内部）函数</span></div></pre></td></tr></table></figure></p>
+<p><strong>例2</strong>：局部变量是<strong>不可变类型</strong>，如str，使用nonlocal（py3）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(start=<span class="number">0</span>)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">incr</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">nonlocal</span> start</div><div class="line">        start += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> start</div><div class="line">    <span class="keyword">return</span> incr</div><div class="line"></div><div class="line">c1 = counter(<span class="number">10</span>)</div><div class="line">print(c1())</div></pre></td></tr></table></figure></p>
+<p><strong>例3</strong>：实际应用例子<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">line_conf</span><span class="params">(a, b)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(x)</span>:</span></div><div class="line">        <span class="keyword">return</span> a * x + b</div><div class="line">    <span class="keyword">return</span> line</div><div class="line"></div><div class="line">line1 = line_conf(<span class="number">1</span>, <span class="number">1</span>)</div><div class="line">line2 = line_conf(<span class="number">4</span>, <span class="number">5</span>)</div><div class="line">print(line1(<span class="number">5</span>))</div><div class="line">print(line2(<span class="number">5</span>))</div></pre></td></tr></table></figure></p>
 <p><strong>闭包缺点</strong>：</p>
 <blockquote>
 <p>由于闭包引用了外部函数的局部变量，导致外部函数的局部变量没有及时释放，<strong>消耗内存</strong></p>
@@ -569,7 +568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -580,7 +579,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -85,28 +85,22 @@
 
 
 
-<meta name="description" content="sublime是一个轻量级代码编辑器常用插件：
-
-emmet
-autofilename
-view in browser">
+<meta name="description" content="emmet（自动补全）
+autofilename（自动补全文件名）
+view in browser（浏览器查看）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime插件安装">
+<meta property="og:title" content="sublime插件">
 <meta property="og:url" content="http://oneskk.com/2017/04/07/工具_sublime插件安装/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="sublime是一个轻量级代码编辑器常用插件：
-
-emmet
-autofilename
-view in browser">
-<meta property="og:updated_time" content="2017-04-07T12:22:45.247Z">
+<meta property="og:description" content="emmet（自动补全）
+autofilename（自动补全文件名）
+view in browser（浏览器查看）">
+<meta property="og:updated_time" content="2017-04-08T12:53:52.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime插件安装">
-<meta name="twitter:description" content="sublime是一个轻量级代码编辑器常用插件：
-
-emmet
-autofilename
-view in browser">
+<meta name="twitter:title" content="sublime插件">
+<meta name="twitter:description" content="emmet（自动补全）
+autofilename（自动补全文件名）
+view in browser（浏览器查看）">
 
 
 
@@ -140,7 +134,7 @@ view in browser">
 
 
 
-  <title> sublime插件安装 | 慧海仁心 </title>
+  <title> sublime插件 | 慧海仁心 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -270,7 +264,7 @@ view in browser">
             
             
               
-                sublime插件安装
+                sublime插件
               
             
           </h1>
@@ -343,18 +337,43 @@ view in browser">
       
 
       
-        <div class="note success"><p>sublime是一个轻量级代码编辑器<br>常用插件：</p>
-<ol>
-<li>emmet</li>
-<li>autofilename</li>
-<li>view in browser</li>
+        <div class="note default"><ol>
+<li>emmet（自动补全）</li>
+<li>autofilename（自动补全文件名）</li>
+<li>view in browser（浏览器查看）</li>
 </ol>
 </div>
 <a id="more"></a>
+<blockquote>
+<p>sublime是一个轻量级代码编辑器</p>
+</blockquote>
 <h1 id="package-control安装"><a href="#package-control安装" class="headerlink" title="package control安装"></a>package control安装</h1><p>安装插件前，需要安装package control</p>
+<p><strong>直接安装（推荐）</strong><br>打开控制台 <strong><code>ctrl</code></strong> + <strong><code>~</code></strong><br><strong>复制</strong>以下代码<strong>粘贴</strong>到控制台，按<strong><code>回车键</code></strong>完成安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
+<p><strong>手动安装</strong></p>
 <ol>
-<li>打开控制台 <code>ctrl</code> + ```</li>
+<li>点击Preferences &gt; Browse Packages菜单</li>
+<li>进入打开的目录的上层目录，然后再进入Installed Packages/目录</li>
+<li>下载 Package Control.sublime-package 并复制到Installed Packages/目录</li>
+<li>重启Sublime Text。</li>
 </ol>
+<h1 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h1><blockquote>
+<p>自动补全代码，提高效率</p>
+</blockquote>
+<ol>
+<li>点击Preferences &gt; Package Control</li>
+<li>在弹出的列表中点击 Install Package</li>
+<li>再次弹出列表，在顶部输入栏中输入emmet，列表中会查询到emmet，点击安装</li>
+<li>安装完成后会显示安装设置文件，表示安装成功。</li>
+<li>emmet插件依赖PyV8,将PyV8文件夹复制到Installed Packages目录</li>
+</ol>
+<h1 id="Autofilename"><a href="#Autofilename" class="headerlink" title="Autofilename"></a>Autofilename</h1><blockquote>
+<p>自动完成文件名的输入，如图片选取</p>
+</blockquote>
+<p>用同样方法安装</p>
+<h1 id="View-in-Browser"><a href="#View-in-Browser" class="headerlink" title="View in Browser"></a>View in Browser</h1><blockquote>
+<p>在浏览器中查看效果</p>
+</blockquote>
+<p>View in Browser的设置方法：<br>Preferences/Key Bindings 中的右边User加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">   &#123; &quot;keys&quot;: [&quot;ctrl+alt+f&quot;], &quot;command&quot;: &quot;open_in_browser&quot; &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -400,6 +419,10 @@ view in browser">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/07/linux系统操作/" rel="prev" title="Linux系统操作指南">
+                Linux系统操作指南 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +494,7 @@ view in browser">
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -482,7 +505,7 @@ view in browser">
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -519,7 +542,7 @@ view in browser">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#package-control安装"><span class="nav-number">1.</span> <span class="nav-text">package control安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#package-control安装"><span class="nav-number">1.</span> <span class="nav-text">package control安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emmet"><span class="nav-number">2.</span> <span class="nav-text">emmet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Autofilename"><span class="nav-number">3.</span> <span class="nav-text">Autofilename</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View-in-Browser"><span class="nav-number">4.</span> <span class="nav-text">View in Browser</span></a></li></ol></div>
             
 
           </div>

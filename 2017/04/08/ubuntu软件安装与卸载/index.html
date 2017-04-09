@@ -85,16 +85,16 @@
 
 
 
-<meta name="description" content="TCP服务器">
+<meta name="description" content="Ubuntu默认的更新源地址为国外地址，存在网络限制，需更改地址为国内镜像地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP">
-<meta property="og:url" content="http://oneskk.com/2017/03/27/网络_TCP/index.html">
+<meta property="og:title" content="Ubuntu软件安装与卸载">
+<meta property="og:url" content="http://oneskk.com/2017/04/08/ubuntu软件安装与卸载/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="TCP服务器">
-<meta property="og:updated_time" content="2017-04-01T00:57:01.788Z">
+<meta property="og:description" content="Ubuntu默认的更新源地址为国外地址，存在网络限制，需更改地址为国内镜像地址">
+<meta property="og:updated_time" content="2017-04-08T08:48:13.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP">
-<meta name="twitter:description" content="TCP服务器">
+<meta name="twitter:title" content="Ubuntu软件安装与卸载">
+<meta name="twitter:description" content="Ubuntu默认的更新源地址为国外地址，存在网络限制，需更改地址为国内镜像地址">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://oneskk.com/2017/03/27/网络_TCP/"/>
+  <link rel="canonical" href="http://oneskk.com/2017/04/08/ubuntu软件安装与卸载/"/>
 
 
 
 
 
-  <title> TCP | 慧海仁心 </title>
+  <title> Ubuntu软件安装与卸载 | 慧海仁心 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -237,7 +237,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/03/27/网络_TCP/">
+    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/04/08/ubuntu软件安装与卸载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金成">
@@ -258,7 +258,7 @@
             
             
               
-                TCP
+                Ubuntu软件安装与卸载
               
             
           </h1>
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T19:08:38+08:00">
-                2017-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T15:07:10+08:00">
+                2017-04-08
               </time>
             
 
@@ -296,8 +296,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -331,10 +331,33 @@
       
 
       
-        <div class="note danger"><p>TCP服务器</p>
+        <div class="note "><p>Ubuntu默认的更新源地址为国外地址，存在网络限制，需更改地址为国内镜像地址</p>
 </div>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(a):</div><div class="line">	print(i)</div></pre></td></tr></table></figure>
+<h1 id="寻找国内镜像源"><a href="#寻找国内镜像源" class="headerlink" title="寻找国内镜像源"></a>寻找国内镜像源</h1><p>1.地址：<a href="https://mirrors.tuna.tsinghua.edu.cn" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn</a><br>2.选择对应Linux版本<br>3.复制更新源信息</p>
+<h1 id="备份Ubuntu默认的源地址"><a href="#备份Ubuntu默认的源地址" class="headerlink" title="备份Ubuntu默认的源地址"></a>备份Ubuntu默认的源地址</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup</div></pre></td></tr></table></figure>
+<h1 id="更新源服务器列表"><a href="#更新源服务器列表" class="headerlink" title="更新源服务器列表"></a>更新源服务器列表</h1><p>1.使用gedit编辑器<strong>打开文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/apt/sources.list</div></pre></td></tr></table></figure></p>
+<p>2.<strong>删除</strong>所有文字内容，并把复制的<strong>更新源信息</strong>粘贴进去</p>
+<h1 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
+<h1 id="Ubuntu软件操作的相关命令"><a href="#Ubuntu软件操作的相关命令" class="headerlink" title="Ubuntu软件操作的相关命令"></a>Ubuntu软件操作的相关命令</h1><ul>
+<li><strong>更新源</strong>：sudo apt-get update  </li>
+<li><strong>安装包</strong>：sudo apt-get install package </li>
+<li><strong>删除包</strong>：sudo apt-get remove package </li>
+<li><strong>搜索软件包</strong>：sudo apt-cache search package </li>
+<li><strong>获取包的相关信息，如说明、大小、版本等</strong>：sudo apt-cache show package  </li>
+<li><strong>重新安装包</strong>：sudo apt-get install package –reinstall   </li>
+<li><strong>修复安装</strong>：sudo apt-get -f install   </li>
+<li><strong>删除包，包括配置文件等</strong>：sudo apt-get remove package –purge </li>
+<li><strong>安装相关的编译环境</strong>：sudo apt-get build-dep package </li>
+<li><strong>更新已安装的包</strong>：sudo apt-get upgrade </li>
+<li><strong>升级系统</strong>：sudo apt-get dist-upgrade </li>
+<li><strong>了解使用该包依赖那些包</strong>：sudo apt-cache depends package </li>
+<li><strong>查看该包被哪些包依赖</strong>：sudo apt-cache rdepends package </li>
+<li><strong>下载该包的源代码</strong>：sudo apt-get source package  </li>
+<li><strong>清理无用的包</strong>：sudo apt-get clean &amp;&amp; sudo apt-get autoclean </li>
+<li><strong>检查是否有损坏的依赖</strong>：sudo apt-get check </li>
+</ul>
+
       
     </div>
 
@@ -370,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/网络_UDP/" rel="next" title="UDP">
-                <i class="fa fa-chevron-left"></i> UDP
+              <a href="/2017/04/07/linux系统操作/" rel="next" title="Linux系统操作指南">
+                <i class="fa fa-chevron-left"></i> Linux系统操作指南
               </a>
             
           </div>
@@ -380,8 +403,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/27/网络_协程/" rel="prev" title="协程">
-                协程 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/08/linux之samba/" rel="prev" title="Linux之Samba">
+                Linux之Samba <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -429,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -483,6 +515,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找国内镜像源"><span class="nav-number">1.</span> <span class="nav-text">寻找国内镜像源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#备份Ubuntu默认的源地址"><span class="nav-number">2.</span> <span class="nav-text">备份Ubuntu默认的源地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新源服务器列表"><span class="nav-number">3.</span> <span class="nav-text">更新源服务器列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新源"><span class="nav-number">4.</span> <span class="nav-text">更新源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu软件操作的相关命令"><span class="nav-number">5.</span> <span class="nav-text">Ubuntu软件操作的相关命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

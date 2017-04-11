@@ -85,19 +85,19 @@
 
 
 
-<meta name="description" content="程序：编写完毕但没有执行的代码
-进程：正在运行的代码">
+<meta name="description" content="多任务
+*fork()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程">
 <meta property="og:url" content="http://oneskk.com/2017/03/27/网络_进程/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="程序：编写完毕但没有执行的代码
-进程：正在运行的代码">
-<meta property="og:updated_time" content="2017-03-29T03:51:11.388Z">
+<meta property="og:description" content="多任务
+*fork()">
+<meta property="og:updated_time" content="2017-04-11T13:06:26.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程">
-<meta name="twitter:description" content="程序：编写完毕但没有执行的代码
-进程：正在运行的代码">
+<meta name="twitter:description" content="多任务
+*fork()">
 
 
 
@@ -334,26 +334,42 @@
       
 
       
-        <div class="note danger"><ul>
-<li><strong>程序</strong>：编写完毕但没有执行的代码</li>
-<li><strong>进程</strong>：正在运行的代码</li>
-</ul>
+        <div class="note danger"><ol>
+<li>多任务</li>
+<li>*fork()</li>
+</ol>
 </div>
 <a id="more"></a>
-<h2 id="fork"><a href="#fork" class="headerlink" title="*fork()"></a>*fork()</h2><blockquote>
-<p>python的os模块封装fork()方法，使用fork()方法创建子进程<br><code>注意：</code>fork函数在windows系统不可以使用</p>
+<blockquote>
+<p><strong>程序</strong>：编写完毕但没有执行的代码<br><strong>进程</strong>：正在运行的代码</p>
 </blockquote>
-<p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#导入os模块</div><div class="line">import os</div><div class="line">#使用fork()方法</div><div class="line">pid = os.fork()</div><div class="line">#如果pid为0则为子进程，否则为父进程</div><div class="line">if pid == 0:</div><div class="line">	print(&quot;子进程&quot;)</div><div class="line">else:</div><div class="line">	print(&quot;父进程&quot;)</div><div class="line">#运行结果</div><div class="line">哈哈2</div><div class="line">哈哈1</div></pre></td></tr></table></figure></p>
+<h1 id="多任务"><a href="#多任务" class="headerlink" title="多任务"></a>多任务</h1><blockquote>
+<p>单核CPU实现多任务：</p>
+</blockquote>
+<p><strong>调度算法</strong></p>
+<ol>
+<li>时间片轮转（每个程序轮流执行一定时间，）</li>
+<li>优先级调度</li>
+</ol>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>当前<strong>任务数大于核数</strong>，一定有程序没有执行，叫做<strong>并发</strong></p>
+<h2 id="并行"><a href="#并行" class="headerlink" title="并行"></a>并行</h2><p><strong>核数大于任务数</strong>，即任务可以永无休止的运行，且不需要轮转，叫做<strong>并行</strong></p>
+<h1 id="fork"><a href="#fork" class="headerlink" title="*fork()"></a>*fork()</h1><blockquote>
+<p>python的<strong>os模块</strong>封装<code>fork()</code>方法，使用<code>fork()</code>方法创建子进程<br><strong>注意</strong>：fork函数在windows系统不可以使用</p>
+</blockquote>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入os模块</span></div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="comment">#使用fork()方法</span></div><div class="line">pid = os.fork()</div><div class="line"><span class="comment">#如果pid为0则为子进程，否则为父进程</span></div><div class="line"><span class="keyword">if</span> pid == <span class="number">0</span>:</div><div class="line">	print(<span class="string">"子进程"</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">	print(<span class="string">"父进程"</span>)</div><div class="line"><span class="comment">#运行结果</span></div><div class="line">哈哈<span class="number">2</span></div><div class="line">哈哈<span class="number">1</span></div></pre></td></tr></table></figure>
 <p><strong>分析</strong>：</p>
 <ul>
-<li>程序执行到os.fork()，操作系统创建一个新的进程（子进程），然后复制父进程的所有信息到子进程</li>
-<li>父进程和子进程都会从fork()函数中得到一个返回值，在子进程为0，在父进程中是子进程的ID号</li>
+<li>程序执行到<code>os.fork()</code>，操作系统创建一个<strong>新的进程</strong>（子进程），然后复制父进程的所有信息到子进程</li>
+<li>父进程和子进程都会从fork()函数中得到一个<strong>返回值</strong>，在子进程为0，在父进程中是子进程的ID号</li>
 </ul>
-<h2 id="getpid-、getppid"><a href="#getpid-、getppid" class="headerlink" title="getpid()、getppid()"></a>getpid()、getppid()</h2><blockquote>
-<p>获取当前pid、父进程pid</p>
+<h1 id="getpid-、getppid"><a href="#getpid-、getppid" class="headerlink" title="getpid()、getppid()"></a>getpid()、getppid()</h1><blockquote>
+<p><strong>getpid()</strong>获取当前pid，<strong>getppid()</strong>父进程pid</p>
 </blockquote>
-<p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line"></div><div class="line">rpid = os.fork()</div><div class="line">if rpid &lt; 0:</div><div class="line">	print(&quot;fork调用失败&quot;)</div><div class="line">elif rpid == 0:</div><div class="line">	print(&quot;我是子进程(%s)，我的父进程是(%s)&quot;%(os.getpid(), os.getppid()))</div><div class="line">else:</div><div class="line">	print(&quot;我是父进程(%s)，我的子进程是(%s)&quot;%(os.getpid(), rpid))</div><div class="line"></div><div class="line">print(&quot;父子进程都可以执行这里的代码&quot;)</div><div class="line">#运行结果</div><div class="line">我是父进程(19360)，我的子进程是(19361)</div><div class="line">父子进程都可以执行这里的代码</div><div class="line">我是子进程(19361)，我的父进程是(19360)</div><div class="line">父子进程都可以执行这里的代码</div></pre></td></tr></table></figure></p>
-<h2 id="多进程修改全局变量"><a href="#多进程修改全局变量" class="headerlink" title="多进程修改全局变量"></a>多进程修改全局变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line"></div><div class="line">#定义全局变量</div><div class="line">num = 0</div><div class="line"></div><div class="line">pid = os.fork()</div><div class="line"></div><div class="line">if pid == 0:</div><div class="line">	num += 1</div><div class="line">	print(&quot;子进程的num = %d&quot;%num)</div><div class="line">else:</div><div class="line">	num += 1</div><div class="line">	print(&quot;父进程的num = %d&quot;%num)</div><div class="line"></div><div class="line">#运行结果：</div><div class="line">父进程的num = 1</div><div class="line">子进程的num = 1</div></pre></td></tr></table></figure>
+<h2 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line">rpid = os.fork()</div><div class="line"><span class="keyword">if</span> rpid &lt; <span class="number">0</span>:</div><div class="line">	print(<span class="string">"fork调用失败"</span>)</div><div class="line"><span class="keyword">elif</span> rpid == <span class="number">0</span>:</div><div class="line">	print(<span class="string">"我是子进程(%s)，我的父进程是(%s)"</span>%(os.getpid(), os.getppid()))</div><div class="line"><span class="keyword">else</span>:</div><div class="line">	print(<span class="string">"我是父进程(%s)，我的子进程是(%s)"</span>%(os.getpid(), rpid))</div><div class="line"></div><div class="line">print(<span class="string">"父子进程都可以执行这里的代码"</span>)</div><div class="line"><span class="comment">#运行结果</span></div><div class="line">我是父进程(<span class="number">19360</span>)，我的子进程是(<span class="number">19361</span>)</div><div class="line">父子进程都可以执行这里的代码</div><div class="line">我是子进程(<span class="number">19361</span>)，我的父进程是(<span class="number">19360</span>)</div><div class="line">父子进程都可以执行这里的代码</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>进程最大值</strong>：65535</p>
+</blockquote>
+<h1 id="多进程修改全局变量"><a href="#多进程修改全局变量" class="headerlink" title="多进程修改全局变量"></a>多进程修改全局变量</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"><span class="comment">#定义全局变量</span></div><div class="line">num = <span class="number">0</span></div><div class="line"></div><div class="line">pid = os.fork()</div><div class="line"></div><div class="line"><span class="keyword">if</span> pid == <span class="number">0</span>:</div><div class="line">	num += <span class="number">1</span></div><div class="line">	print(<span class="string">"子进程的num = %d"</span>%num)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">	num += <span class="number">1</span></div><div class="line">	print(<span class="string">"父进程的num = %d"</span>%num)</div><div class="line"></div><div class="line"><span class="comment">#运行结果：</span></div><div class="line">父进程的num = <span class="number">1</span></div><div class="line">子进程的num = <span class="number">1</span></div></pre></td></tr></table></figure>
 <p><strong>分析</strong>：</p>
 <blockquote>
 <p>多进程中，每个进程的所有数据（包括全局变量）都各自拥有一份，互不影响</p>
@@ -478,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -489,7 +505,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -526,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fork"><span class="nav-number">1.</span> <span class="nav-text">*fork()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getpid-、getppid"><span class="nav-number">2.</span> <span class="nav-text">getpid()、getppid()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程修改全局变量"><span class="nav-number">3.</span> <span class="nav-text">多进程修改全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多次fork问题"><span class="nav-number">4.</span> <span class="nav-text">多次fork问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多任务"><span class="nav-number">1.</span> <span class="nav-text">多任务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">1.1.</span> <span class="nav-text">并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行"><span class="nav-number">1.2.</span> <span class="nav-text">并行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fork"><span class="nav-number">2.</span> <span class="nav-text">*fork()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">2.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#getpid-、getppid"><span class="nav-number">3.</span> <span class="nav-text">getpid()、getppid()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法-1"><span class="nav-number">3.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多进程修改全局变量"><span class="nav-number">4.</span> <span class="nav-text">多进程修改全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多次fork问题"><span class="nav-number">4.1.</span> <span class="nav-text">多次fork问题</span></a></li></ol></li></ol></div>
             
 
           </div>

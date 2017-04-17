@@ -85,16 +85,13 @@
 
 
 
-<meta name="description" content="SSH 为建立在 应用层 和 传输层 基础上的 安全协议">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux之SSH">
-<meta property="og:url" content="http://oneskk.com/2017/04/08/linux之ssh/index.html">
+<meta property="og:title" content="gulp自动化构建">
+<meta property="og:url" content="http://oneskk.com/2017/04/15/工具_gulp自动化构建/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="SSH 为建立在 应用层 和 传输层 基础上的 安全协议">
-<meta property="og:updated_time" content="2017-04-08T08:46:29.613Z">
+<meta property="og:updated_time" content="2017-04-15T11:08:59.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux之SSH">
-<meta name="twitter:description" content="SSH 为建立在 应用层 和 传输层 基础上的 安全协议">
+<meta name="twitter:title" content="gulp自动化构建">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://oneskk.com/2017/04/08/linux之ssh/"/>
+  <link rel="canonical" href="http://oneskk.com/2017/04/15/工具_gulp自动化构建/"/>
 
 
 
 
 
-  <title> Linux之SSH | 慧海仁心 </title>
+  <title> gulp自动化构建 | 慧海仁心 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -237,7 +234,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/04/08/linux之ssh/">
+    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/04/15/工具_gulp自动化构建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金成">
@@ -258,7 +255,7 @@
             
             
               
-                Linux之SSH
+                gulp自动化构建
               
             
           </h1>
@@ -273,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T15:08:00+08:00">
-                2017-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T17:05:39+08:00">
+                2017-04-15
               </time>
             
 
@@ -296,8 +293,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -331,19 +328,22 @@
       
 
       
-        <div class="note "><p><strong>SSH</strong> 为建立在 <strong>应用层</strong> 和 <strong>传输层</strong> 基础上的 <strong>安全协议</strong></p>
-</div>
+        <div class="note default"></div>
 <a id="more"></a>
-<h1 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h1><p>SSH目前较可靠，其应用范围：</p>
-<ul>
-<li>远程登录</li>
-<li>用户之间拷贝</li>
+<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><blockquote>
+<p>安装<strong>npm</strong></p>
+</blockquote>
+<h1 id="需要的gulp插件"><a href="#需要的gulp插件" class="headerlink" title="需要的gulp插件"></a>需要的gulp插件</h1><ul>
+<li>gulp-jade：编译jade文件为html文件</li>
+<li>gulp-stylus：编译stylus文件为css文件</li>
+<li>browser-sync：浏览器同步测试工具</li>
 </ul>
-<p>使用SSH服务，需要安装<strong>服务器</strong>和<strong>客户端</strong><br>客户端和服务器的关系：<br>如：A想被B远程控制，那么，A需要安装SSH服务器，B需要安装SSH客户端</p>
-<h1 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h1><h2 id="安装SSH服务器"><a href="#安装SSH服务器" class="headerlink" title="安装SSH服务器"></a>安装SSH服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openshh-server</div></pre></td></tr></table></figure>
-<h2 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh 用户名@IP</div></pre></td></tr></table></figure>
-<p>注：如果使用SSH访问发生错误，可查看该文件 ~/.ssh/known_ssh尝试删除该文件解决</p>
-<h1 id="使用SSH连接服务器"><a href="#使用SSH连接服务器" class="headerlink" title="使用SSH连接服务器"></a>使用SSH连接服务器</h1><p>SSH告知用户，这个主机不能识别，这是输入<strong>yes</strong>，SSH就会将相关信息，写入“~/.ssh/know_hosts”中。再次访问，就不会有这些信息了，然后<strong>输入口令</strong>，就可以登录到主机了</p>
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><p>目录结构<br>project<br>|——web   //存放预编译代码<br>|——app   //存放编译后代码</p>
+<h1 id="在项目下安装gulp"><a href="#在项目下安装gulp" class="headerlink" title="在项目下安装gulp"></a>在项目下安装gulp</h1><h2 id="创建package-json文件（用来保存项目相关信息）"><a href="#创建package-json文件（用来保存项目相关信息）" class="headerlink" title="创建package.json文件（用来保存项目相关信息）"></a>创建package.json文件（用来保存项目相关信息）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm init</div></pre></td></tr></table></figure>
+<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install gulp -g</div><div class="line">``` </div><div class="line">## 局部安装</div></pre></td></tr></table></figure>
+<p>$ npm install gulp –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## 安装所需插件</div></pre></td></tr></table></figure></p>
+<p>$ npm install gulp-stylus gulp-jade browser-sync –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;如果有错误，可尝试单独安装</div><div class="line"></div><div class="line"># 实例化插件</div><div class="line">&gt;在项目下创建**`gulpfile.js`**(必须是这个名字)</div><div class="line"></div><div class="line">```javascript</div><div class="line">var gulp = require(&quot;gulp&quot;),</div><div class="line">    stylus = require(&quot;gulp-stylus&quot;),</div><div class="line">    jade = require(&quot;gulp-jade&quot;),</div><div class="line">    browserSync = require(&quot;browser-sync&quot;);</div></pre></td></tr></table></figure></p>
+<h1 id="创建gulp任务"><a href="#创建gulp任务" class="headerlink" title="创建gulp任务"></a>创建gulp任务</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建stylus编译任务</span></div><div class="line">gulp.task(<span class="string">"stylus"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">"app/stylus/*.styl"</span>)</div><div class="line">        .pipe(stylus())</div><div class="line">        .pipe(gulp.dest(<span class="string">"web/css"</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 创建jade编译任务</span></div><div class="line">gulp.task(<span class="string">"jade"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">"app/*.jade"</span>)</div><div class="line">        .pipe(jade())</div><div class="line">        .pipe(gulp.dest(<span class="string">"web"</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 创建自动刷新任务</span></div><div class="line">gulp.task(<span class="string">"browserSync"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    browserSync(&#123;</div><div class="line">        <span class="attr">server</span>:&#123;</div><div class="line">            <span class="attr">baseDir</span>:<span class="string">"web"</span>   <span class="comment">// 告知根目录</span></div><div class="line">        &#125;,</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> reload = browserSync.reload;</div><div class="line">gulp.task(<span class="string">"watch"</span>,[<span class="string">"browserSync"</span>,<span class="string">"jade"</span>,<span class="string">"stylus"</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 添加监听事件</span></div><div class="line">    gulp.watch(<span class="string">"app/*.jade"</span>,[<span class="string">"jade"</span>]);</div><div class="line">    gulp.watch(<span class="string">"app/stylus/*.styl"</span>,[<span class="string">"stylus"</span>]);</div><div class="line">    <span class="comment">// web目录下的任何文件改变，刷新页面</span></div><div class="line">    gulp.watch(<span class="string">"web/**/*.*"</span>).on(<span class="string">"change"</span>,reload);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,8 +380,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/08/linux之samba/" rel="next" title="Linux之Samba">
-                <i class="fa fa-chevron-left"></i> Linux之Samba
+              <a href="/2017/04/12/html_HTML-DOM/" rel="next" title="HTML-DOM">
+                <i class="fa fa-chevron-left"></i> HTML-DOM
               </a>
             
           </div>
@@ -389,10 +389,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/09/工具_sublime之Emmet快捷操作/" rel="prev" title="Emmet快捷操作">
-                Emmet快捷操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH介绍"><span class="nav-number">1.</span> <span class="nav-text">SSH介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装SSH"><span class="nav-number">2.</span> <span class="nav-text">安装SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SSH服务器"><span class="nav-number">2.1.</span> <span class="nav-text">安装SSH服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程登录"><span class="nav-number">2.2.</span> <span class="nav-text">远程登录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用SSH连接服务器"><span class="nav-number">3.</span> <span class="nav-text">使用SSH连接服务器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要的gulp插件"><span class="nav-number">2.</span> <span class="nav-text">需要的gulp插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建一个项目"><span class="nav-number">3.</span> <span class="nav-text">新建一个项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在项目下安装gulp"><span class="nav-number">4.</span> <span class="nav-text">在项目下安装gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package-json文件（用来保存项目相关信息）"><span class="nav-number">4.1.</span> <span class="nav-text">创建package.json文件（用来保存项目相关信息）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装"><span class="nav-number">4.2.</span> <span class="nav-text">全局安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建gulp任务"><span class="nav-number">5.</span> <span class="nav-text">创建gulp任务</span></a></li></ol></div>
             
 
           </div>

@@ -86,54 +86,75 @@
 
 
 <meta name="description" content="类和对象
-init()方法
-魔法方法
 self
+魔法方法
+__init__()：初始化
+__str__()：输出对象返回结果
+__del__()：删除对象时的调用方法
+__call__()：调用实例对象的结果
+__slots__属性：限制动态添加的属性
 
 
+动态语言
+拷贝
 ==、is
 深拷贝、浅拷贝
+
+
 私有化
-属性property
 垃圾回收
 内建属性
 内建函数
-*元类">
+元类*">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python面向对象">
 <meta property="og:url" content="http://oneskk.com/2017/03/28/python_面向对象/index.html">
 <meta property="og:site_name" content="慧海仁心">
 <meta property="og:description" content="类和对象
-init()方法
-魔法方法
 self
+魔法方法
+__init__()：初始化
+__str__()：输出对象返回结果
+__del__()：删除对象时的调用方法
+__call__()：调用实例对象的结果
+__slots__属性：限制动态添加的属性
 
 
+动态语言
+拷贝
 ==、is
 深拷贝、浅拷贝
+
+
 私有化
-属性property
 垃圾回收
 内建属性
 内建函数
-*元类">
-<meta property="og:updated_time" content="2017-04-11T00:11:33.539Z">
+元类*">
+<meta property="og:updated_time" content="2017-04-15T08:32:45.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python面向对象">
 <meta name="twitter:description" content="类和对象
-init()方法
-魔法方法
 self
+魔法方法
+__init__()：初始化
+__str__()：输出对象返回结果
+__del__()：删除对象时的调用方法
+__call__()：调用实例对象的结果
+__slots__属性：限制动态添加的属性
 
 
+动态语言
+拷贝
 ==、is
 深拷贝、浅拷贝
+
+
 私有化
-属性property
 垃圾回收
 内建属性
 内建函数
-*元类">
+元类*">
 
 
 
@@ -372,20 +393,27 @@ self
       
         <div class="note primary"><ol>
 <li>类和对象</li>
-<li><strong>init</strong>()方法</li>
-<li>魔法方法</li>
 <li>self</li>
-</ol>
-<ul>
+<li>魔法方法<ul>
+<li><code>__init__()</code>：初始化</li>
+<li><code>__str__()</code>：输出对象返回结果</li>
+<li><code>__del__()</code>：删除对象时的调用方法</li>
+<li><code>__call__()</code>：调用实例对象的结果</li>
+<li><code>__slots__属性</code>：限制动态添加的属性</li>
+</ul>
+</li>
+<li>动态语言</li>
+<li>拷贝<ul>
 <li>==、is</li>
 <li>深拷贝、浅拷贝</li>
+</ul>
+</li>
 <li>私有化</li>
-<li>属性property</li>
 <li>垃圾回收</li>
 <li>内建属性</li>
 <li>内建函数</li>
-<li>*元类</li>
-</ul>
+<li>元类*</li>
+</ol>
 </div>
 <a id="more"></a>
 <blockquote>
@@ -416,96 +444,334 @@ self
 </blockquote>
 <p><strong>定义对象的基本格式</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">对象名 = 类名()</div></pre></td></tr></table></figure></p>
 <p><strong>定义对象示例</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>:</span></div><div class="line">    <span class="comment"># 移动</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"车在跑..."</span>)</div><div class="line"></div><div class="line">    <span class="comment"># 鸣笛</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toot</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"车在鸣笛..."</span>)</div><div class="line"></div><div class="line"><span class="comment"># 创建一个对象，用变量BMW保存它的引用</span></div><div class="line">BMW = Car()</div><div class="line">BMW.move()</div><div class="line">BMW.toot()</div></pre></td></tr></table></figure></p>
-<h1 id="init-方法"><a href="#init-方法" class="headerlink" title="init()方法"></a><strong>init</strong>()方法</h1><blockquote>
-<p>在创建一个对象时默认被调用，不需要手动调用<br>默认有1个名为<code>self</code>的参数<br><code>self</code>参数不需要开发者传递，python解释器会自动把当前对象的引用传递过去</p>
+<h1 id="self"><a href="#self" class="headerlink" title="self"></a>self</h1><blockquote>
+<p>所谓<code>self</code>，可理解为<strong>对象自身</strong><br>当某个对象调用其方法时，python解释器会把这个<strong>对象</strong>作为<strong>第一个参数</strong>传递给self，所以只需要传递后面的参数即可</p>
 </blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义一个类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></div><div class="line">    <span class="comment"># 方法</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printName</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"名字为：%s"</span>%self.name)</div><div class="line"></div><div class="line"><span class="comment"># 定义一个函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myPrint</span><span class="params">(animal)</span>:</span></div><div class="line">    <span class="comment"># 形参指向类中的self</span></div><div class="line">    animal.printName()</div><div class="line"></div><div class="line">dog1 = Animal(<span class="string">"西西"</span>)</div><div class="line">myPrint(dog1)</div><div class="line"></div><div class="line">dog2 = Animal(<span class="string">"北北"</span>)</div><div class="line">myPrint(dog2)</div></pre></td></tr></table></figure>
 <h1 id="魔法方法"><a href="#魔法方法" class="headerlink" title="魔法方法"></a>魔法方法</h1><blockquote>
 <p>在python中方法名如果是<strong>xxx</strong>()的，那么就有特殊的功能，因此叫做<strong>魔法方法</strong></p>
 </blockquote>
-<h2 id="打印id"><a href="#打印id" class="headerlink" title="打印id()"></a>打印id()</h2><blockquote>
+<p><strong>打印id()</strong></p>
+<blockquote>
 <p>直接print一个对象可看到该对象在内存中的地址</p>
 </blockquote>
 <p><strong>例如</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;__main__.Car object at <span class="number">0x7ff4da7a7940</span>&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="定义str-方法"><a href="#定义str-方法" class="headerlink" title="定义str()方法"></a>定义<strong>str</strong>()方法</h2><blockquote>
+<h2 id="init-方法"><a href="#init-方法" class="headerlink" title="init()方法"></a><strong>init</strong>()方法</h2><blockquote>
+<p>在创建一个对象时默认被调用，不需要手动调用<br>默认有1个名为<code>self</code>的参数<br><code>self</code>参数不需要开发者传递，python解释器会自动把当前对象的引用传递过去</p>
+</blockquote>
+<h2 id="str-方法"><a href="#str-方法" class="headerlink" title="str()方法"></a><strong>str</strong>()方法</h2><blockquote>
 <p>当使用print输出对象时，如果定义了<strong>str</strong>(self)方法，就会输出这个方法中return的数据</p>
 </blockquote>
-<p><strong><strong>str</strong>()方法示例</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, newWheelNum, newColor)</span>:</span></div><div class="line">        self.wheelNum = newWheelNum</div><div class="line">        self.color = newColor</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        msg = <span class="string">"颜色为："</span> + self.color + <span class="string">"的车，有 "</span> + int(self.wheelNum) + <span class="string">" 个轮子..."</span></div><div class="line">        <span class="keyword">return</span> msg</div><div class="line"></div><div class="line">    BMW = Car(<span class="number">4</span>, <span class="string">"白色"</span>)</div><div class="line">    <span class="comment"># 直接输出对象</span></div><div class="line">    print(BMW)</div></pre></td></tr></table></figure></p>
-<h1 id="self"><a href="#self" class="headerlink" title="self"></a>self</h1><blockquote>
-<p>所谓self，可理解为对象自身<br>当某个对象调用其方法时，python解释器会把这个对象作为第一个参数传递给self，所以只需要传递后面的参数即可</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义一个类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></div><div class="line">    <span class="comment"># 方法</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printName</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"名字为：%s"</span>%self.name)</div><div class="line"></div><div class="line"><span class="comment"># 定义一个函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myPrint</span><span class="params">(animal)</span>:</span></div><div class="line">    <span class="comment"># 形参指向类中的self</span></div><div class="line">    animal.printName()</div><div class="line"></div><div class="line">dog1 = Animal(<span class="string">"西西"</span>)</div><div class="line">myPrint(dog1)</div><div class="line"></div><div class="line">dog2 = Animal(<span class="string">"北北"</span>)</div><div class="line">myPrint(dog2)</div></pre></td></tr></table></figure>
-<h1 id="del-方法"><a href="#del-方法" class="headerlink" title="del()方法"></a><strong>del</strong>()方法</h1><blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, newWheelNum, newColor)</span>:</span></div><div class="line">        self.wheelNum = newWheelNum</div><div class="line">        self.color = newColor</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        msg = <span class="string">"颜色为："</span> + self.color + <span class="string">"的车，有 "</span> + int(self.wheelNum) + <span class="string">" 个轮子..."</span></div><div class="line">        <span class="keyword">return</span> msg</div><div class="line"></div><div class="line">    BMW = Car(<span class="number">4</span>, <span class="string">"白色"</span>)</div><div class="line">    <span class="comment"># 直接输出对象</span></div><div class="line">    print(BMW)</div></pre></td></tr></table></figure>
+<h2 id="del-方法"><a href="#del-方法" class="headerlink" title="del()方法"></a><strong>del</strong>()方法</h2><blockquote>
 <p>当创建对象后，python解释器默认调用<strong>init</strong>()方法；当删除一个对象时，python解释器也会默认调用一个方法<strong>del</strong>()</p>
 </blockquote>
-<p>当一个变量保存了对象的引用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># 初始化方法</span></div><div class="line">    <span class="comment"># 创建完对象后悔自动被调用</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        print(<span class="string">"__init__方法被调用"</span>)</div><div class="line">        self.__name = name</div><div class="line"></div><div class="line">    <span class="comment"># 析构方法</span></div><div class="line">    <span class="comment"># 当对象被删除时，会自动被调用</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"__del__方法被调用"</span>)</div><div class="line">        print(<span class="string">"%s对象被干掉了..."</span>%self.__name)</div><div class="line"></div><div class="line"><span class="comment"># 创建对象</span></div><div class="line">dog = Animal(<span class="string">"小狗"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 删除对象</span></div><div class="line"><span class="keyword">del</span> dog</div><div class="line"></div><div class="line">cat = Animal(<span class="string">"小猫"</span>)</div><div class="line">cat2 = cat</div><div class="line">cat3 = cat</div><div class="line">print(<span class="string">"---删除cat对象"</span>)</div><div class="line"><span class="keyword">del</span> cat</div><div class="line">print(<span class="string">"---删除cat2对象"</span>)</div><div class="line"><span class="keyword">del</span> cat2</div><div class="line">print(<span class="string">"---删除cat3对象"</span>)</div><div class="line"><span class="keyword">del</span> cat3</div><div class="line"></div><div class="line">print(<span class="string">"程序2秒后结束"</span>)</div><div class="line">time.sleep(<span class="number">2</span>)</div></pre></td></tr></table></figure>
-<h2 id="动态绑定属性"><a href="#动态绑定属性" class="headerlink" title="动态绑定属性"></a>动态绑定属性</h2><h2 id="过程中添加属性"><a href="#过程中添加属性" class="headerlink" title="过程中添加属性"></a>过程中添加属性</h2><h2 id="过程中添加方法"><a href="#过程中添加方法" class="headerlink" title="过程中添加方法"></a>过程中添加方法</h2><h2 id="过程中删除属性、方法"><a href="#过程中删除属性、方法" class="headerlink" title="过程中删除属性、方法"></a>过程中删除属性、方法</h2><h2 id="slots"><a href="#slots" class="headerlink" title="slots"></a><strong>slots</strong></h2><blockquote>
-<p>限制实例对象动态添加属性（英文：插槽）</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>当一个变量保存了对象的引用，此对象的<strong>引用计数加1</strong></li>
+<li>当使用del删除变量指向的对象时，如果对象的计数引用为3，就会让这个引用计数减1（此时为2），当<strong>引用计数为0时</strong>，此时真正删除对象</li>
+</ul>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># 初始化方法</span></div><div class="line">    <span class="comment"># 创建完对象后悔自动被调用</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        print(<span class="string">"__init__方法被调用"</span>)</div><div class="line">        self.__name = name</div><div class="line"></div><div class="line">    <span class="comment"># 析构方法</span></div><div class="line">    <span class="comment"># 当对象被删除时，会自动被调用</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"__del__方法被调用"</span>)</div><div class="line">        print(<span class="string">"%s对象被干掉了..."</span>%self.__name)</div><div class="line"></div><div class="line"><span class="comment"># 创建对象</span></div><div class="line">dog = Animal(<span class="string">"小狗"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 删除对象</span></div><div class="line"><span class="keyword">del</span> dog</div><div class="line"></div><div class="line">cat = Animal(<span class="string">"小猫"</span>)</div><div class="line">cat2 = cat</div><div class="line">cat3 = cat</div><div class="line">print(<span class="string">"---删除cat对象"</span>)</div><div class="line"><span class="keyword">del</span> cat</div><div class="line">print(<span class="string">"---删除cat2对象"</span>)</div><div class="line"><span class="keyword">del</span> cat2</div><div class="line">print(<span class="string">"---删除cat3对象"</span>)</div><div class="line"><span class="keyword">del</span> cat3</div><div class="line"></div><div class="line">print(<span class="string">"程序2秒后结束"</span>)</div><div class="line">time.sleep(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<h2 id="call-方法"><a href="#call-方法" class="headerlink" title="call()方法"></a><strong>call</strong>()方法</h2><blockquote>
+<p>实例对象的callback，即输出对象的结果</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    #限制创建的实例对象可动态添加的属性</div><div class="line">    __slots__ = (&quot;name&quot;, &quot;age&quot;)</div><div class="line"></div><div class="line">P = Person()</div><div class="line">P.name = &quot;xiaoz&quot;</div><div class="line">P.age = 20</div><div class="line">P.score = 100	#报错</div></pre></td></tr></table></figure>
-<p><strong>注意</strong>：对继承类无效</p>
-<h2 id="、is"><a href="#、is" class="headerlink" title="==、is"></a>==、is</h2><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"call me!"</span>)</div><div class="line">        </div><div class="line">t = Test()</div><div class="line">t() <span class="comment"># 输出结果 call me!</span></div></pre></td></tr></table></figure>
+<h2 id="slots"><a href="#slots" class="headerlink" title="slots"></a><strong>slots</strong></h2><blockquote>
+<p>限制<strong>动态</strong>添加的属性</p>
+</blockquote>
+<h3 id="动态语言与静态语言的区别"><a href="#动态语言与静态语言的区别" class="headerlink" title="动态语言与静态语言的区别"></a>动态语言与静态语言的区别</h3><ul>
+<li><strong>动态语言</strong>：可以在运行的过程中，修改代码</li>
+<li><strong>静态语言</strong>：编译时已经确定好代码，运行过程中不能修改</li>
+</ul>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">    __slots__ = (<span class="string">"name"</span>, <span class="string">"age"</span>)</div><div class="line"></div><div class="line">p1 = Person()</div><div class="line">p1.name = <span class="string">"zs"</span></div><div class="line">p1.age = <span class="number">20</span></div><div class="line">p1.score = <span class="number">100</span>  <span class="comment"># 报错</span></div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<strong>slots</strong>定义的属性仅对当前类实例起作用，对<strong>继承的子类</strong>不起作用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(Person)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line">    </div><div class="line"> t1 = Test()</div><div class="line"> t1.score = <span class="number">100</span> <span class="comment"># 不报错</span></div></pre></td></tr></table></figure></p>
+<h1 id="动态语言"><a href="#动态语言" class="headerlink" title="动态语言"></a>动态语言</h1><blockquote>
+<p><strong>动态编程语言</strong>是<strong>高级程序设计语言</strong>的一个类别，是一类在<strong>运行时可以改变其结构</strong>的语言：例如新的函数、对象，可以被引进，已有的函数可以被删除或其它结构上的变化。</p>
+</blockquote>
+<h2 id="动态绑定属性"><a href="#动态绑定属性" class="headerlink" title="动态绑定属性"></a>动态绑定属性</h2><blockquote>
+<p>动态给实例<strong>绑定属性</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name = None, age = None)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line"></div><div class="line">p1 = Person(<span class="string">"zs"</span>, <span class="number">22</span>)</div><div class="line">p1.sex = <span class="string">"male"</span> <span class="comment"># 动态添加属性</span></div><div class="line">print(p1.sex)</div></pre></td></tr></table></figure>
+<h2 id="过程中添加属性"><a href="#过程中添加属性" class="headerlink" title="过程中添加属性"></a>过程中添加属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name = None, age = None)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line"></div><div class="line">Person.sex = <span class="string">"male"</span> <span class="comment"># 运行过程中给类添加属性</span></div><div class="line">p1 = Person(<span class="string">"zs"</span>, <span class="number">22</span>)</div><div class="line">print(p1.sex)</div></pre></td></tr></table></figure>
+<h2 id="过程中添加方法"><a href="#过程中添加方法" class="headerlink" title="过程中添加方法"></a>过程中添加方法</h2><blockquote>
 <ul>
-<li>==判断内容是否相等</li>
-<li>is判断内存指向是否相等</li>
+<li><strong>给类添加方法</strong>：类名.方法名 = xxxx</li>
+<li><strong>给对象添加方法</strong>：对象.方法名 = xxxx</li>
 </ul>
 </blockquote>
-<h2 id="深拷贝、浅拷贝（爬虫使用深拷贝）"><a href="#深拷贝、浅拷贝（爬虫使用深拷贝）" class="headerlink" title="深拷贝、浅拷贝（爬虫使用深拷贝）"></a>深拷贝、浅拷贝（爬虫使用<strong>深拷贝</strong>）</h2><p>###浅拷贝</p>
-<blockquote>
-<p>拷贝引用，但不拷贝内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> types</div><div class="line"></div><div class="line"><span class="comment"># 定义一个类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">    num = <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name = None, age = None)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"eat food"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 定义一个实例方法</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, speed)</span>:</span></div><div class="line">    print(<span class="string">"%s 在移动，速度是 %d km/h"</span>%(self.name, speed))</div><div class="line"></div><div class="line"><span class="comment"># 定义一个类方法</span></div><div class="line"><span class="meta">@classmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">testClass</span><span class="params">(cls)</span>:</span></div><div class="line">    cls.num = <span class="number">100</span></div><div class="line"></div><div class="line"><span class="comment"># 定义一个静态方法</span></div><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">testStatic</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"---静态方法被调用了---"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 创建一个实例对象</span></div><div class="line">p1 = Person(<span class="string">"zs"</span>, <span class="number">24</span>)</div><div class="line">p1.eat()    <span class="comment"># 返回结果：eat food</span></div><div class="line"></div><div class="line"><span class="comment"># 给这个对象添加实例方法</span></div><div class="line">p1.run = types.MethodType(run, p1)</div><div class="line"><span class="comment"># 调用实例方法</span></div><div class="line">p1.run(<span class="number">180</span>) <span class="comment"># 返回结果：zs 在移动，速度是 180 km/h</span></div><div class="line"></div><div class="line"><span class="comment"># 给Person类绑定类方法</span></div><div class="line">Person.testClass = testClass</div><div class="line"><span class="comment"># 调用类方法</span></div><div class="line">print(Person.num)   <span class="comment"># 输出类属性：0</span></div><div class="line">Person.testClass()</div><div class="line">print(Person.num)   <span class="comment"># 输出修改后的类属性：100</span></div><div class="line"></div><div class="line"><span class="comment"># 给Person类绑定静态方法</span></div><div class="line">Person.testStatic = testStatic</div><div class="line"><span class="comment"># 调用静态方法</span></div><div class="line">Person.testStatic() <span class="comment"># 静态方法被调用了</span></div></pre></td></tr></table></figure>
+<h2 id="过程中删除属性、方法"><a href="#过程中删除属性、方法" class="headerlink" title="过程中删除属性、方法"></a>过程中删除属性、方法</h2><ol>
+<li>del 对象.属性名</li>
+<li>delattr(对象，”属性名”)</li>
+</ol>
+<h1 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h1><h2 id="、is"><a href="#、is" class="headerlink" title="==、is"></a>==、is</h2><blockquote>
+<ul>
+<li>==比较两个<strong>对象</strong>是否相等</li>
+<li>is比较两个<strong>引用</strong>（内存指向地址）是否相等</li>
+</ul>
+</blockquote>
+<h2 id="深拷贝、浅拷贝（爬虫使用深拷贝）"><a href="#深拷贝、浅拷贝（爬虫使用深拷贝）" class="headerlink" title="深拷贝、浅拷贝（爬虫使用深拷贝）"></a>深拷贝、浅拷贝（爬虫使用<strong>深拷贝</strong>）</h2><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
+<p>拷贝<strong>引用</strong>，但不拷贝内容，即拷贝对象和被拷贝对象之间有<strong>关联</strong></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a = b	# 应用的内存地址相同</div></pre></td></tr></table></figure>
-<p>###深拷贝</p>
-<ol>
-<li>需要导入模块，import copy</li>
-<li>拷贝：c = copy.deepcopy(a)</li>
-<li>引用的内存地址不同</li>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><ol>
+<li>需要导入模块，<strong><code>import copy</code></strong></li>
+<li>拷贝：<code>c = copy.deepcopy(a)</code></li>
+<li>引用的<strong>内存地址</strong>不同</li>
 </ol>
-<p>###区别</p>
-<ul>
-<li>把内容拷贝放入一片新内存空间（缺点：占内存）</li>
-<li>只拷贝引用（缺点：修改一个值，另外一个也改变，存在安全隐患）</li>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li><strong>深拷贝</strong>：把内容拷贝放入一片新内存空间（缺点：占内存）</li>
+<li><strong>浅拷贝</strong>：只拷贝引用（缺点：修改一个值，另外一个也改变，存在安全隐患）</li>
 </ul>
-<p>###copy.copy()</p>
-<ul>
+<h3 id="copy-copy"><a href="#copy-copy" class="headerlink" title="copy.copy()"></a>copy.copy()</h3><ul>
 <li>可变类型：创建新地址，类似深拷贝</li>
 <li>不可变类型：类似浅拷贝</li>
 </ul>
-<h2 id="私有化"><a href="#私有化" class="headerlink" title="私有化"></a>私有化</h2><ol>
-<li>xx：公有变量</li>
-<li>_x：私有化属性或方法<ul>
-<li>from some import *不可导入</li>
-<li>类对象和子类可以访问</li>
+<h1 id="私有化"><a href="#私有化" class="headerlink" title="私有化"></a>私有化</h1><ol>
+<li><code>xx</code>：<strong>公有变量</strong></li>
+<li><code>_x</code>：<strong>私有化属性或方法</strong>(约定)<ul>
+<li><code>from some import *</code>不可导入</li>
+<li><strong>类对象</strong>和<strong>子类</strong>可以访问</li>
 </ul>
 </li>
-<li>__xx：避免与子类的属性命名冲突<ul>
-<li>无法在外部直接访问</li>
-<li>子类不能继承、不能访问</li>
-<li>如果在子类中赋值，那么会在子类定义与父类同名的__xx</li>
+<li><code>__xx</code>：避免与子类的属性<strong>命名冲突</strong><ul>
+<li>无法在外部<strong>直接访问</strong>（即实例对象不能访问）</li>
+<li>子类不能<strong>继承</strong>和<strong>访问</strong></li>
+<li>注：如果在子类中赋值，那么会在子类定义与父类同名的<code>__xx</code></li>
 </ul>
 </li>
-<li><strong>xx</strong>：魔法属性或方法<ul>
-<li>例如：<strong>init</strong>；</li>
+<li><code>__xx__</code>：<strong>魔法属性或方法</strong><ul>
+<li>例如：<code>__init__()</code></li>
 <li>注：不要自己创建此类属性和方法</li>
 </ul>
 </li>
-<li>xx_：用于避免与python关键字冲突</li>
+<li><code>xx_</code>：用于避免与<strong>python关键字</strong>冲突</li>
 </ol>
-<h2 id="属性property"><a href="#属性property" class="headerlink" title="属性property"></a>属性property</h2><p>###一般getter和setter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Money(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.__money = 0</div><div class="line"></div><div class="line">    def getMoney(self):</div><div class="line">        return self.__money</div><div class="line"></div><div class="line">    def setMoney(self, value):</div><div class="line">        if isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        else:</div><div class="line">            print(&quot;error:不是整型数字&quot;)</div><div class="line"></div><div class="line">m = Money()</div><div class="line">m.setMoney(10)</div><div class="line">print(m.getMoney())	#输出10</div></pre></td></tr></table></figure></p>
-<p>###property方法一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Money(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.__money = 0</div><div class="line"></div><div class="line">    def getMoney(self):</div><div class="line">        return self.__money</div><div class="line"></div><div class="line">    def setMoney(self):</div><div class="line">        if isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        else:</div><div class="line">            print(&quot;error:不是整型数字&quot;)</div><div class="line"></div><div class="line">    money = property(getMoney, setMoney)</div><div class="line"></div><div class="line">a = Money()</div><div class="line">print(a.money)      # 调用getter，结果为0</div><div class="line">a.money = 100       # 调用setter</div><div class="line">print(a.money)      # 调用getter，结果为100</div></pre></td></tr></table></figure></p>
-<p>###property方法二</p>
-<blockquote>
-<p>@property 成为属性函数，可以对属性赋值时做必要的检查，2个作用：</p>
+<h2 id="属性property"><a href="#属性property" class="headerlink" title="属性property"></a>属性property</h2><h3 id="一般getter和setter"><a href="#一般getter和setter" class="headerlink" title="一般getter和setter"></a>一般getter和setter</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Money</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.__money = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="comment"># 获取属性</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMoney</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.__money</div><div class="line"></div><div class="line">    <span class="comment"># 设置属性</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setMoney</span><span class="params">(self, value)</span>:</span></div><div class="line">        <span class="keyword">if</span> isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(<span class="string">"错误：不是整型数字"</span>)</div><div class="line"></div><div class="line">m = Money()</div><div class="line">m.setMoney(<span class="number">10</span>)</div><div class="line">print(m.getMoney()) <span class="comment"># 返回结果：10</span></div></pre></td></tr></table></figure>
+<h3 id="property方法一"><a href="#property方法一" class="headerlink" title="property方法一"></a>property方法一</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Money</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.__money = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="comment"># 获取属性</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMoney</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.__money</div><div class="line"></div><div class="line">    <span class="comment"># 设置属性</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setMoney</span><span class="params">(self, value)</span>:</span></div><div class="line">        <span class="comment"># 检测是否为整型数字</span></div><div class="line">        <span class="keyword">if</span> isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(<span class="string">"错误，不是整型数字"</span>)</div><div class="line"></div><div class="line">    <span class="comment"># 定义property</span></div><div class="line">    money = property(getMoney, setMoney)</div><div class="line"></div><div class="line"><span class="comment"># 创建实例对象</span></div><div class="line">m = Money()</div><div class="line">print(m.money)  <span class="comment"># getter</span></div><div class="line">m.money = <span class="number">100</span>   <span class="comment"># setter</span></div><div class="line">print(m.money)</div></pre></td></tr></table></figure>
+<h3 id="property方法二"><a href="#property方法二" class="headerlink" title="property方法二"></a>property方法二</h3><blockquote>
+<p><code>@property</code> 成为<strong>属性函数</strong>，可以对属性赋值时做必要的检查，2个作用：</p>
 <ul>
 <li>将方法转换为只读</li>
-<li>重新实现一个属性的<strong>设置</strong>和<strong>读取</strong>方法，可做边界判定<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Money(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.__money = 0</div><div class="line"></div><div class="line">    @property</div><div class="line">    def money(self):</div><div class="line">        return self.__money</div><div class="line"></div><div class="line">    @money.setter</div><div class="line">    def money(self, value):</div><div class="line">        if isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        else:</div><div class="line">            print(&quot;error:不是整型数字&quot;)</div><div class="line"></div><div class="line">a = Money()</div><div class="line">print(a.money)     # getter，结果：0</div><div class="line">a.money = 100   # setter</div><div class="line">print(a.money)     # getter，结果：100</div></pre></td></tr></table></figure>
-</li>
+<li>重新实现一个属性的<strong>设置</strong>和<strong>读取</strong>方法，可做边界判定</li>
 </ul>
 </blockquote>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h2 id="内建属性"><a href="#内建属性" class="headerlink" title="内建属性"></a>内建属性</h2><h2 id="内建函数"><a href="#内建函数" class="headerlink" title="内建函数"></a>内建函数</h2><h2 id="元类"><a href="#元类" class="headerlink" title="*元类"></a>*元类</h2><blockquote>
-<p>类也是<strong>对象</strong><br>普通的类由元类创建</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Money</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.__money = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="comment"># 获取属性</span></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">money</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.__money</div><div class="line"></div><div class="line">    <span class="comment"># 设置属性</span></div><div class="line"><span class="meta">    @money.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">money</span><span class="params">(self, value)</span>:</span></div><div class="line">        <span class="keyword">if</span> isinstance(value, int):</div><div class="line">            self.__money = value</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(<span class="string">"错误，不是整型数字"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 创建实例对象</span></div><div class="line">m = Money()</div><div class="line">print(m.money)  <span class="comment"># getter</span></div><div class="line">m.money = <span class="number">100</span>   <span class="comment"># setter</span></div><div class="line">print(m.money)</div></pre></td></tr></table></figure>
+<h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h2 id="小整数对象池：（-5-257）"><a href="#小整数对象池：（-5-257）" class="headerlink" title="小整数对象池：（-5, 257）"></a>小整数对象池：（-5, 257）</h2><blockquote>
+<ul>
+<li>python为了优化速度，使用了<strong>小整数对象池</strong>，避免为整数频繁<strong>申请</strong>和<strong>销毁</strong>内存空间</li>
+<li>小整数池中的对象都是python已经建立好的，不会被垃圾回收</li>
+<li>在python程序中，所有位于这个范围内的整数使用的都是同一个对象</li>
+<li>单个字母同理</li>
+<li>定义2个相同的字符串，引用计数为0，触发垃圾回收</li>
+</ul>
 </blockquote>
-<h3 id="动态创建类"><a href="#动态创建类" class="headerlink" title="动态创建类"></a>动态创建类</h3><p>类也是对象，可以在运行时动态创建，就像创建对象一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h2 id="大整数对象池"><a href="#大整数对象池" class="headerlink" title="大整数对象池"></a>大整数对象池</h2><blockquote>
+<p>每个大整数，均创建一个<strong>新的对象</strong></p>
+</blockquote>
+<h2 id="垃圾回收——整数和字符串总结"><a href="#垃圾回收——整数和字符串总结" class="headerlink" title="垃圾回收——整数和字符串总结"></a>垃圾回收——整数和字符串总结</h2><ul>
+<li>小整数（-5， 257）共用对象，常驻内存</li>
+<li>单个字符共用对象，常驻内存</li>
+<li><p>单个单词，不可修改，默认开启intern机制，共用对象，引用计数为0，则销毁</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a = <span class="string">'hello'</span></div><div class="line">b = <span class="string">'hello'</span></div><div class="line">id(a)</div><div class="line">id(b)</div><div class="line"><span class="keyword">del</span>(a)</div><div class="line"><span class="keyword">del</span>(b)</div><div class="line">c = <span class="string">'hello'</span></div><div class="line">id(c)</div></pre></td></tr></table></figure>
+</li>
+<li><p>字符串（含有空格），不可修改，没开启intern机制，不共用对象，引用计数为0，销毁</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a = <span class="string">"hello world"</span></div><div class="line">b = <span class="string">"hello world"</span></div><div class="line">id(a)</div><div class="line">id(b)   <span class="comment"># 单词之间有空格，a和b的ID不相同</span></div><div class="line">c = <span class="string">"helloworld"</span></div><div class="line">d = <span class="string">"helloworld"</span></div><div class="line">id(c)</div><div class="line">id(d)   <span class="comment"># 单词之间没有空格，c和d的ID相同</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>大整数不共用内存，引用计数为0，销毁</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">b = <span class="number">1356</span></div><div class="line">id(b)</div><div class="line">a = <span class="number">1356</span></div><div class="line">id(a)   <span class="comment"># a和b的ID不相同</span></div><div class="line">type(a) <span class="comment"># 返回int</span></div><div class="line">b = a</div><div class="line">id(b)   <span class="comment"># a和b的ID相同</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数值类型和字符串类型在Python中都是不可变的，这意味着你无法修改这个对象的值，每次对变量的修改，实际上是创建一个新的对象</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">1</span></div><div class="line">id(a)</div><div class="line">a+=<span class="number">1</span></div><div class="line">id(a)</div><div class="line">b=<span class="string">"hello"</span></div><div class="line">id(b)</div><div class="line">b=<span class="string">"test"</span></div><div class="line">id(b)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="GC垃圾回收（Garbage-collection）"><a href="#GC垃圾回收（Garbage-collection）" class="headerlink" title="GC垃圾回收（Garbage collection）"></a>GC垃圾回收（Garbage collection）</h2><blockquote>
+<p>python采用的是<strong>引用计数</strong>机制为主，<strong>标记-清除</strong>和<strong>分代收集</strong>两种机制为辅的策略</p>
+</blockquote>
+<h3 id="引用计数机制："><a href="#引用计数机制：" class="headerlink" title="引用计数机制："></a>引用计数机制：</h3><p><strong>引用计数优点</strong></p>
+<ul>
+<li>简单</li>
+<li>实时性：如果没有引用，内存就直接释放了。不用像其他机制等到特定时机。实时性还带来一个好处：处理回收内存的时间分摊到了平时</li>
+</ul>
+<p><strong>引用计数缺点</strong></p>
+<ul>
+<li>维护引用计数消耗资源</li>
+<li>循环引用<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">list1 = []</div><div class="line">list2 = []</div><div class="line">list1.append(list2)</div><div class="line">list2.append(list1)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>当list1与list2存在相互引用，如果不存在其他对象对它们的引用，list1与list2的引用计数也仍然为1，<strong>所占用的内存永远无法被回收</strong>，这将是致命的。循环引用导致内存泄漏，注定python还将引入新的回收机制（标记清除和分代收集）</p>
+</blockquote>
+<p><strong>GC负责任务</strong></p>
+<ul>
+<li>为新生成的对象分配内存</li>
+<li>识别哪些垃圾对象</li>
+<li>从垃圾对象那回收内存</li>
+</ul>
+<h2 id="gc模块"><a href="#gc模块" class="headerlink" title="gc模块"></a>gc模块</h2><h3 id="导致引用计数-1的情况"><a href="#导致引用计数-1的情况" class="headerlink" title="导致引用计数+1的情况"></a>导致引用计数+1的情况</h3><ul>
+<li>对象被创建，例如<code>a=23</code> </li>
+<li>对象被引用，例如<code>b=a</code></li>
+<li>对象被作为参数，传入到一个函数中，例如<code>func(a)</code></li>
+<li>对象作为一个元素，存储在容器荣，例如<code>list1=[a,a]</code></li>
+</ul>
+<h3 id="导致引用计数-1的情况-1"><a href="#导致引用计数-1的情况-1" class="headerlink" title="导致引用计数-1的情况"></a>导致引用计数-1的情况</h3><ul>
+<li>对象的别名被显示销毁，例如 del a</li>
+<li>对象的别名被赋予新的对象， 例如a=24</li>
+<li>一个对象离开它的作用域，例如f函数执行完毕时，func函数中的局部变量（全局变量不会）</li>
+<li>对象所在的容器被销毁，或从容器中删除对象</li>
+</ul>
+<h3 id="查看一个对象的引用计数"><a href="#查看一个对象的引用计数" class="headerlink" title="查看一个对象的引用计数"></a>查看一个对象的引用计数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">a = <span class="string">"hello world"</span></div><div class="line">sys.getrefcount(a)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以查看a对象的引用计数，但是比正常计数大1，因为调用函数的时候传入a，这会让a的引用计数+1</p>
+</blockquote>
+<h2 id="循环引用导致内存泄漏"><a href="#循环引用导致内存泄漏" class="headerlink" title="循环引用导致内存泄漏"></a>循环引用导致内存泄漏</h2><blockquote>
+<p>引用计数的缺陷是循环引用的问题</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassA</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"对象 born, id:%s"</span>%str(hex(id(self))))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        c1 = ClassA()</div><div class="line">        c2 = ClassA()</div><div class="line">        c1.t = c2</div><div class="line">        c2.t = c1</div><div class="line">        <span class="keyword">del</span> c1</div><div class="line">        <span class="keyword">del</span> c2</div><div class="line"></div><div class="line">f2()</div></pre></td></tr></table></figure>
+<p>执行f2()时，进程占用的内存会不断增大</p>
+<ul>
+<li>创建了c1，c2后这两块内存的引用计数都是1，执行c1.t=c2和c2.t=c1后，这两块内存的引用计数为2</li>
+<li>在del c1后，内存1的对象的引用计数变为1，由于不是为0，所以内存1的对象不会被销毁，所以内存2的对象的引用数依然是2，在del c2后，同理，内存1的对象，内存2的对象的引用数都是1</li>
+<li>虽然它们两个的对象都是可以被销毁的，但是由于循环引用，导致垃圾回收器都不会回收它们，所以就会导致内存泄露</li>
+</ul>
+<h2 id="垃圾回收-1"><a href="#垃圾回收-1" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h1 id="内建属性"><a href="#内建属性" class="headerlink" title="内建属性"></a>内建属性</h1><blockquote>
+<p><strong>经典类</strong>：py2中无继承父类<br><strong>新式类</strong>：py3已默认继承object</p>
+</blockquote>
+<h2 id="常用内建属性"><a href="#常用内建属性" class="headerlink" title="常用内建属性"></a>常用内建属性</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">常用专有属性</th>
+<th>说明</th>
+<th>触发方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>__init__</code></td>
+<td>构造初始化函数</td>
+<td>创建实例后，赋值时使用，在<code>__new__</code>后</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__new__</code></td>
+<td>生成实例所需属性</td>
+<td>创建实例时</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__class__</code></td>
+<td>实例所在的类</td>
+<td><code>实例.__class__</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__str__</code></td>
+<td>实例字符串表示，可读性</td>
+<td>print(类实例)，如没实现，使用repr结果</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__repr__</code></td>
+<td>实例字符串表示，准确性</td>
+<td>类实例 回车 或者 print(repr(类实例))</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__del__</code></td>
+<td>析构</td>
+<td>del删除实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__dict__</code></td>
+<td>实例自定义属性</td>
+<td>vars(<code>实例.__dict__</code>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__doc__</code></td>
+<td>类文档，子类不继承</td>
+<td>help(类或实例)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__getattribute__</code></td>
+<td>属性访问拦截器</td>
+<td>访问实例属性时</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__bases__</code></td>
+<td>类的所有父类构成元素</td>
+<td><code>类名.__bases__</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性访问拦截器：-getattribute-例子"><a href="#属性访问拦截器：-getattribute-例子" class="headerlink" title="属性访问拦截器：__getattribute__例子"></a>属性访问拦截器：<code>__getattribute__</code>例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, subject1)</span>:</span></div><div class="line">        self.subject1 = subject1</div><div class="line">        self.subject2 = <span class="string">"cpp"</span></div><div class="line"></div><div class="line">    <span class="comment"># 属性访问时拦截器，打log</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, obj)</span>:</span></div><div class="line">        <span class="keyword">if</span> obj == <span class="string">"subject1"</span>:</div><div class="line">            print(<span class="string">"log subject1"</span>)</div><div class="line">            <span class="keyword">return</span> <span class="string">"redirct python"</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> object.__getattribute__(self,obj)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"this is test"</span>)</div><div class="line"></div><div class="line">s = Test(<span class="string">"python"</span>)</div><div class="line">print(s.subject1)</div><div class="line">print(s.subject2)</div><div class="line"></div><div class="line"><span class="comment"># 输出结果</span></div><div class="line"><span class="comment"># log subject1</span></div><div class="line"><span class="comment"># redirect python</span></div><div class="line"><span class="comment"># cpp</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注</strong>：不要在<code>__getattribute__</code>方法中调用self.xxx</p>
+</blockquote>
+<h1 id="内建函数"><a href="#内建函数" class="headerlink" title="内建函数"></a>内建函数</h1><h2 id="range函数"><a href="#range函数" class="headerlink" title="range函数"></a>range函数</h2><h3 id="语法结构"><a href="#语法结构" class="headerlink" title="语法结构"></a>语法结构</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">range(stop) -&gt; list of integers</div><div class="line">range(start, stop[, step]) -&gt; list of integers</div></pre></td></tr></table></figure>
+<ul>
+<li>start：计数从start开始。默认是从0开始。例如：range(5)等价于range(0, 5)</li>
+<li>stop：到stop结束，但不包括stop。例如：range(0, 5)是[0, 1, 2, 3, 4]没有5</li>
+<li>step：每次跳跃的间距，默认为1.例如：range(0, 5)等价于range(0, 5, 1)</li>
+</ul>
+<p><strong>返回迭代值</strong>：</p>
+<ul>
+<li>py2使用<strong>xrange()</strong></li>
+<li>py3使用<strong>range()</strong></li>
+</ul>
+<p><strong>默认情况</strong>：</p>
+<ul>
+<li>py2中range()返回<strong>列表</strong></li>
+<li>py3中range()返回一个<strong>迭代值</strong></li>
+</ul>
+<h2 id="sorted函数"><a href="#sorted函数" class="headerlink" title="sorted函数"></a>sorted函数</h2><h3 id="语法结构-1"><a href="#语法结构-1" class="headerlink" title="语法结构"></a>语法结构</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sorted(...)</div><div class="line">    sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list</div></pre></td></tr></table></figure>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sorted([<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>])   <span class="comment"># 返回结果：[1,2,3,4,5,6]</span></div><div class="line">sorted([<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>],reverse=<span class="number">1</span>) <span class="comment"># 返回结果：[6,5,4,3,2,1]</span></div><div class="line">sorted([<span class="string">"dd"</span>,<span class="string">"aa"</span>,<span class="string">"cc"</span>,<span class="string">"bb"</span>])   <span class="comment"># 返回结果：["aa","bb","cc","dd"]</span></div><div class="line">sorted([<span class="string">"dd"</span>,<span class="string">"aa"</span>,<span class="string">"cc"</span>,<span class="string">"bb"</span>],reverse=<span class="number">1</span>) <span class="comment"># 返回结果：["dd","cc","bb","aa"]</span></div></pre></td></tr></table></figure>
+<h1 id="元类"><a href="#元类" class="headerlink" title="*元类"></a>*元类</h1><blockquote>
+<p>类就是一组用来描述如何生成一个对象的代码段</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObjectCreator</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line">my_object = ObjectCreator()</div><div class="line">print(my_object)</div></pre></td></tr></table></figure>
+<p><strong>其中</strong>：类同样也是一种对象。在使用关键字class，python解释器在执行的时候会创建一个对象<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObjectCreator</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p><strong>此时</strong>，在内存中创建了一个名为ObjectCreator的对象，这个对象拥有创建（实例）对象的能力，其本质仍然是<strong>对象</strong></p>
+<ol>
+<li>可赋值给一个变量</li>
+<li>可拷贝</li>
+<li>可增加属性</li>
+<li>可作为函数参数进行传递</li>
+</ol>
+<h2 id="动态创建类"><a href="#动态创建类" class="headerlink" title="动态创建类"></a>动态创建类</h2><blockquote>
+<p>类也是<strong>对象</strong>，可以在运行时动态的创建，就像其它任何对象一样<br>在函数中创建类，使用<code>class</code>关键字即可</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">choose_class</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">if</span> name == <span class="string">"foo"</span>:</div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(object)</span>:</span></div><div class="line">            <span class="keyword">pass</span></div><div class="line">        <span class="keyword">return</span> Foo  <span class="comment"># 返回的是类，不是类的实例</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Bar</span><span class="params">(object)</span>:</span></div><div class="line">            <span class="keyword">pass</span></div><div class="line">        <span class="keyword">return</span> Bar</div><div class="line"></div><div class="line">MyClass = choose_class(<span class="string">"foo"</span>)</div><div class="line">print(MyClass)  <span class="comment"># 函数返回的是类，不是类的实例</span></div><div class="line">print(MyClass())    <span class="comment"># 可以通过这个类创建类实例，也就是对象</span></div></pre></td></tr></table></figure>
+<p><strong>type</strong>：查看一个对象的类型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type(ObjectCreator())   <span class="comment"># 实例对象的类型</span></div><div class="line">type(ObjectCreator)     <span class="comment"># 类的类型</span></div></pre></td></tr></table></figure></p>
+<h2 id="使用type创建类"><a href="#使用type创建类" class="headerlink" title="使用type创建类"></a>使用type创建类</h2><blockquote>
+<p>type还有一种完全不同的功能，<strong>动态的创建类</strong><br>type接收一个<strong>类的描述</strong>作为参数，返回一个类</p>
+</blockquote>
+<h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><p><code>type(类名，由父类名称组成的元组(针对继承的情况，可以为空)，包含属性的字典(名称和值))</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Test2 = type(<span class="string">"Test2"</span>,(),&#123;&#125;) <span class="comment"># 定义了一个Test2类</span></div></pre></td></tr></table></figure></p>
+<p><code>注：type函数中的第1个实参可以叫做其它名字，表示类的名字</code></p>
+<h2 id="使用type创建带有属性的类"><a href="#使用type创建带有属性的类" class="headerlink" title="使用type创建带有属性的类"></a>使用type创建带有属性的类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo = type(<span class="string">"Foo"</span>, (), &#123;<span class="string">"bar"</span>:<span class="keyword">True</span>&#125;)</div></pre></td></tr></table></figure>
+<p>等同于<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(object)</span>:</span></div><div class="line">    bar = <span class="keyword">True</span></div></pre></td></tr></table></figure></p>
+<p><strong>继承Foo类</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooChild</span><span class="params">(Foo)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p>等同于<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FooChild = type(<span class="string">"FooChild"</span>, (Foo,), &#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p><strong>注</strong>：</p>
+<ul>
+<li>type的第2个参数，元组中是<strong>父类的名字</strong>，而不是<strong>字符串</strong></li>
+<li>添加的属性是<strong>类属性</strong>，并不是<strong>实例属性</strong></li>
+</ul>
+<h1 id="使用type创建带有方法的类"><a href="#使用type创建带有方法的类" class="headerlink" title="使用type创建带有方法的类"></a>使用type创建带有方法的类</h1><h2 id="添加普通方法"><a href="#添加普通方法" class="headerlink" title="添加普通方法"></a>添加普通方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">echo_bar</span><span class="params">(self)</span>:</span> <span class="comment"># 定义一个函数</span></div><div class="line">    print(self.bar)</div><div class="line">    </div><div class="line">FooChild = type(<span class="string">"FooChild"</span>, (Foo,), &#123;<span class="string">"echo_bar"</span>:echo_bar&#125;)  <span class="comment"># 让echo_bar属性指向定义的函数</span></div><div class="line"></div><div class="line">hasattr(Foo, <span class="string">"echo_Bar"</span>) <span class="comment"># 判断Foo类中，是否有echo_bar这个属性</span></div><div class="line"></div><div class="line">hasattr(FooChild, <span class="string">"echo_Bar"</span>)   <span class="comment"># 判断FooChild类中，是否有echo_bar这个属性</span></div></pre></td></tr></table></figure>
+<h2 id="添加静态方法"><a href="#添加静态方法" class="headerlink" title="添加静态方法"></a>添加静态方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">testStatic</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"静态方法执行了..."</span>)</div><div class="line">    </div><div class="line">FooChild = type(<span class="string">"FooChild"</span>, (Foo,), &#123;<span class="string">"echo_bar"</span>:echo_bar, <span class="string">"testStatic"</span>:testStatic&#125;)</div><div class="line"></div><div class="line"><span class="comment"># 创建实例对象</span></div><div class="line">foochild = FooChild()</div><div class="line"><span class="comment"># 调用静态方法</span></div><div class="line">foochild.testStatic()</div></pre></td></tr></table></figure>
+<h2 id="添加类方法"><a href="#添加类方法" class="headerlink" title="添加类方法"></a>添加类方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@classmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">testClass</span><span class="params">(cls)</span>:</span></div><div class="line">    print(cls.bar)</div><div class="line">    </div><div class="line">FooChild = type(<span class="string">"FooChild"</span>, (Foo,), &#123;<span class="string">"echo_Bar"</span>:echo_bar, <span class="string">"testStatic"</span>:testStatic, <span class="string">"testClass"</span>:testClass&#125;)</div><div class="line"></div><div class="line"><span class="comment"># 创建实例对象</span></div><div class="line">foochild = FooChild()</div><div class="line"><span class="comment"># 调用类方法</span></div><div class="line">foochild.testClass()</div></pre></td></tr></table></figure>
+<h1 id="什么是元类"><a href="#什么是元类" class="headerlink" title="什么是元类"></a>什么是元类</h1><blockquote>
+<p>元类就是类的类，即用来创建类的“东西”</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyClass = type(<span class="string">"MyClass"</span>, (), &#123;&#125;)</div></pre></td></tr></table></figure>
+<p><strong>实际之上<code>type</code>就是用来创建所有类的</strong>元类<strong>，是python中的</strong>内建元类<strong>，也可以自己创建元类</strong></p>
+<h1 id="metaclass属性"><a href="#metaclass属性" class="headerlink" title="metaclass属性"></a>metaclass属性</h1><blockquote>
+<p>在定义一个类的时候，可以为其添加<code>__metaclass__</code>属性</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(object)</span>:</span></div><div class="line">    __metaclass__ = sometine...</div><div class="line">    ...省略...</div></pre></td></tr></table></figure>
+<p>此时，python用元类创建类Foo</p>
+<h1 id="自定义元类"><a href="#自定义元类" class="headerlink" title="自定义元类"></a>自定义元类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpperAttrMetaClass</span><span class="params">(type)</span>:</span></div><div class="line">    <span class="comment"># __new__是在__init__之前被调用的特殊方法</span></div><div class="line">    <span class="comment"># __new__是用来创建对象并返回值的方法</span></div><div class="line">    <span class="comment"># 而__init__只是用来将传入参数初始化给对象</span></div><div class="line">    <span class="comment"># __new__很少用到，除非希望能够控制对象的创建</span></div><div class="line">    <span class="comment"># 这里，创建的对象是类，如果希望能够自定义类，这里改写__new__</span></div><div class="line">    <span class="comment"># 也可以在__init__中做些事情</span></div><div class="line">    <span class="comment"># 还有些高级用法涉及到改写__call__特殊方法</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, future_class_name, future_class_parents, future_class_attr)</span>:</span></div><div class="line">        <span class="comment"># 遍历属性字典，把不是__开头的属性名字变为大写</span></div><div class="line">        newAttr = &#123;&#125;</div><div class="line">        <span class="keyword">for</span> name, value <span class="keyword">in</span> future_class_attr.items():</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(<span class="string">"__"</span>):</div><div class="line">                newAttr[name.upper()] = value</div><div class="line"></div><div class="line">        <span class="comment"># 方法1：通过'type'类做类对象的创建</span></div><div class="line">        <span class="comment"># return type(future_class_name, future_class_parents, newAttr)</span></div><div class="line"></div><div class="line">        <span class="comment"># 方法2：复用type.__new__方法</span></div><div class="line">        <span class="comment"># 这就是基本的OOP编程，没什么魔法</span></div><div class="line">        <span class="comment"># return type.__new__(cls, future_class_name, future_class_parents, newAttr)</span></div><div class="line"></div><div class="line">        <span class="comment"># 方法3：使用super方法</span></div><div class="line">        <span class="keyword">return</span> super(UpperAttrMetaClass, cls).__new__(cls, future_class_name, future_class_parents, newAttr)</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(object, metaclass = UpperAttrMetaClass)</span>:</span></div><div class="line">        bar = <span class="string">"bip"</span></div><div class="line"></div><div class="line">    print(hasattr(Foo, <span class="string">"bar"</span>))</div><div class="line">    <span class="comment"># 输出：False</span></div><div class="line">    print(hasattr(Foo, <span class="string">"BAR"</span>))</div><div class="line">    <span class="comment"># 输出：True</span></div><div class="line"></div><div class="line">    f = Foo()</div><div class="line">    print(f.BAR)</div><div class="line">    <span class="comment"># 输出：“bip”</span></div></pre></td></tr></table></figure>
+<p><strong>元类的作用</strong></p>
+<ol>
+<li>拦截类的创建</li>
+<li>修改类</li>
+<li>返回修改之后的类</li>
+</ol>
+<p><strong>元类是深度的魔法，一般情况下根本用不到</strong></p>
 
       
     </div>
@@ -626,7 +892,7 @@ self
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -674,7 +940,7 @@ self
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类和对象"><span class="nav-number">1.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.1.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的构成"><span class="nav-number">1.1.1.</span> <span class="nav-text">类的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的抽象"><span class="nav-number">1.1.2.</span> <span class="nav-text">类的抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义类"><span class="nav-number">1.1.3.</span> <span class="nav-text">定义类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#init-方法"><span class="nav-number">2.</span> <span class="nav-text">init()方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#魔法方法"><span class="nav-number">3.</span> <span class="nav-text">魔法方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打印id"><span class="nav-number">3.1.</span> <span class="nav-text">打印id()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义str-方法"><span class="nav-number">3.2.</span> <span class="nav-text">定义str()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#self"><span class="nav-number">4.</span> <span class="nav-text">self</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#del-方法"><span class="nav-number">5.</span> <span class="nav-text">del()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定属性"><span class="nav-number">5.1.</span> <span class="nav-text">动态绑定属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中添加属性"><span class="nav-number">5.2.</span> <span class="nav-text">过程中添加属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中添加方法"><span class="nav-number">5.3.</span> <span class="nav-text">过程中添加方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中删除属性、方法"><span class="nav-number">5.4.</span> <span class="nav-text">过程中删除属性、方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slots"><span class="nav-number">5.5.</span> <span class="nav-text">slots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、is"><span class="nav-number">5.6.</span> <span class="nav-text">==、is</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝、浅拷贝（爬虫使用深拷贝）"><span class="nav-number">5.7.</span> <span class="nav-text">深拷贝、浅拷贝（爬虫使用深拷贝）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有化"><span class="nav-number">5.8.</span> <span class="nav-text">私有化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性property"><span class="nav-number">5.9.</span> <span class="nav-text">属性property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">5.10.</span> <span class="nav-text">垃圾回收</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内建属性"><span class="nav-number">5.11.</span> <span class="nav-text">内建属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内建函数"><span class="nav-number">5.12.</span> <span class="nav-text">内建函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元类"><span class="nav-number">5.13.</span> <span class="nav-text">*元类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态创建类"><span class="nav-number">5.13.1.</span> <span class="nav-text">动态创建类</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类和对象"><span class="nav-number">1.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.1.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的构成"><span class="nav-number">1.1.1.</span> <span class="nav-text">类的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的抽象"><span class="nav-number">1.1.2.</span> <span class="nav-text">类的抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义类"><span class="nav-number">1.1.3.</span> <span class="nav-text">定义类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#self"><span class="nav-number">2.</span> <span class="nav-text">self</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#魔法方法"><span class="nav-number">3.</span> <span class="nav-text">魔法方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init-方法"><span class="nav-number">3.1.</span> <span class="nav-text">init()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-方法"><span class="nav-number">3.2.</span> <span class="nav-text">str()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">3.2.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#del-方法"><span class="nav-number">3.3.</span> <span class="nav-text">del()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">3.3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-方法"><span class="nav-number">3.4.</span> <span class="nav-text">call()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slots"><span class="nav-number">3.5.</span> <span class="nav-text">slots</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态语言与静态语言的区别"><span class="nav-number">3.5.1.</span> <span class="nav-text">动态语言与静态语言的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-2"><span class="nav-number">3.5.2.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态语言"><span class="nav-number">4.</span> <span class="nav-text">动态语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定属性"><span class="nav-number">4.1.</span> <span class="nav-text">动态绑定属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中添加属性"><span class="nav-number">4.2.</span> <span class="nav-text">过程中添加属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中添加方法"><span class="nav-number">4.3.</span> <span class="nav-text">过程中添加方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程中删除属性、方法"><span class="nav-number">4.4.</span> <span class="nav-text">过程中删除属性、方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝"><span class="nav-number">5.</span> <span class="nav-text">拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#、is"><span class="nav-number">5.1.</span> <span class="nav-text">==、is</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝、浅拷贝（爬虫使用深拷贝）"><span class="nav-number">5.2.</span> <span class="nav-text">深拷贝、浅拷贝（爬虫使用深拷贝）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">5.2.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">5.2.2.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">5.2.3.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-copy"><span class="nav-number">5.2.4.</span> <span class="nav-text">copy.copy()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#私有化"><span class="nav-number">6.</span> <span class="nav-text">私有化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性property"><span class="nav-number">6.1.</span> <span class="nav-text">属性property</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般getter和setter"><span class="nav-number">6.1.1.</span> <span class="nav-text">一般getter和setter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#property方法一"><span class="nav-number">6.1.2.</span> <span class="nav-text">property方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#property方法二"><span class="nav-number">6.1.3.</span> <span class="nav-text">property方法二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾回收"><span class="nav-number">7.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小整数对象池：（-5-257）"><span class="nav-number">7.1.</span> <span class="nav-text">小整数对象池：（-5, 257）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大整数对象池"><span class="nav-number">7.2.</span> <span class="nav-text">大整数对象池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收——整数和字符串总结"><span class="nav-number">7.3.</span> <span class="nav-text">垃圾回收——整数和字符串总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC垃圾回收（Garbage-collection）"><span class="nav-number">7.4.</span> <span class="nav-text">GC垃圾回收（Garbage collection）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数机制："><span class="nav-number">7.4.1.</span> <span class="nav-text">引用计数机制：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gc模块"><span class="nav-number">7.5.</span> <span class="nav-text">gc模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导致引用计数-1的情况"><span class="nav-number">7.5.1.</span> <span class="nav-text">导致引用计数+1的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导致引用计数-1的情况-1"><span class="nav-number">7.5.2.</span> <span class="nav-text">导致引用计数-1的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看一个对象的引用计数"><span class="nav-number">7.5.3.</span> <span class="nav-text">查看一个对象的引用计数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环引用导致内存泄漏"><span class="nav-number">7.6.</span> <span class="nav-text">循环引用导致内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收-1"><span class="nav-number">7.7.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内建属性"><span class="nav-number">8.</span> <span class="nav-text">内建属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用内建属性"><span class="nav-number">8.1.</span> <span class="nav-text">常用内建属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性访问拦截器：-getattribute-例子"><span class="nav-number">8.2.</span> <span class="nav-text">属性访问拦截器：__getattribute__例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内建函数"><span class="nav-number">9.</span> <span class="nav-text">内建函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#range函数"><span class="nav-number">9.1.</span> <span class="nav-text">range函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法结构"><span class="nav-number">9.1.1.</span> <span class="nav-text">语法结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sorted函数"><span class="nav-number">9.2.</span> <span class="nav-text">sorted函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法结构-1"><span class="nav-number">9.2.1.</span> <span class="nav-text">语法结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-3"><span class="nav-number">9.2.2.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元类"><span class="nav-number">10.</span> <span class="nav-text">*元类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态创建类"><span class="nav-number">10.1.</span> <span class="nav-text">动态创建类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用type创建类"><span class="nav-number">10.2.</span> <span class="nav-text">使用type创建类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法格式"><span class="nav-number">10.2.1.</span> <span class="nav-text">语法格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用type创建带有属性的类"><span class="nav-number">10.3.</span> <span class="nav-text">使用type创建带有属性的类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用type创建带有方法的类"><span class="nav-number">11.</span> <span class="nav-text">使用type创建带有方法的类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加普通方法"><span class="nav-number">11.1.</span> <span class="nav-text">添加普通方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加静态方法"><span class="nav-number">11.2.</span> <span class="nav-text">添加静态方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加类方法"><span class="nav-number">11.3.</span> <span class="nav-text">添加类方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是元类"><span class="nav-number">12.</span> <span class="nav-text">什么是元类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#metaclass属性"><span class="nav-number">13.</span> <span class="nav-text">metaclass属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义元类"><span class="nav-number">14.</span> <span class="nav-text">自定义元类</span></a></li></ol></div>
             
 
           </div>

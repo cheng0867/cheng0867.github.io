@@ -85,16 +85,16 @@
 
 
 
-<meta name="description" content="正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
+<meta name="description" content="正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式">
 <meta property="og:url" content="http://oneskk.com/2017/03/27/python_正则表达式/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
-<meta property="og:updated_time" content="2017-03-29T01:03:29.501Z">
+<meta property="og:description" content="正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
+<meta property="og:updated_time" content="2017-04-18T02:14:16.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
+<meta name="twitter:description" content="正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。">
 
 
 
@@ -331,46 +331,47 @@
       
 
       
-        <div class="note primary"><p>正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
+        <div class="note primary"><p>正则表达式使用单个字符串来描述、匹配一系列匹配某个<strong>句法规则</strong>的字符串。</p>
 </div>
 <a id="more"></a>
-<h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><blockquote>
+<h1 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h1><blockquote>
 <p>python中的re模块提供了<strong>正则表达式</strong>的相关方法</p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import re	#导入re模块</div></pre></td></tr></table></figure></p>
-<h3 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h3><blockquote>
+<h2 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h2><blockquote>
 <p>匹配<strong>开头</strong>的字符串，如果没有找到返回<strong>None</strong></p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.match(正则, 字符串)</div></pre></td></tr></table></figure></p>
-<h3 id="group"><a href="#group" class="headerlink" title="group()"></a>group()</h3><blockquote>
+<h2 id="group"><a href="#group" class="headerlink" title="group()"></a>group()</h2><blockquote>
 <p>提取匹配数据</p>
 </blockquote>
 <p><strong>参数为0</strong>：默认值，返回全部匹配结果<br><strong>参数为n</strong>：返回第n个匹配的分组</p>
-<h3 id="groups"><a href="#groups" class="headerlink" title="groups()"></a>groups()</h3><blockquote>
+<h2 id="groups"><a href="#groups" class="headerlink" title="groups()"></a>groups()</h2><blockquote>
 <p>返回所有分组，放到一个元组中</p>
 </blockquote>
-<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><blockquote>
+<h2 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h2><blockquote>
 <p>从左到右，找到第一个符合正则的内容</p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ret = re.search(r&quot;\d+&quot;, &quot;阅读次数为 9999&quot;)</div><div class="line">ret.group()</div><div class="line">#输出结果为</div><div class="line">&apos;9999&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="findall"><a href="#findall" class="headerlink" title="findall()"></a>findall()</h3><blockquote>
+<h2 id="findall"><a href="#findall" class="headerlink" title="findall()"></a>findall()</h2><blockquote>
 <p>找到所有符合正则的内容</p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ret = re.findall(r&quot;\d+&quot;, &quot;python = 9999, c = 7890, c++ = 12345&quot;)</div><div class="line">print(**ret**)</div><div class="line">#输出结果：</div><div class="line">[&apos;9999&apos;, &apos;7890&apos;, &apos;12345&apos;]</div></pre></td></tr></table></figure></p>
-<h3 id="sub"><a href="#sub" class="headerlink" title="sub()"></a>sub()</h3><blockquote>
+<h2 id="sub"><a href="#sub" class="headerlink" title="sub()"></a>sub()</h2><blockquote>
 <p>匹配到数据进行替换</p>
 </blockquote>
 <p><strong>使用方法1</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ret = re.sub(r&quot;\d+&quot;,&quot;998&quot;,&quot;python = 990&quot;)</div><div class="line">print(ret)</div><div class="line">#输出结果</div><div class="line">python = 998</div></pre></td></tr></table></figure></p>
 <p><strong>使用方法2</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def add(temp):</div><div class="line">	strNum = temp.group()</div><div class="line">	num = int(strNum) + 1</div><div class="line">	return str(num)</div><div class="line">	</div><div class="line">ret = re.sub(r&quot;\d+&quot;,add,&quot;python = 99, php = 50&quot;)</div><div class="line">print(ret)</div><div class="line">#输出结果 </div><div class="line">python = 100, php = 51</div></pre></td></tr></table></figure></p>
-<h3 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h3><blockquote>
+<h2 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h2><blockquote>
 <p>根据匹配分割字符串，返回一个列表</p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ret = re.split(r&quot;:|&quot;, &quot;info:xiaoZhang 33 shandong&quot;)</div><div class="line">print(ret)</div><div class="line">#输出结果</div><div class="line">[&apos;info&apos;, &apos;xiaoZhang&apos;, &apos;33&apos;, &apos;shandong&apos;]</div></pre></td></tr></table></figure></p>
-<h3 id="原始字符串-r"><a href="#原始字符串-r" class="headerlink" title="原始字符串 r"></a>原始字符串 r</h3><blockquote>
+<h2 id="原始字符串-r"><a href="#原始字符串-r" class="headerlink" title="原始字符串 r"></a>原始字符串 r</h2><blockquote>
 <p>字符串前面加上<code>r</code>，表示原始字符串，使字符串中所有符号保持原义</p>
 </blockquote>
 <p><strong>使用方法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str = r&quot;hello\n&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="匹配字符"><a href="#匹配字符" class="headerlink" title="匹配字符"></a>匹配字符</h2><h3 id="单字符匹配"><a href="#单字符匹配" class="headerlink" title="单字符匹配"></a>单字符匹配</h3><table>
+<hr>
+<h1 id="匹配字符"><a href="#匹配字符" class="headerlink" title="匹配字符"></a>匹配字符</h1><h2 id="单字符匹配"><a href="#单字符匹配" class="headerlink" title="单字符匹配"></a>单字符匹配</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
@@ -426,7 +427,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="数量匹配"><a href="#数量匹配" class="headerlink" title="数量匹配"></a>数量匹配</h3><table>
+<h2 id="数量匹配"><a href="#数量匹配" class="headerlink" title="数量匹配"></a>数量匹配</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
@@ -466,7 +467,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h3><table>
+<h2 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
@@ -492,7 +493,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="分组匹配"><a href="#分组匹配" class="headerlink" title="分组匹配"></a>分组匹配</h3><table>
+<h2 id="分组匹配"><a href="#分组匹配" class="headerlink" title="分组匹配"></a>分组匹配</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
@@ -522,7 +523,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="贪婪和非贪婪模式"><a href="#贪婪和非贪婪模式" class="headerlink" title="贪婪和非贪婪模式"></a>贪婪和非贪婪模式</h2><p><strong>贪婪模式</strong>：默认开启，总是匹配<strong>尽可能多</strong>的字符<br><strong>非贪婪模式</strong>：总是匹配<strong>尽可能少</strong>的字符</p>
+<hr>
+<h1 id="贪婪和非贪婪模式"><a href="#贪婪和非贪婪模式" class="headerlink" title="贪婪和非贪婪模式"></a>贪婪和非贪婪模式</h1><p><strong>贪婪模式</strong>：默认开启，总是匹配<strong>尽可能多</strong>的字符<br><strong>非贪婪模式</strong>：总是匹配<strong>尽可能少</strong>的字符</p>
 <blockquote>
 <p><strong>关闭贪婪模式</strong>：在需要关闭贪婪模式区域后加<code>?</code></p>
 </blockquote>
@@ -562,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/26/网络_并发服务器/" rel="next" title="并发服务器">
-                <i class="fa fa-chevron-left"></i> 并发服务器
+              <a href="/2017/03/26/网络_并发服务器/" rel="next" title="并发服务器(未完)">
+                <i class="fa fa-chevron-left"></i> 并发服务器(未完)
               </a>
             
           </div>
@@ -646,7 +648,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -657,7 +659,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -694,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#re模块"><span class="nav-number">1.</span> <span class="nav-text">re模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#match"><span class="nav-number">1.1.</span> <span class="nav-text">match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group"><span class="nav-number">1.2.</span> <span class="nav-text">group()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groups"><span class="nav-number">1.3.</span> <span class="nav-text">groups()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">1.4.</span> <span class="nav-text">search()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#findall"><span class="nav-number">1.5.</span> <span class="nav-text">findall()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sub"><span class="nav-number">1.6.</span> <span class="nav-text">sub()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">1.7.</span> <span class="nav-text">split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原始字符串-r"><span class="nav-number">1.8.</span> <span class="nav-text">原始字符串 r</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配字符"><span class="nav-number">2.</span> <span class="nav-text">匹配字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单字符匹配"><span class="nav-number">2.1.</span> <span class="nav-text">单字符匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数量匹配"><span class="nav-number">2.2.</span> <span class="nav-text">数量匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界匹配"><span class="nav-number">2.3.</span> <span class="nav-text">边界匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组匹配"><span class="nav-number">2.4.</span> <span class="nav-text">分组匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪婪和非贪婪模式"><span class="nav-number">3.</span> <span class="nav-text">贪婪和非贪婪模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#re模块"><span class="nav-number">1.</span> <span class="nav-text">re模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#match"><span class="nav-number">1.1.</span> <span class="nav-text">match()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group"><span class="nav-number">1.2.</span> <span class="nav-text">group()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groups"><span class="nav-number">1.3.</span> <span class="nav-text">groups()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search"><span class="nav-number">1.4.</span> <span class="nav-text">search()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#findall"><span class="nav-number">1.5.</span> <span class="nav-text">findall()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sub"><span class="nav-number">1.6.</span> <span class="nav-text">sub()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">1.7.</span> <span class="nav-text">split()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始字符串-r"><span class="nav-number">1.8.</span> <span class="nav-text">原始字符串 r</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#匹配字符"><span class="nav-number">2.</span> <span class="nav-text">匹配字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单字符匹配"><span class="nav-number">2.1.</span> <span class="nav-text">单字符匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数量匹配"><span class="nav-number">2.2.</span> <span class="nav-text">数量匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边界匹配"><span class="nav-number">2.3.</span> <span class="nav-text">边界匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组匹配"><span class="nav-number">2.4.</span> <span class="nav-text">分组匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贪婪和非贪婪模式"><span class="nav-number">3.</span> <span class="nav-text">贪婪和非贪婪模式</span></a></li></ol></div>
             
 
           </div>

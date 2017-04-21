@@ -85,13 +85,16 @@
 
 
 
+<meta name="description" content="前端自动化工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gulp自动化构建">
 <meta property="og:url" content="http://oneskk.com/2017/04/15/工具_gulp自动化构建/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:updated_time" content="2017-04-15T11:08:59.483Z">
+<meta property="og:description" content="前端自动化工具">
+<meta property="og:updated_time" content="2017-04-17T12:50:47.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp自动化构建">
+<meta name="twitter:description" content="前端自动化工具">
 
 
 
@@ -328,7 +331,8 @@
       
 
       
-        <div class="note default"></div>
+        <div class="note default"><p>前端自动化工具</p>
+</div>
 <a id="more"></a>
 <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><blockquote>
 <p>安装<strong>npm</strong></p>
@@ -339,10 +343,17 @@
 <li>browser-sync：浏览器同步测试工具</li>
 </ul>
 <h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><p>目录结构<br>project<br>|——web   //存放预编译代码<br>|——app   //存放编译后代码</p>
-<h1 id="在项目下安装gulp"><a href="#在项目下安装gulp" class="headerlink" title="在项目下安装gulp"></a>在项目下安装gulp</h1><h2 id="创建package-json文件（用来保存项目相关信息）"><a href="#创建package-json文件（用来保存项目相关信息）" class="headerlink" title="创建package.json文件（用来保存项目相关信息）"></a>创建package.json文件（用来保存项目相关信息）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm init</div></pre></td></tr></table></figure>
-<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install gulp -g</div><div class="line">``` </div><div class="line">## 局部安装</div></pre></td></tr></table></figure>
-<p>$ npm install gulp –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## 安装所需插件</div></pre></td></tr></table></figure></p>
-<p>$ npm install gulp-stylus gulp-jade browser-sync –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;如果有错误，可尝试单独安装</div><div class="line"></div><div class="line"># 实例化插件</div><div class="line">&gt;在项目下创建**`gulpfile.js`**(必须是这个名字)</div><div class="line"></div><div class="line">```javascript</div><div class="line">var gulp = require(&quot;gulp&quot;),</div><div class="line">    stylus = require(&quot;gulp-stylus&quot;),</div><div class="line">    jade = require(&quot;gulp-jade&quot;),</div><div class="line">    browserSync = require(&quot;browser-sync&quot;);</div></pre></td></tr></table></figure></p>
+<h1 id="在项目下安装gulp"><a href="#在项目下安装gulp" class="headerlink" title="在项目下安装gulp"></a>在项目下安装gulp</h1><h2 id="创建package-json文件（用来保存项目相关信息）"><a href="#创建package-json文件（用来保存项目相关信息）" class="headerlink" title="创建package.json文件（用来保存项目相关信息）"></a>创建package.json文件（用来保存项目相关信息）</h2><p><code>$ npm init</code></p>
+<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><p><code>$ npm install gulp -g</code></p>
+<h2 id="局部安装"><a href="#局部安装" class="headerlink" title="局部安装"></a>局部安装</h2><p><code>$ npm install gulp --save-dev</code></p>
+<h2 id="安装所需插件"><a href="#安装所需插件" class="headerlink" title="安装所需插件"></a>安装所需插件</h2><p><code>$ npm install gulp-stylus gulp-jade browser-sync --save-dev</code></p>
+<blockquote>
+<p>如果有错误，可尝试单独安装</p>
+</blockquote>
+<h1 id="实例化插件"><a href="#实例化插件" class="headerlink" title="实例化插件"></a>实例化插件</h1><blockquote>
+<p>在项目下创建<strong><code>gulpfile.js</code></strong>(必须是这个名字)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>),</div><div class="line">    stylus = <span class="built_in">require</span>(<span class="string">"gulp-stylus"</span>),</div><div class="line">    jade = <span class="built_in">require</span>(<span class="string">"gulp-jade"</span>),</div><div class="line">    browserSync = <span class="built_in">require</span>(<span class="string">"browser-sync"</span>);</div></pre></td></tr></table></figure>
 <h1 id="创建gulp任务"><a href="#创建gulp任务" class="headerlink" title="创建gulp任务"></a>创建gulp任务</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建stylus编译任务</span></div><div class="line">gulp.task(<span class="string">"stylus"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">"app/stylus/*.styl"</span>)</div><div class="line">        .pipe(stylus())</div><div class="line">        .pipe(gulp.dest(<span class="string">"web/css"</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 创建jade编译任务</span></div><div class="line">gulp.task(<span class="string">"jade"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">"app/*.jade"</span>)</div><div class="line">        .pipe(jade())</div><div class="line">        .pipe(gulp.dest(<span class="string">"web"</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 创建自动刷新任务</span></div><div class="line">gulp.task(<span class="string">"browserSync"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    browserSync(&#123;</div><div class="line">        <span class="attr">server</span>:&#123;</div><div class="line">            <span class="attr">baseDir</span>:<span class="string">"web"</span>   <span class="comment">// 告知根目录</span></div><div class="line">        &#125;,</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> reload = browserSync.reload;</div><div class="line">gulp.task(<span class="string">"watch"</span>,[<span class="string">"browserSync"</span>,<span class="string">"jade"</span>,<span class="string">"stylus"</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 添加监听事件</span></div><div class="line">    gulp.watch(<span class="string">"app/*.jade"</span>,[<span class="string">"jade"</span>]);</div><div class="line">    gulp.watch(<span class="string">"app/stylus/*.styl"</span>,[<span class="string">"stylus"</span>]);</div><div class="line">    <span class="comment">// web目录下的任何文件改变，刷新页面</span></div><div class="line">    gulp.watch(<span class="string">"web/**/*.*"</span>).on(<span class="string">"change"</span>,reload);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
@@ -389,6 +400,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/17/html_jade快速入门/" rel="prev" title="jade快速入门">
+                jade快速入门 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -460,7 +475,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -471,7 +486,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -508,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要的gulp插件"><span class="nav-number">2.</span> <span class="nav-text">需要的gulp插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建一个项目"><span class="nav-number">3.</span> <span class="nav-text">新建一个项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在项目下安装gulp"><span class="nav-number">4.</span> <span class="nav-text">在项目下安装gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package-json文件（用来保存项目相关信息）"><span class="nav-number">4.1.</span> <span class="nav-text">创建package.json文件（用来保存项目相关信息）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装"><span class="nav-number">4.2.</span> <span class="nav-text">全局安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建gulp任务"><span class="nav-number">5.</span> <span class="nav-text">创建gulp任务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要的gulp插件"><span class="nav-number">2.</span> <span class="nav-text">需要的gulp插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建一个项目"><span class="nav-number">3.</span> <span class="nav-text">新建一个项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在项目下安装gulp"><span class="nav-number">4.</span> <span class="nav-text">在项目下安装gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package-json文件（用来保存项目相关信息）"><span class="nav-number">4.1.</span> <span class="nav-text">创建package.json文件（用来保存项目相关信息）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装"><span class="nav-number">4.2.</span> <span class="nav-text">全局安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部安装"><span class="nav-number">4.3.</span> <span class="nav-text">局部安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装所需插件"><span class="nav-number">4.4.</span> <span class="nav-text">安装所需插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例化插件"><span class="nav-number">5.</span> <span class="nav-text">实例化插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建gulp任务"><span class="nav-number">6.</span> <span class="nav-text">创建gulp任务</span></a></li></ol></div>
             
 
           </div>

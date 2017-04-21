@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="综合梳理JavaScript常见知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript知识点">
+<meta property="og:url" content="http://oneskk.com/2017/04/20/js_知识点/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="综合梳理JavaScript常见知识点">
+<meta property="og:updated_time" content="2017-04-20T09:24:46.998Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript知识点">
+<meta name="twitter:description" content="综合梳理JavaScript常见知识点">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://oneskk.com/2017/04/20/js_知识点/"/>
+
+
+
+
+
+  <title> JavaScript知识点 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/04/20/js_知识点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript知识点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T09:38:50+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note success"><p>综合梳理JavaScript常见知识点</p>
+</div>
+<a id="more"></a>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><blockquote>
+<p>JavaScript不区分<strong>整数</strong>和<strong>浮点数</strong>，统一用<code>number</code>表示</p>
+</blockquote>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><blockquote>
+<p><code>&quot;&quot;</code>和<code>&#39;&#39;</code>本身只是一种<strong>表示方式</strong>，不是字符串的一部分</p>
+</blockquote>
+<h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><h3 id="和"><a href="#和" class="headerlink" title="==和==="></a><code>==</code>和<code>===</code></h3><p><code>==</code>：自动转换数据类型，再比较，容易产生错误结果<br><code>===</code>：不会自动转换数据类型，如果数据类型不一致，返回<code>false</code>，如果一致，再比较</p>
+<font color="red"><strong>注</strong>：不要使用<code>==</code>比较，始终坚持使用<code>===</code>比较</font>
+
+<h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>NaN是number中的一个<strong>特殊</strong>，与其它值都不相等，包括它自己<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>;    <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<p>唯一能判断NaN的方法是通过<code>isNaN()</code>函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>);     <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<p>因为计算机对浮点数精确计算存在误差。所以要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个<strong>阈值</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">1</span>/<span class="number">3</span> - (<span class="number">1</span> - <span class="number">2</span>/<span class="number">3</span>)) &lt; <span class="number">0.0000001</span>;  <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<h2 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h2><p><code>null</code>：表示一个<strong>空</strong>的值<br><code>undefined</code>：表示值<strong>未定义</strong><br><code>0</code>：表示一个<strong>数值</strong><br><code>&quot;&quot;</code>：表示长度为0的<strong>字符串</strong></p>
+<blockquote>
+<p>null与undefined两者区分不大，大多数情况使用null，undefined只在判断<strong>函数参数是否传递</strong>的情况下使用</p>
+</blockquote>
+<h2 id="数组-类似python中的list"><a href="#数组-类似python中的list" class="headerlink" title="数组(类似python中的list)"></a>数组(类似python中的list)</h2><blockquote>
+<p><strong>js数组</strong>可以包含任意数据类型</p>
+</blockquote>
+<p><strong>两种声明方式</strong></p>
+<ul>
+<li><p>直接声明</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3.14</span>,<span class="string">'hello'</span>,<span class="literal">null</span>,<span class="literal">true</span>]</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>Array()</code>函数实现</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);   <span class="comment">// 创建了数组[1, 2, 3]</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="对象-类似python中的dict"><a href="#对象-类似python中的dict" class="headerlink" title="对象(类似python中的dict)"></a>对象(类似python中的dict)</h2><blockquote>
+<p>js对象是一组由键-值组成的<strong>无序集合</strong></p>
+</blockquote>
+<p><strong>示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">'Bob'</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">20</span>,</div><div class="line">    <span class="attr">tags</span>:[<span class="string">"js"</span>,<span class="string">"web"</span>,<span class="string">"mobile"</span>],</div><div class="line">    <span class="attr">city</span>:<span class="string">"Beijing"</span>,</div><div class="line">    <span class="attr">hasCar</span>:<span class="literal">true</span>,</div><div class="line">    <span class="attr">zipcode</span>:<span class="literal">null</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>其中：键(又称对象的<strong>属性</strong>)是<strong>字符串类型</strong>，值是<strong>任意数据类型</strong><br><strong>获取一个对象的属性</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">person.name;    <span class="comment">// "Bob"</span></div><div class="line">person.zipcode; <span class="comment">// null</span></div></pre></td></tr></table></figure></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
+<p>变量保存<strong>任意数据类型</strong></p>
+</blockquote>
+<p><strong>命名规则</strong></p>
+<ul>
+<li>大小写英文</li>
+<li>数字</li>
+<li>$或_组合</li>
+<li>不能用数字开头</li>
+</ul>
+<p><strong>示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;  <span class="comment">// 声明变量a，此时a的值为undefined</span></div><div class="line"><span class="keyword">var</span> $b = <span class="number">1</span>; <span class="comment">// 声明了变量$b，同时给$b赋值，此时$b的值为1</span></div><div class="line"><span class="keyword">var</span> s_007 = <span class="string">'007'</span>;  <span class="comment">// s_007是一个字符串</span></div><div class="line"><span class="keyword">var</span> Answer = <span class="literal">true</span>;  <span class="comment">// Answer是一个布尔值true</span></div><div class="line"><span class="keyword">var</span> t = <span class="literal">null</span>;   <span class="comment">// t的值是null</span></div></pre></td></tr></table></figure></p>
+<p><strong>动态语言 与 静态语言 区别</strong></p>
+<ul>
+<li><strong>动态语言</strong>：同s一变量，可以反复赋值，而且可以是<strong>不同类型</strong>的变量</li>
+<li><strong>静态语言</strong>：在定义变量时必须指定变量类型，如果赋值时<strong>类型不匹配</strong>，就会报错</li>
+</ul>
+<h2 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h2><ul>
+<li><strong>全局变量</strong>：如果一个变量没有通过<code>var</code>声明就被使用，那么该变量就自动被声明为<strong>全局变量</strong></li>
+<li><strong>局部变量</strong>：使用<code>var</code>声明的变量被限制在变量被声明的<strong>函数体</strong>内，同名变量在不同的函数体内<strong>互不冲突</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">10</span>; <span class="comment">// i现在是全局变量</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>在<strong>strict模式</strong>下，强制通过<code>var</code>声明变量，未使用<code>var</code>声明变量就使用的，将导致<strong>运行错误</strong></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">'use strict';   # 使用该方法声明严格模式</div></pre></td></tr></table></figure>
+<font color="red"><strong>注</strong>：为避免这一缺陷，所有的js代码都应该使用<strong>strict模式</strong></font>
+
+<h1 id="字符串-1"><a href="#字符串-1" class="headerlink" title="字符串"></a>字符串</h1><blockquote>
+<p>js的字符串就是用<code>&#39;&#39;</code>或<code>&quot;&quot;</code>括起来的字符表示</p>
+</blockquote>
+<p>如果字符串内包含<code>&#39;</code>或<code>&quot;</code>，可以使用转义字符<code>\</code>来标识<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'I\'m \"OK\"!'</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>常见转义字符</strong></p>
+<ul>
+<li><code>\n</code>：表示换行</li>
+<li><code>\t</code>：表示制表符</li>
+<li><code>\\</code>：表示转义<code>\</code></li>
+</ul>
+<h2 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h2><blockquote>
+<p>由于多行字符串使用<code>\n</code>比较麻烦</p>
+<p><font color="blue">ES6标准</font>新增一种多行字符串的表示方法，用反引号 <strong>` … `</strong> 表示</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">`这是一个</span></div><div class="line">多行</div><div class="line">`字符串</div></pre></td></tr></table></figure>
+<h2 id="模版字符串"><a href="#模版字符串" class="headerlink" title="模版字符串"></a>模版字符串</h2><blockquote>
+<p>要把多个字符串连接起来，可以用<code>+</code>号连接</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"小明"</span>;</div><div class="line"><span class="keyword">var</span> age = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> message = <span class="string">"你好, "</span> + name + <span class="string">", 你今年"</span> + age + <span class="string">"岁了！"</span>;</div><div class="line">alert(message);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><font color="blue">ES6标准</font>新增了一种<strong>模版字符串</strong>，表示方法和普通的多行字符串一样，但是会<strong>自动替换</strong>字符串中的变量</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"小明"</span>;</div><div class="line"><span class="keyword">var</span> age = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> message = <span class="string">`你好，<span class="subst">$&#123;name&#125;</span>,你今年<span class="subst">$&#123;age&#125;</span>岁了！`</span>;</div></pre></td></tr></table></figure>
+<h2 id="操作字符串"><a href="#操作字符串" class="headerlink" title="操作字符串"></a>操作字符串</h2><h3 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"Hello, world!"</span>;</div><div class="line">s.length;</div></pre></td></tr></table></figure>
+<h3 id="获取字符串下标"><a href="#获取字符串下标" class="headerlink" title="获取字符串下标"></a>获取字符串下标</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"Hello world!"</span>;</div><div class="line">s[<span class="number">0</span>];</div><div class="line">s[<span class="number">13</span>];  <span class="comment">// 超出范围不会报错，但一律返回undefined</span></div></pre></td></tr></table></figure>
+<p><font color="red">注意：</font>字符串是<strong>不可变</strong>的，如果对字符串的某个索引<strong>赋值</strong>，不会报错，但也没有任何效果</p>
+<h3 id="全部转换大写-toUpperCase"><a href="#全部转换大写-toUpperCase" class="headerlink" title="全部转换大写 toUpperCase()"></a>全部转换大写 toUpperCase()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"Hello"</span>;</div><div class="line">s.toUpperCase();    <span class="comment">// 返回"Hello"</span></div></pre></td></tr></table></figure>
+<h3 id="全部转换小写-toLowerCase"><a href="#全部转换小写-toLowerCase" class="headerlink" title="全部转换小写 toLowerCase()"></a>全部转换小写 toLowerCase()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"Hello"</span>;</div><div class="line"><span class="keyword">var</span> lower = s.toLowerCase();    <span class="comment">// 返回"hello"并赋值给变量lower</span></div><div class="line">lower;  <span class="comment">// "hello"</span></div></pre></td></tr></table></figure>
+<h3 id="搜索指定字符串位置-indexOf"><a href="#搜索指定字符串位置-indexOf" class="headerlink" title="搜索指定字符串位置 indexOf()"></a>搜索指定字符串位置 indexOf()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"hello,world"</span>;</div><div class="line">s.indexOf(<span class="string">"world"</span>); <span class="comment">// 返回7</span></div><div class="line">s.indexOf(<span class="string">"World"</span>); <span class="comment">// 没有找到指定的字串，返回-1</span></div></pre></td></tr></table></figure>
+<h3 id="指定索引区间子串-substring"><a href="#指定索引区间子串-substring" class="headerlink" title="指定索引区间子串 substring()"></a>指定索引区间子串 substring()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"hello, world"</span>;</div><div class="line">s.substring(<span class="number">0</span>, <span class="number">5</span>);  <span class="comment">// 从索引0开始到5（不包括5），返回"hello"</span></div><div class="line">s.substring(<span class="number">7</span>); <span class="comment">// 从索引7开始到结束，返回"world"</span></div></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><blockquote>
+<p>js的<code>Array</code>可以包含任意<strong>数据类型</strong>，并通过<strong>索引</strong>来访问每个元素</p>
+</blockquote>
+<h2 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h2><blockquote>
+<p>直接访问<code>length</code>属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3.14</span>,<span class="string">"Hello"</span>,<span class="literal">null</span>,<span class="literal">true</span>];</div><div class="line">arr.length; <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p><font color="red">注：</font>直接给<code>Array</code>的<code>length</code>赋值会导致<code>Array</code>大小的变化（不推荐使用）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">arr.length; <span class="comment">// 3</span></div><div class="line">arr.length = <span class="number">6</span>;</div><div class="line">arr;    <span class="comment">// arr变为[1, 2, 3, undefined, undefined, undefined]</span></div><div class="line">arr.length = <span class="number">2</span>;</div><div class="line">arr;    <span class="comment">// arr变为[1, 2]</span></div></pre></td></tr></table></figure></p>
+<p><strong>数组通过索引修改值</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>];</div><div class="line">arr[<span class="number">1</span>] = <span class="number">99</span>;</div><div class="line">arr;    <span class="comment">// arr现在变为["A", 99, "C"];</span></div></pre></td></tr></table></figure></p>
+<p><font color="red">注：</font>通过索引赋值超出范围，同样会引起<code>Array</code>大小的变化（不推荐使用）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">arr[<span class="number">5</span>] = <span class="string">"x"</span>;</div><div class="line">arr;    <span class="comment">// arr变为[1, 2, 3, undefined, undefined, "x"];</span></div></pre></td></tr></table></figure></p>
+<h2 id="搜索位置-indexOf"><a href="#搜索位置-indexOf" class="headerlink" title="搜索位置 indexOf()"></a>搜索位置 indexOf()</h2><blockquote>
+<p>搜索一个指定的元素的位置，找到返回下标，未找到返回<code>-1</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">"30"</span>, <span class="string">"xyz"</span>];</div><div class="line">arr.indexOf(<span class="number">10</span>);    <span class="comment">// 元素10的索引为0</span></div><div class="line">arr.indexOf(<span class="number">20</span>);    <span class="comment">// 元素20的索引为1</span></div><div class="line">arr.indexOf(<span class="number">30</span>);    <span class="comment">// 元素30没有找到，返回-1</span></div><div class="line">arr.indexOf(<span class="string">"30"</span>);  <span class="comment">// 元素"30"的索引为2</span></div></pre></td></tr></table></figure>
+<h2 id="截取-slice"><a href="#截取-slice" class="headerlink" title="截取 slice()"></a>截取 slice()</h2><blockquote>
+<p>类似字符串的<code>substring()</code>，截取<code>Array</code>的部分元素，返回一个新的<code>Array</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>, <span class="string">"g"</span>];</div><div class="line">arr.slice(<span class="number">0</span>, <span class="number">3</span>);    <span class="comment">// 从索引0开始，到索引3结束，但不包括索引3：["a", "b", "c"]</span></div><div class="line">arr.slice(<span class="number">3</span>);   <span class="comment">// 从索引3开始到结束：["d", "e", "f", "g"]</span></div></pre></td></tr></table></figure>
+<p>如果不给<code>slice()</code>传递任何参数，它就会从头到尾截取所有元素。利用这一点，我们可以很容易地<strong>复制一个<code>Array</code></strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var arr = ["a", "b", "c", "d", "e", "f", "g"]</div><div class="line">var aCopy = arr.slice();</div><div class="line">aCopy;  // ["a", "b", "c", "d", "e", "f", "g"]</div><div class="line">aCopy === arr;  // false</div><div class="line"></div><div class="line">## 末尾添加和删除 push() and pop()</div><div class="line">&gt;push()向Array的末尾添加若干元素，pop()把Array的最后一个元素删除掉</div><div class="line"></div><div class="line">```js</div><div class="line">var arr = [1,2];</div><div class="line">arr.push("a","b");  // 返回Array新的长度：4</div><div class="line">arr;    // [1,2,"a","b"]</div><div class="line">arr.pop();  // pop()返回"b"</div><div class="line">arr;    // [1,2,"a"]</div><div class="line">arr.pop(); arr.pop(); arr.pop();    // 连续pop 3次</div><div class="line">arr;    // []</div><div class="line">arr.pop();  // 空数组继续pop不会报错，而是返回undefined</div><div class="line">arr;    // []</div></pre></td></tr></table></figure></p>
+<h2 id="头部添加和删除-unshift-and-shift"><a href="#头部添加和删除-unshift-and-shift" class="headerlink" title="头部添加和删除 unshift() and shift()"></a>头部添加和删除 unshift() and shift()</h2><blockquote>
+<p>unshift()向Array的头部添加若干元素，shift()把Array的第一个元素删除</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</div><div class="line">arr.unshift(<span class="string">'A'</span>, <span class="string">'B'</span>); <span class="comment">// 返回Array新的长度: 4</span></div><div class="line">arr; <span class="comment">// ['A', 'B', 1, 2]</span></div><div class="line">arr.shift(); <span class="comment">// 'A'</span></div><div class="line">arr; <span class="comment">// ['B', 1, 2]</span></div><div class="line">arr.shift(); arr.shift(); arr.shift(); <span class="comment">// 连续shift 3次</span></div><div class="line">arr; <span class="comment">// []</span></div><div class="line">arr.shift(); <span class="comment">// 空数组继续shift不会报错，而是返回undefined</span></div><div class="line">arr; <span class="comment">// []</span></div></pre></td></tr></table></figure>
+<h2 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 sort()"></a>排序 sort()</h2><blockquote>
+<p><code>sort()</code>可以对当前<code>Array</code>进行排序，它会直接修改当前<code>Array</code>的元素位置，直接调用时，按照默认顺序排序</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>];</div><div class="line">arr.sort();</div><div class="line">arr; <span class="comment">// ['A', 'B', 'C']</span></div></pre></td></tr></table></figure>
+<h2 id="反转-reverse"><a href="#反转-reverse" class="headerlink" title="反转 reverse()"></a>反转 reverse()</h2><blockquote>
+<p><code>reverse()</code>把整个<code>Array</code>反转</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line">arr.reverse(); </div><div class="line">arr; <span class="comment">// ['three', 'two', 'one']</span></div></pre></td></tr></table></figure>
+<h2 id="修改-splice"><a href="#修改-splice" class="headerlink" title="修改 splice()"></a>修改 splice()</h2><blockquote>
+<p>splice()是修改Array的“万能方法”，从指定的索引开始<strong>删除</strong>若干元素，然后再从该位置<strong>添加</strong>若干元素</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"Microsoft"</span>, <span class="string">"Apple"</span>, <span class="string">"Yahoo"</span>, <span class="string">"AOL"</span>, <span class="string">"Excite"</span>, <span class="string">"Oracle"</span>];</div><div class="line"><span class="comment">// 从索引2开始删除3个元素，然后再添加两个元素</span></div><div class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">"Google"</span>, <span class="string">"Facebook"</span>); <span class="comment">// 返回删除的元素 ["Yahoo", "AOL", "Excite"]</span></div><div class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></div><div class="line"><span class="comment">// 只删除,不添加:</span></div><div class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// ['Google', 'Facebook']</span></div><div class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Oracle']</span></div><div class="line"><span class="comment">// 只添加,不删除:</span></div><div class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">'Google'</span>, <span class="string">'Facebook'</span>); <span class="comment">// 返回[],因为没有删除任何元素</span></div><div class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></div></pre></td></tr></table></figure>
+<h2 id="连接-concat"><a href="#连接-concat" class="headerlink" title="连接 concat()"></a>连接 concat()</h2><blockquote>
+<p>把当前<code>Array</code>和另一个<code>Array</code>连接起来，并返回一个新的<code>Array</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</div><div class="line"><span class="keyword">var</span> added = arr.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line">added; <span class="comment">// ['A', 'B', 'C', 1, 2, 3]</span></div><div class="line">arr; <span class="comment">// ['A', 'B', 'C']</span></div></pre></td></tr></table></figure>
+<p><font color="red">注：</font><code>concat()</code>方法并没有修改当前<code>Array</code>，而是返回一个新的<code>Array</code><br>并且：concat方法可以接收任意个元素和Array，并且自动把Array拆开，然后全部添加到新的Array里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>];</div><div class="line">arr.concat(<span class="number">1</span>,<span class="number">2</span>,[<span class="number">3</span>,<span class="number">4</span>]);  <span class="comment">// ["A","B","c",1,2,3,4]</span></div></pre></td></tr></table></figure></p>
+<h2 id="合并字符串-join"><a href="#合并字符串-join" class="headerlink" title="合并字符串 join()"></a>合并字符串 join()</h2><blockquote>
+<p>把当前<code>Array</code>的每个元素都用指定的字符串连接起来，然后返回连接后的字符串</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">arr.join(<span class="string">'-'</span>); <span class="comment">// 'A-B-C-1-2-3'</span></div></pre></td></tr></table></figure>
+<p><font color="red">注：</font>如果<code>Array</code>的元素不是字符串，将自动转换为字符串后再连接</p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><blockquote>
+<p>如果数组的某个元素又是一个Array，则可以形成多维数组</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">400</span>,<span class="number">500</span>,<span class="number">600</span>],<span class="string">"-"</span>]</div></pre></td></tr></table></figure>
+<p>上述<code>Array</code>包含3个元素，其中前两个元素本身也是<code>Array</code></p>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><blockquote>
+<p>JS的对象是一种无序的集合数据类型，它由若干<strong>键值对</strong>组成</p>
+</blockquote>
+<p><strong>示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaoming = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小明"</span>,</div><div class="line">    <span class="attr">birth</span>:<span class="number">1990</span>,</div><div class="line">    <span class="attr">school</span>:<span class="string">"No.1 Middle School"</span>,</div><div class="line">    <span class="attr">height</span>:<span class="number">1.70</span>,</div><div class="line">    <span class="attr">weight</span>:<span class="number">65</span>,</div><div class="line">    <span class="attr">score</span>:<span class="literal">null</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>JS对象构成：用一个<code>{...}</code>表示一个对象，键值对以<code>xxx:xxx</code>形式声明，用<code>,</code>隔开</p>
+</blockquote>
+<p>访问属性是通过<strong><code>.</code></strong>操作符完成的，但这要求<strong>属性名</strong>必须有一个有效的变量名。如果属性名包含特殊字符，就必须用<strong><code>&#39;&#39;</code></strong>括起来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaohong = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小红"</span>,</div><div class="line">    <span class="string">"middle-school"</span>:<span class="string">"No.1 Middle School"</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>其中：属性名middle-school不是一个有效的变量，就需要<strong><code>&#39;&#39;</code></strong>括起来<br>访问这个属性也无法使用<strong><code>.</code></strong>操作符，必须用<strong><code>[&#39;xxx&#39;]</code></strong>来访问<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xiaohong[<span class="string">'middle-school'</span>];  <span class="comment">// 'No.1 Middle School'</span></div><div class="line">xiaohong[<span class="string">'name'</span>];   <span class="comment">// '小红'</span></div><div class="line">xiaohong.name;  <span class="comment">// '小红'</span></div></pre></td></tr></table></figure></p>
+<p>如果访问一个不存在的属性返回<code>undefined</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaoming = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小明"</span></div><div class="line">&#125;;</div><div class="line">xiaoming.age;   <span class="comment">// undefined</span></div></pre></td></tr></table></figure></p>
+<p>由于JS的对象是<strong>动态类型（可变）</strong>，可以自由地给一个对象<strong>添加</strong>或<strong>删除</strong>属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaoming = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小明"</span></div><div class="line">&#125;;</div><div class="line">xiaoming.age;   <span class="comment">// undefined</span></div><div class="line">xiaoming.age = <span class="number">18</span>;  <span class="comment">// 新增一个age属性</span></div><div class="line">xiaoming.age;   <span class="comment">// 18</span></div><div class="line"><span class="keyword">delete</span> xiaoming.age;    <span class="comment">// 删除age属性</span></div><div class="line">xiaoming.age;   <span class="comment">// undefined</span></div><div class="line"><span class="keyword">delete</span> xiaoming[<span class="string">"name"</span>];    <span class="comment">// 删除name属性</span></div><div class="line">xiaoming.name;  <span class="comment">// undefined</span></div><div class="line"><span class="keyword">delete</span> xiaoming.school; <span class="comment">// 删除一个不存在的school属性也不会报错</span></div></pre></td></tr></table></figure></p>
+<p>可以用<code>in</code>操作符检测是否拥有某一属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaoming = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小明"</span>,</div><div class="line">    <span class="attr">birth</span>:<span class="number">1990</span>,</div><div class="line">    <span class="attr">school</span>:<span class="string">"No.1 Middle School"</span>,</div><div class="line">    <span class="attr">height</span>:<span class="number">1.70</span>,</div><div class="line">    <span class="attr">weight</span>:<span class="number">65</span>,</div><div class="line">    <span class="attr">score</span>:<span class="literal">null</span></div><div class="line">&#125;;</div><div class="line"><span class="string">"name"</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true</span></div><div class="line"><span class="string">"grade"</span> <span class="keyword">in</span> xiaoming;    <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<p><font color="red">注：</font>如果<code>in</code>判断一个属性存在，这个属性不一定是<code>xiaoming</code>的，可能是<code>xiaoming</code>继承得到的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"toString"</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<p>因为<code>toString</code>定义在<code>object</code>对象中，而所有对象最终都会在原型链上指向object，所以xiaoming也拥有toString属性</p>
+<p>要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xiaoming = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"小明"</span></div><div class="line">&#125;;</div><div class="line">xiaoming.hasOwnProperty(<span class="string">"name"</span>);    <span class="comment">// true</span></div><div class="line">xiaoming.hasOwnProperty(<span class="string">"toString"</span>);    <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/19/移动端_Ionic/" rel="next" title="Ionic">
+                <i class="fa fa-chevron-left"></i> Ionic
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT技术学习博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#number"><span class="nav-number">1.1.</span> <span class="nav-text">number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">1.3.</span> <span class="nav-text">布尔值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#和"><span class="nav-number">1.3.1.</span> <span class="nav-text">==和===</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NaN"><span class="nav-number">1.3.2.</span> <span class="nav-text">NaN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null和undefined"><span class="nav-number">1.4.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组-类似python中的list"><span class="nav-number">1.5.</span> <span class="nav-text">数组(类似python中的list)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象-类似python中的dict"><span class="nav-number">1.6.</span> <span class="nav-text">对象(类似python中的dict)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.7.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strict模式"><span class="nav-number">1.8.</span> <span class="nav-text">strict模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串-1"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多行字符串"><span class="nav-number">2.1.</span> <span class="nav-text">多行字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模版字符串"><span class="nav-number">2.2.</span> <span class="nav-text">模版字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作字符串"><span class="nav-number">2.3.</span> <span class="nav-text">操作字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取字符串长度"><span class="nav-number">2.3.1.</span> <span class="nav-text">获取字符串长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取字符串下标"><span class="nav-number">2.3.2.</span> <span class="nav-text">获取字符串下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全部转换大写-toUpperCase"><span class="nav-number">2.3.3.</span> <span class="nav-text">全部转换大写 toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全部转换小写-toLowerCase"><span class="nav-number">2.3.4.</span> <span class="nav-text">全部转换小写 toLowerCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索指定字符串位置-indexOf"><span class="nav-number">2.3.5.</span> <span class="nav-text">搜索指定字符串位置 indexOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定索引区间子串-substring"><span class="nav-number">2.3.6.</span> <span class="nav-text">指定索引区间子串 substring()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">3.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数组长度"><span class="nav-number">3.1.</span> <span class="nav-text">获取数组长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索位置-indexOf"><span class="nav-number">3.2.</span> <span class="nav-text">搜索位置 indexOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截取-slice"><span class="nav-number">3.3.</span> <span class="nav-text">截取 slice()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头部添加和删除-unshift-and-shift"><span class="nav-number">3.4.</span> <span class="nav-text">头部添加和删除 unshift() and shift()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序-sort"><span class="nav-number">3.5.</span> <span class="nav-text">排序 sort()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反转-reverse"><span class="nav-number">3.6.</span> <span class="nav-text">反转 reverse()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-splice"><span class="nav-number">3.7.</span> <span class="nav-text">修改 splice()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接-concat"><span class="nav-number">3.8.</span> <span class="nav-text">连接 concat()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并字符串-join"><span class="nav-number">3.9.</span> <span class="nav-text">合并字符串 join()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组"><span class="nav-number">3.10.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象"><span class="nav-number">4.</span> <span class="nav-text">对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

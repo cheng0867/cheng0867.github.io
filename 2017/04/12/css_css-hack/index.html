@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="慧海仁心">
 <meta property="og:description" content="清除浮动
 透明度">
-<meta property="og:updated_time" content="2017-04-16T17:06:19.534Z">
+<meta property="og:updated_time" content="2017-04-19T08:15:03.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css-hack">
 <meta name="twitter:description" content="清除浮动
@@ -346,8 +346,18 @@
 <h1 id="透明度兼容"><a href="#透明度兼容" class="headerlink" title="透明度兼容"></a>透明度兼容</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.opacity</span>&#123;</div><div class="line">    <span class="attribute">opacity</span>:<span class="number">1.0</span>;</div><div class="line">    <span class="attribute">filter</span>:<span class="built_in">alpha</span>(opacity=100);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="在IE下img标签默认有1像素边框"><a href="#在IE下img标签默认有1像素边框" class="headerlink" title="在IE下img标签默认有1像素边框"></a>在IE下img标签默认有1像素边框</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line">    <span class="attribute">border</span>:<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="h标签继承body中的font-size设置"><a href="#h标签继承body中的font-size设置" class="headerlink" title="h标签继承body中的font-size设置"></a>h标签继承body中的font-size设置</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="a标签中使用img后的高度多了几个像素"><a href="#a标签中使用img后的高度多了几个像素" class="headerlink" title="a标签中使用img后的高度多了几个像素"></a>a标签中使用img后的高度多了几个像素</h1><p>解决办法一是消除掉匿名盒子的高度，也就是给a设置line-height:0或font-size:0;<br>解决办法二是给两者vertical-align:top，让其top对齐，而不是baseline对齐<br>解决办法三是给img以display:block，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒的对齐问题<br>解决办法四因为img是行内元素，默认display: inline; 它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将displayp设置为block即可消除上面说的几个像素的差别</p>
-
+<h1 id="a标签中使用img后的高度多了几个像素"><a href="#a标签中使用img后的高度多了几个像素" class="headerlink" title="a标签中使用img后的高度多了几个像素"></a>a标签中使用img后的高度多了几个像素</h1><p><strong>解决办法</strong></p>
+<ol>
+<li>消除掉匿名盒子的高度，也就是给a设置line-height:0或font-size:0;</li>
+<li>给两者vertical-align:top，让其top对齐，而不是baseline对齐</li>
+<li>给img以display:block，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒的对齐问题</li>
+<li>因为img是行内元素，默认display: inline; 它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将displayp设置为block即可消除上面说的几个像素的差别</li>
+</ol>
+<h1 id="移动端固定定位"><a href="#移动端固定定位" class="headerlink" title="移动端固定定位"></a>移动端固定定位</h1><blockquote>
+<p>移动端使用固定定位在微信端失效</p>
+</blockquote>
+<p>解决方法：使用一个包裹盒子，盒子定位<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.main_wrap</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">top</span>:<span class="number">0</span></div><div class="line">    bottom:<span class="number">0</span></div><div class="line">    right:<span class="number">0</span></div><div class="line">    left:<span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="sublime-自动添加浏览器前缀-autoprefixed"><a href="#sublime-自动添加浏览器前缀-autoprefixed" class="headerlink" title="sublime 自动添加浏览器前缀 autoprefixed"></a>sublime 自动添加浏览器前缀 autoprefixed</h2>
       
     </div>
 
@@ -467,7 +477,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -478,7 +488,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -515,7 +525,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#清除塌陷-margin-top"><span class="nav-number">1.</span> <span class="nav-text">清除塌陷(margin-top)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除浮动-塌陷合并兼容写法"><span class="nav-number">3.</span> <span class="nav-text">清除浮动/塌陷合并兼容写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#透明度兼容"><span class="nav-number">4.</span> <span class="nav-text">透明度兼容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在IE下img标签默认有1像素边框"><span class="nav-number">5.</span> <span class="nav-text">在IE下img标签默认有1像素边框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#h标签继承body中的font-size设置"><span class="nav-number">6.</span> <span class="nav-text">h标签继承body中的font-size设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a标签中使用img后的高度多了几个像素"><span class="nav-number">7.</span> <span class="nav-text">a标签中使用img后的高度多了几个像素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#清除塌陷-margin-top"><span class="nav-number">1.</span> <span class="nav-text">清除塌陷(margin-top)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除浮动-塌陷合并兼容写法"><span class="nav-number">3.</span> <span class="nav-text">清除浮动/塌陷合并兼容写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#透明度兼容"><span class="nav-number">4.</span> <span class="nav-text">透明度兼容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在IE下img标签默认有1像素边框"><span class="nav-number">5.</span> <span class="nav-text">在IE下img标签默认有1像素边框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#h标签继承body中的font-size设置"><span class="nav-number">6.</span> <span class="nav-text">h标签继承body中的font-size设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a标签中使用img后的高度多了几个像素"><span class="nav-number">7.</span> <span class="nav-text">a标签中使用img后的高度多了几个像素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端固定定位"><span class="nav-number">8.</span> <span class="nav-text">移动端固定定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime-自动添加浏览器前缀-autoprefixed"><span class="nav-number">8.1.</span> <span class="nav-text">sublime 自动添加浏览器前缀 autoprefixed</span></a></li></ol></li></ol></div>
             
 
           </div>

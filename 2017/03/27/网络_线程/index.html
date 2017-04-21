@@ -87,13 +87,13 @@
 
 <meta name="description" content="线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程">
+<meta property="og:title" content="线程(未完)">
 <meta property="og:url" content="http://oneskk.com/2017/03/27/网络_线程/index.html">
 <meta property="og:site_name" content="慧海仁心">
 <meta property="og:description" content="线程">
-<meta property="og:updated_time" content="2017-04-14T00:50:39.820Z">
+<meta property="og:updated_time" content="2017-04-18T08:54:27.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程">
+<meta name="twitter:title" content="线程(未完)">
 <meta name="twitter:description" content="线程">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title> 线程 | 慧海仁心 </title>
+  <title> 线程(未完) | 慧海仁心 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -258,7 +258,7 @@
             
             
               
-                线程
+                线程(未完)
               
             
           </h1>
@@ -334,8 +334,52 @@
         <div class="note danger"><p>线程</p>
 </div>
 <a id="more"></a>
-<h1 id="多线程：threading"><a href="#多线程：threading" class="headerlink" title="多线程：threading"></a>多线程：threading</h1><h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h1 id="多线程：threading"><a href="#多线程：threading" class="headerlink" title="多线程：threading"></a>多线程：threading</h1><blockquote>
+<p>python的<strong>thread模块</strong>是比较底层的模块，pythonde的<strong>threading模块</strong>是对<code>thread</code>做了一些包装的，可以更加方便的被使用</p>
+</blockquote>
+<h2 id="单线程执行"><a href="#单线程执行" class="headerlink" title="单线程执行"></a>单线程执行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"循环输出了..."</span>)</div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    test()</div></pre></td></tr></table></figure>
+<h2 id="多线程执行"><a href="#多线程执行" class="headerlink" title="多线程执行"></a>多线程执行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"循环输出了..."</span>)</div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    t = threading.Thread(target=test)</div><div class="line">    t.start()   <span class="comment"># 需要start方法来启动</span></div></pre></td></tr></table></figure>
+<h2 id="使用类封装"><a href="#使用类封装" class="headerlink" title="使用类封装"></a>使用类封装</h2><blockquote>
+<p>只需要继承<code>threading.Thread</code>，然后重写<code>run</code>方法</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">"I`m "</span> + self.name + <span class="string">" @ "</span> + str(i)   <span class="comment"># name属性中保存的是当前线程的名字</span></div><div class="line">            print(msg)</div><div class="line"></div><div class="line">t = MyThread()</div><div class="line">t.start()</div></pre></td></tr></table></figure>
+<h1 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h1><blockquote>
+<p>多线程共享全局变量</p>
+</blockquote>
+<p><strong>优点</strong>：在一个进程中的所有线程共享全局变量，能够在不使用其他方式的前提下完成多线程之间的数据共享<br><strong>缺点</strong>：线程对全局变量的随意修改可能造成多线程之间对全局变量的混乱（即线程非安全）</p>
+<h1 id="进程VS线程"><a href="#进程VS线程" class="headerlink" title="进程VS线程"></a>进程VS线程</h1><ul>
+<li><strong>进程</strong>：是系统进行<strong>资源分配</strong>和<strong>调度</strong>的一个独立单位，进程执行开销大，但利于资源的管理和保护</li>
+<li><strong>线程</strong>：是进程的一个实体，是CPU<strong>调度</strong>和<strong>分派</strong>的基本单位；线程执行开销小，但不利于资源的管理和保护</li>
+</ul>
+<h1 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h1><blockquote>
+<p>互斥锁解决了同步问题，threading模块中定义了Lock类，可以方便的处理锁定</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建锁</span></div><div class="line">mutex = threading.Lock()</div><div class="line"><span class="comment"># 锁定</span></div><div class="line">mutex.acquire([blocking])   <span class="comment"># block为Ture则阻塞，False不阻塞</span></div><div class="line"><span class="comment"># 释放（解锁）</span></div><div class="line">mutex.release()</div></pre></td></tr></table></figure>
+<h2 id="上锁解锁过程"><a href="#上锁解锁过程" class="headerlink" title="上锁解锁过程"></a>上锁解锁过程</h2><ul>
+<li>当一个线程调用锁的acquire()方法获得锁时，锁就进入”locked”状态</li>
+<li>每次只有一个线程可以获得锁。如果此时另一个线程试图获得这个锁，该线程就会变为”blocked”状态，称为“阻塞”，直到拥有锁的线程调用锁的release()方法释放锁之后，锁进入”unlocked”状态，直到拥有锁的线程调用锁的release()方法释放锁之后，锁进入”unlocked”状态</li>
+<li>线程调度程序从处于同步阻塞状态的线程中选择一个来获得锁，并使该线程进入运行(running)状态</li>
+</ul>
+<h2 id="锁的优点和缺点"><a href="#锁的优点和缺点" class="headerlink" title="锁的优点和缺点"></a>锁的优点和缺点</h2><ul>
+<li>优点：确保了某段关键代码只能由一个线程从头到尾完整地执行</li>
+<li>缺点：<ol>
+<li>阻止了多线程并发执行，包含锁的某段代码实际上只能以单线程模式执行，效率大大地下降了</li>
+<li>由于可以存在多个锁，不同的线程持有不同的锁，并试图获取对方持有锁时，可能会造成死锁</li>
+</ol>
+</li>
+</ul>
+<p><strong>区别</strong></p>
+<ul>
+<li>一个<strong>程序</strong>至少有一个<code>进程</code>，一个<strong>进程</strong>至少有一个<code>线程</code></li>
+<li>线程的划分尺度小于进程（资源比进程少），使得多线程程序的并发性高</li>
+<li>进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率</li>
+<li>线程不能够独立执行，必须依赖在进程中</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>python的多线程实现，使用<strong>treading包</strong>中的<code>Thread模块</code></li>
+<li>参数中使用<code>target</code>对应<strong>线程执行方法</strong></li>
+<li>使用<code>.start()</code>启动线程，执行线程方法</li>
+</ul>
 
       
     </div>
@@ -372,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/网络_进程/" rel="next" title="进程">
-                <i class="fa fa-chevron-left"></i> 进程
+              <a href="/2017/03/27/网络_进程/" rel="next" title="进程(未核)">
+                <i class="fa fa-chevron-left"></i> 进程(未核)
               </a>
             
           </div>
@@ -382,8 +426,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/27/网络_UDP/" rel="prev" title="UDP">
-                UDP <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/27/网络_UDP/" rel="prev" title="UDP(未完)">
+                UDP(未完) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,7 +500,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -467,7 +511,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -504,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程：threading"><span class="nav-number">1.</span> <span class="nav-text">多线程：threading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单线程"><span class="nav-number">1.1.</span> <span class="nav-text">单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程"><span class="nav-number">1.2.</span> <span class="nav-text">多线程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程：threading"><span class="nav-number">1.</span> <span class="nav-text">多线程：threading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单线程执行"><span class="nav-number">1.1.</span> <span class="nav-text">单线程执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程执行"><span class="nav-number">1.2.</span> <span class="nav-text">多线程执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用类封装"><span class="nav-number">1.3.</span> <span class="nav-text">使用类封装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局变量"><span class="nav-number">2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程VS线程"><span class="nav-number">3.</span> <span class="nav-text">进程VS线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#互斥锁"><span class="nav-number">4.</span> <span class="nav-text">互斥锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上锁解锁过程"><span class="nav-number">4.1.</span> <span class="nav-text">上锁解锁过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的优点和缺点"><span class="nav-number">4.2.</span> <span class="nav-text">锁的优点和缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

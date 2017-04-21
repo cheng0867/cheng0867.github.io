@@ -91,7 +91,7 @@
 <meta property="og:url" content="http://oneskk.com/2017/04/11/html_jade/index.html">
 <meta property="og:site_name" content="慧海仁心">
 <meta property="og:description" content="jade模版引擎">
-<meta property="og:updated_time" content="2017-04-15T11:47:30.226Z">
+<meta property="og:updated_time" content="2017-04-17T12:55:42.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jade">
 <meta name="twitter:description" content="jade模版引擎">
@@ -334,7 +334,7 @@
         <div class="note primary"><p>jade模版引擎</p>
 </div>
 <a id="more"></a>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装jade"><a href="#安装jade" class="headerlink" title="安装jade"></a>安装jade</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install jade -g</div></pre></td></tr></table></figure>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装jade"><a href="#安装jade" class="headerlink" title="安装jade"></a>安装jade</h2><p><code>npm install jade -g</code></p>
 <hr>
 <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p</div><div class="line">input</div></pre></td></tr></table></figure>
 <p>等同于<code>html</code>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> /&gt;</span></div></pre></td></tr></table></figure></p>
@@ -433,8 +433,9 @@
 <p>jade块如果没有内容，则会添加默认内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">head</div><div class="line">    h1 My Site - #&#123;title&#125;</div><div class="line">    block scripts</div><div class="line">        script(src=&quot;/jquery.js&quot;)</div><div class="line">body</div><div class="line">    block content</div><div class="line">    block foot</div><div class="line">        # footer</div><div class="line">        p some footer content</div></pre></td></tr></table></figure></p>
 <p>现在继承这个布局，简单创建一个新文件，像下面那样直接使用<code>extends</code>，给定路径（可以选择带<code>.jade</code>扩展名或不带），可以定义一个或更多的块来覆盖父级块内内容，注意到这里的<code>foot</code>块没有定义，所以它还会输出父级的<code>&quot;some footer content&quot;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
 <h2 id="包含"><a href="#包含" class="headerlink" title="包含"></a>包含</h2><blockquote>
-<p>include允许包含一段jade或者别的存放在单个文件中的东西，比如css，html。<br>非常常见的例子就是头部和底部，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./layout.jade</div><div class="line">./includes/</div><div class="line">    ./head.jade</div><div class="line">    ./tail.jade</div></pre></td></tr></table></figure></p>
+<p>include允许包含一段jade或者别的存放在单个文件中的东西，比如css，html</p>
 </blockquote>
+<p>非常常见的例子就是头部和底部，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./layout.jade</div><div class="line">./includes/</div><div class="line">    ./head.jade</div><div class="line">    ./tail.jade</div></pre></td></tr></table></figure></p>
 <p><code>layout.jade</code>内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">    include includes/head</div><div class="line">    body</div><div class="line">        h1 My Site</div><div class="line">        p Welcome to my super amazing site.</div><div class="line">        include includes/foot</div></pre></td></tr></table></figure></p>
 
       
@@ -556,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -567,7 +568,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

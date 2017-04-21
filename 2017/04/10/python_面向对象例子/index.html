@@ -95,7 +95,7 @@
 <meta property="og:description" content="烤地瓜
 摆放家具
 老王开枪">
-<meta property="og:updated_time" content="2017-04-10T13:37:46.273Z">
+<meta property="og:updated_time" content="2017-04-18T03:36:10.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python面向对象例子">
 <meta name="twitter:description" content="烤地瓜
@@ -344,10 +344,21 @@
 </ol>
 </div>
 <a id="more"></a>
-<h1 id="烤地瓜"><a href="#烤地瓜" class="headerlink" title="烤地瓜"></a>烤地瓜</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h1 id="烤地瓜"><a href="#烤地瓜" class="headerlink" title="烤地瓜"></a>烤地瓜</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>cookedLevel</code>：值为数字；0~3表示生的（初始值），3~5表示半生不熟，5~8表示熟了，超过8表示烤焦了</li>
+<li><code>cookedString</code>：值为字符串；描述生熟程度</li>
+<li><code>condiments</code>：额外添加的调料</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li><code>cook()</code>：烤方法，把地瓜烤一段时间</li>
+<li><code>addCondiments()</code>：给地瓜添加调料</li>
+<li><code>__init__()</code>：设置默认的属性</li>
+<li><code>__str__()</code>：让print的结果看起来更好一些</li>
+</ul>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义“地瓜”类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SweetPotato</span>:</span></div><div class="line">    <span class="string">"""这是烤地瓜的类"""</span></div><div class="line"></div><div class="line">    <span class="comment"># 定义初始值</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.cookedLevel = <span class="number">0</span></div><div class="line">        self.cookedString = <span class="string">"生的"</span></div><div class="line">        self.condiments = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        msg = self.cookedString + <span class="string">"地瓜"</span></div><div class="line">        <span class="keyword">if</span> len(self.condiments) &gt; <span class="number">0</span>:</div><div class="line">            msg = msg + <span class="string">"("</span></div><div class="line">            <span class="keyword">for</span> temp <span class="keyword">in</span> self.condiments:</div><div class="line">                msg = msg + temp + <span class="string">", "</span></div><div class="line">            msg = msg.strip(<span class="string">", "</span>)</div><div class="line"></div><div class="line">            msg = msg + <span class="string">")"</span></div><div class="line">        <span class="keyword">return</span> msg</div><div class="line"></div><div class="line">    <span class="comment"># 定义烤地瓜方法</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cook</span><span class="params">(self, time)</span>:</span></div><div class="line">        self.cookedLevel += time</div><div class="line">        <span class="keyword">if</span> self.cookedLevel &gt; <span class="number">8</span>:</div><div class="line">            self.cooedString = <span class="string">"烤糊了"</span></div><div class="line">        <span class="keyword">elif</span> self.cookedLevel &gt; <span class="number">5</span>:</div><div class="line">            self.cooedString = <span class="string">"烤熟了"</span></div><div class="line">        <span class="keyword">elif</span> self.cookedLevel &gt; <span class="number">3</span>:</div><div class="line">            self.cooedString = <span class="string">"烤熟了"</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.cooedString = <span class="string">"生的"</span></div><div class="line"></div><div class="line">    <span class="comment"># 定义添加调料方法</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addCondiments</span><span class="params">(self, condiments)</span>:</span></div><div class="line">            self.condiments.append(condiments)</div><div class="line"><span class="comment"># 用来进行测试</span></div><div class="line">mySweetPotato = SweetPotato()</div><div class="line">print(<span class="string">"------有了一个地瓜，还没有烤-----"</span>)</div><div class="line">print(mySweetPotato.cookedLevel)</div><div class="line">print(mySweetPotato.cookedString)</div><div class="line">print(mySweetPotato.condiments)</div><div class="line">print(<span class="string">"------接下来要进行烤地瓜了-----"</span>)</div><div class="line">print(<span class="string">"------地瓜经烤了4分钟-----"</span>)</div><div class="line">mySweetPotato.cook(<span class="number">4</span>) <span class="comment">#烤4分钟</span></div><div class="line">print(mySweetPotato)</div><div class="line">print(<span class="string">"------地瓜又经烤了3分钟-----"</span>)</div><div class="line">mySweetPotato.cook(<span class="number">3</span>) <span class="comment">#又烤了3分钟</span></div><div class="line">print(mySweetPotato)</div><div class="line">print(<span class="string">"------接下来要添加配料-番茄酱------"</span>)</div><div class="line">mySweetPotato.addCondiments(<span class="string">"番茄酱"</span>)</div><div class="line">print(mySweetPotato)</div><div class="line">print(<span class="string">"------地瓜又经烤了5分钟-----"</span>)</div><div class="line">mySweetPotato.cook(<span class="number">5</span>) <span class="comment">#又烤了5分钟</span></div><div class="line">print(mySweetPotato)</div><div class="line">print(<span class="string">"------接下来要添加配料-芥末酱------"</span>)</div><div class="line">mySweetPotato.addCondiments(<span class="string">"芥末酱"</span>)</div><div class="line">print(mySweetPotato)</div></pre></td></tr></table></figure>
 <hr>
 <h1 id="摆放家具"><a href="#摆放家具" class="headerlink" title="摆放家具"></a>摆放家具</h1><blockquote>
-<p>如果一个对象与另一个对象有一定关系，那么一个对象可以是另一个对象的属性</p>
+<p>如果一个对象与另一个对象有一定关系，那么这个对象可以是另一个对象的属性</p>
 </blockquote>
 <h2 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <hr>
@@ -471,7 +482,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -482,7 +493,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -99,7 +99,7 @@
 元组 tuple
 字典 dictionary
 集合 set">
-<meta property="og:updated_time" content="2017-04-18T07:47:07.118Z">
+<meta property="og:updated_time" content="2017-05-22T12:05:45.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python类型">
 <meta name="twitter:description" content="字符串 string，类型（不可变）
@@ -365,6 +365,7 @@
 <p><strong>切片语法</strong>：[起始:结束:步长]<br>注：选取的<strong>区间</strong>属于左闭右开，即从“起始”位开始，到“结束”位<strong>前一位</strong>结束</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">name = <span class="string">"abcdef"</span></div><div class="line">print(name[<span class="number">0</span>:<span class="number">3</span>])	<span class="comment"># 取下标0到2的字符</span></div><div class="line">print(name[::<span class="number">-1</span>])	<span class="comment"># 倒序</span></div></pre></td></tr></table></figure>
 <h3 id="反转字符串"><a href="#反转字符串" class="headerlink" title="反转字符串"></a>反转字符串</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(name[<span class="number">1</span>:<span class="number">-1</span>])	<span class="comment"># 取下标为1开始 到 最后第2个之间的字符</span></div></pre></td></tr></table></figure>
+<p>方法2：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a = <span class="string">''</span></div><div class="line">b = <span class="string">'abcdefg'</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</div><div class="line">    a = i + a</div><div class="line"><span class="keyword">print</span> a</div></pre></td></tr></table></figure></p>
 <hr>
 <h2 id="字符串常见操作"><a href="#字符串常见操作" class="headerlink" title="字符串常见操作"></a>字符串常见操作</h2><h3 id="查找-find"><a href="#查找-find" class="headerlink" title="查找 find()"></a>查找 find()</h3><p>检测字符是否在字符串中，有返回开始索引值，没有返回-1</p>
 <blockquote>
@@ -610,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -621,7 +622,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

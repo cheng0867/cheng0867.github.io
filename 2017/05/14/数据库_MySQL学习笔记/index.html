@@ -85,16 +85,16 @@
 
 
 
-<meta name="description" content="MySQL学习笔记">
+<meta name="description" content="MySQL笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL学习笔记">
+<meta property="og:title" content="MySQL笔记">
 <meta property="og:url" content="http://oneskk.com/2017/05/14/数据库_MySQL学习笔记/index.html">
 <meta property="og:site_name" content="慧海仁心">
-<meta property="og:description" content="MySQL学习笔记">
-<meta property="og:updated_time" content="2017-05-14T14:59:34.146Z">
+<meta property="og:description" content="MySQL笔记">
+<meta property="og:updated_time" content="2017-05-17T01:25:31.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL学习笔记">
-<meta name="twitter:description" content="MySQL学习笔记">
+<meta name="twitter:title" content="MySQL笔记">
+<meta name="twitter:description" content="MySQL笔记">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title> MySQL学习笔记 | 慧海仁心 </title>
+  <title> MySQL笔记 | 慧海仁心 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -258,7 +258,7 @@
             
             
               
-                MySQL学习笔记
+                MySQL笔记
               
             
           </h1>
@@ -331,9 +331,41 @@
       
 
       
-        <div class="note success"><p>MySQL学习笔记</p>
+        <div class="note success"><p>MySQL笔记</p>
 </div>
 <a id="more"></a>
+<h1 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h1><h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>在终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pmysql</div></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li><code>-u</code>：指定登录用户名</li>
+<li><code>-p</code>：登录用户的密码</li>
+<li><code>-h</code>：指定登录的服务器IP</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="查看所有数据库"><a href="#查看所有数据库" class="headerlink" title="查看所有数据库"></a>查看所有数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</div></pre></td></tr></table></figure>
+<h3 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> 数据库名;</div></pre></td></tr></table></figure>
+<h3 id="查看当前操作数据库"><a href="#查看当前操作数据库" class="headerlink" title="查看当前操作数据库"></a>查看当前操作数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</div></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">charset</span> utf8;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：如果创建表时，没有设置编码utf8，则后续需要在数据库和数据表都设置编码才能正确显示中文<br>(1)先设置数据库编码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">database</span> python_0314 <span class="keyword">charset</span> utf8;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>(2)再设置数据表编码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">convert</span> <span class="keyword">to</span> <span class="keyword">charset</span> utf8;</div></pre></td></tr></table></figure></p>
+<h3 id="删除指定数据库"><a href="#删除指定数据库" class="headerlink" title="删除指定数据库"></a>删除指定数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><h3 id="查看数据库中的所有表"><a href="#查看数据库中的所有表" class="headerlink" title="查看数据库中的所有表"></a>查看数据库中的所有表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</div></pre></td></tr></table></figure>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</div><div class="line">    字段名 <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<p><strong>实例1</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> classes(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>实例2</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> students(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    gender <span class="built_in">bit</span> defualt <span class="number">1</span>,</div><div class="line">    hometown <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">    clsid <span class="built_in">int</span> <span class="keyword">unsigned</span>,</div><div class="line">    isdelete <span class="built_in">bit</span> <span class="keyword">default</span> <span class="number">0</span>,</div><div class="line">    foreign <span class="keyword">key</span>(clsid) <span class="keyword">references</span> classes(<span class="keyword">id</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3 id="查看表的创建信息"><a href="#查看表的创建信息" class="headerlink" title="查看表的创建信息"></a>查看表的创建信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">desc 表名;</div></pre></td></tr></table></figure>
+<h3 id="查看创建表时的SQL语句"><a href="#查看创建表时的SQL语句" class="headerlink" title="查看创建表时的SQL语句"></a>查看创建表时的SQL语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</div></pre></td></tr></table></figure>
+<h3 id="添加表字段"><a href="#添加表字段" class="headerlink" title="添加表字段"></a>添加表字段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">add</span> birthday datetime <span class="keyword">default</span> <span class="string">'1990-01-01'</span>;</div></pre></td></tr></table></figure>
+<h3 id="修改字段信息并修改字段名"><a href="#修改字段信息并修改字段名" class="headerlink" title="修改字段信息并修改字段名"></a>修改字段信息并修改字段名</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">change</span> <span class="keyword">name</span> <span class="keyword">names</span> <span class="built_in">varchar</span>(<span class="number">10</span>);</div></pre></td></tr></table></figure>
+<h3 id="修改字段信息"><a href="#修改字段信息" class="headerlink" title="修改字段信息"></a>修改字段信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">modify</span> hometown varcahr(<span class="number">30</span>);</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> students;</div></pre></td></tr></table></figure>
+<h2 id="数据项操作"><a href="#数据项操作" class="headerlink" title="数据项操作"></a>数据项操作</h2><h3 id="查看表中所有数据"><a href="#查看表中所有数据" class="headerlink" title="查看表中所有数据"></a>查看表中所有数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名;</div></pre></td></tr></table></figure>
+<h3 id="在表中添加数据"><a href="#在表中添加数据" class="headerlink" title="在表中添加数据"></a>在表中添加数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> [<span class="keyword">into</span>] 表名(字段) <span class="keyword">values</span>(数据字段<span class="number">1</span>),(数据字段<span class="number">2</span>)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,6 +412,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/15/数据库_Redis笔记/" rel="prev" title="Redis笔记">
+                Redis笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -425,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -441,7 +486,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -452,7 +497,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -479,6 +524,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本操作命令"><span class="nav-number">1.</span> <span class="nav-text">基本操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接数据库"><span class="nav-number">1.1.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">1.2.</span> <span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有数据库"><span class="nav-number">1.2.1.</span> <span class="nav-text">查看所有数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换数据库"><span class="nav-number">1.2.2.</span> <span class="nav-text">切换数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前操作数据库"><span class="nav-number">1.2.3.</span> <span class="nav-text">查看当前操作数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.2.4.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定数据库"><span class="nav-number">1.2.5.</span> <span class="nav-text">删除指定数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表操作"><span class="nav-number">1.3.</span> <span class="nav-text">数据表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据库中的所有表"><span class="nav-number">1.3.1.</span> <span class="nav-text">查看数据库中的所有表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表的创建信息"><span class="nav-number">1.3.3.</span> <span class="nav-text">查看表的创建信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看创建表时的SQL语句"><span class="nav-number">1.3.4.</span> <span class="nav-text">查看创建表时的SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加表字段"><span class="nav-number">1.3.5.</span> <span class="nav-text">添加表字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段信息并修改字段名"><span class="nav-number">1.3.6.</span> <span class="nav-text">修改字段信息并修改字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段信息"><span class="nav-number">1.3.7.</span> <span class="nav-text">修改字段信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表"><span class="nav-number">1.3.8.</span> <span class="nav-text">删除表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据项操作"><span class="nav-number">1.4.</span> <span class="nav-text">数据项操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表中所有数据"><span class="nav-number">1.4.1.</span> <span class="nav-text">查看表中所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在表中添加数据"><span class="nav-number">1.4.2.</span> <span class="nav-text">在表中添加数据</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

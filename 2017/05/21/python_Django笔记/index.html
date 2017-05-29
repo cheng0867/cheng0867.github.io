@@ -1,0 +1,820 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="基于python的web框架，集成丰富功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django笔记">
+<meta property="og:url" content="http://oneskk.com/2017/05/21/python_Django笔记/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="基于python的web框架，集成丰富功能">
+<meta property="og:updated_time" content="2017-05-28T09:11:55.678Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django笔记">
+<meta name="twitter:description" content="基于python的web框架，集成丰富功能">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://oneskk.com/2017/05/21/python_Django笔记/"/>
+
+
+
+
+
+  <title> Django笔记 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://oneskk.com/2017/05/21/python_Django笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Django笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T08:54:40+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note success"><p>基于python的web框架，集成丰富功能</p>
+</div>
+<a id="more"></a>
+<h1 id="传统MVC模式"><a href="#传统MVC模式" class="headerlink" title="传统MVC模式"></a>传统MVC模式</h1><ul>
+<li><code>model</code>：数据库</li>
+<li><code>controll</code>：接收请求，调用model和view，返回结果</li>
+<li><code>view</code>：视图</li>
+</ul>
+<h1 id="Django的MVT模式"><a href="#Django的MVT模式" class="headerlink" title="Django的MVT模式"></a>Django的MVT模式</h1><blockquote>
+<p>Django使用<strong>MVT模式</strong>，常用1.8.2+版本，对py2,3都支持）</p>
+</blockquote>
+<ul>
+<li><code>Model</code>：用于与数据库交互，默认与<strong>关系型</strong>数据库交互，类似MVC中的M</li>
+<li><code>View</code>：接收请求，处理并返回结果，类似MVC中的C</li>
+<li><code>Template</code>：前端引擎模版，类似MVC中的V</li>
+</ul>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><blockquote>
+<p>默认安装路径<strong>/usr/bin/local/python2.7/disk-package</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install 包名</div></pre></td></tr></table></figure>
+<h2 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h2><blockquote>
+<p>针对不同项目安装一些包的集合，不同虚拟环境不冲突</p>
+</blockquote>
+<h3 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip install virtualenv // 虚拟环境包</div><div class="line">sudo pip install virtuallenvwrapper //虚拟环境封装包</div></pre></td></tr></table></figure>
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkvirtualenv 虚拟环境名称</div><div class="line">例如：</div><div class="line">mkvirtualenv py_django</div></pre></td></tr></table></figure>
+<blockquote>
+<p>已下载虚拟环境文件，复制到.virtualenv目录中并解压即可</p>
+</blockquote>
+<h3 id="使用（切换）虚拟环境"><a href="#使用（切换）虚拟环境" class="headerlink" title="使用（切换）虚拟环境"></a>使用（切换）虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">workon 虚拟环境名    // 或按tab键补全查看虚拟环境列表</div></pre></td></tr></table></figure>
+<h3 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deactivate</div></pre></td></tr></table></figure>
+<h3 id="查看当前使用虚拟环境路径"><a href="#查看当前使用虚拟环境路径" class="headerlink" title="查看当前使用虚拟环境路径"></a>查看当前使用虚拟环境路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">which python</div></pre></td></tr></table></figure>
+<h3 id="查看所有包列表"><a href="#查看所有包列表" class="headerlink" title="查看所有包列表"></a>查看所有包列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip list</div></pre></td></tr></table></figure>
+<h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">deactivate  // 先退出虚拟环境</div><div class="line">rmvirtualenv py_django  // 删除虚拟环境</div></pre></td></tr></table></figure>
+<h3 id="在虚拟环境安装包"><a href="#在虚拟环境安装包" class="headerlink" title="在虚拟环境安装包"></a>在虚拟环境安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install 包名</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：如果使用<code>sudo pipe</code>安装，则会安装到usr/bin目录下</p>
+</blockquote>
+<h1 id="创建Django项目"><a href="#创建Django项目" class="headerlink" title="创建Django项目"></a>创建Django项目</h1><h2 id="创建虚拟环境-1"><a href="#创建虚拟环境-1" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkvirtualenv py_django</div></pre></td></tr></table></figure>
+<h2 id="切换虚拟环境"><a href="#切换虚拟环境" class="headerlink" title="切换虚拟环境"></a>切换虚拟环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">workon py_django</div></pre></td></tr></table></figure>
+<h2 id="创建Django项目-1"><a href="#创建Django项目-1" class="headerlink" title="创建Django项目"></a>创建Django项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">django-admin startproject test1</div></pre></td></tr></table></figure>
+<h2 id="创建Django应用"><a href="#创建Django应用" class="headerlink" title="创建Django应用"></a>创建Django应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd test1    // 进入项目</div><div class="line">python manage.py startapp booktest  // 创建应用</div></pre></td></tr></table></figure>
+<h2 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h2><blockquote>
+<p>应用创建后，需要安装才可以使用</p>
+</blockquote>
+<p>进入路径test1/settings.py中INSTALLED_APPS下添加<code>boottest</code>(应用名)即可</p>
+<blockquote>
+<p>Django中不需要手写sql语句，其中的ORM负责python对象与sql语句之间的<strong>转换</strong></p>
+</blockquote>
+<h1 id="使用模型Model（数据）"><a href="#使用模型Model（数据）" class="headerlink" title="使用模型Model（数据）"></a>使用模型Model（数据）</h1><blockquote>
+<p>默认数据库是python自带的SQLite，该数据库一般应用在移动端开发中</p>
+</blockquote>
+<h2 id="定义模型类（从需求中分析获得）"><a href="#定义模型类（从需求中分析获得）" class="headerlink" title="定义模型类（从需求中分析获得）"></a>定义模型类（从需求中分析获得）</h2><p><strong>例</strong>：在booktest目录中的Models.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookInfo</span><span class="params">(models.Model)</span>:</span></div><div class="line">    title = models.CharField(max_length=<span class="number">20</span>)</div><div class="line">    pub_date = models.DateField()   <span class="comment"># 日期</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.title.encode(<span class="string">"utf-8"</span>)</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HeroInfo</span><span class="params">(models.Model)</span>:</span></div><div class="line">    name = models.CharField(max_length=<span class="number">10</span>)</div><div class="line">    content = models.CharField(max_length=<span class="number">100</span>)</div><div class="line">    gender = models.BooleanField(default=Ture)</div><div class="line">    book = models.ForeignKey(BookInfo)  <span class="comment"># 定义外键</span></div></pre></td></tr></table></figure></p>
+<h2 id="生成迁移"><a href="#生成迁移" class="headerlink" title="生成迁移"></a>生成迁移</h2><blockquote>
+<p>类似生成sql脚本，交给ORM读取</p>
+</blockquote>
+<p><strong>在项目目录中输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py makemigrations</div></pre></td></tr></table></figure></p>
+<h2 id="执行迁移"><a href="#执行迁移" class="headerlink" title="执行迁移"></a>执行迁移</h2><blockquote>
+<p>根据迁移文件创建表</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py migrate</div></pre></td></tr></table></figure>
+<h1 id="数据操作命令"><a href="#数据操作命令" class="headerlink" title="数据操作命令"></a>数据操作命令</h1><h2 id="进入shell操作API"><a href="#进入shell操作API" class="headerlink" title="进入shell操作API"></a>进入shell操作API</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py shell</div></pre></td></tr></table></figure>
+<h2 id="退出shell"><a href="#退出shell" class="headerlink" title="退出shell"></a>退出shell</h2><blockquote>
+<p><code>ctrl+d</code>或输入<code>quit()</code></p>
+</blockquote>
+<h2 id="引入类"><a href="#引入类" class="headerlink" title="引入类"></a>引入类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> booktest.models <span class="keyword">import</span> BookInfo,HeroInfo</div></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">BookInfo.objects.all()  // 查看所有信息</div><div class="line">BookInfo.objects.get(id=<span class="number">1</span>)</div><div class="line">// 或</div><div class="line">BookInfo.objects.get(pk=<span class="number">1</span>)  // pk 为primary key</div></pre></td></tr></table></figure>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">book = BookInfo()</div><div class="line">book.属性名 = 值</div></pre></td></tr></table></figure>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">book = BookInfo.objects.get(id=***)</div><div class="line">book.属性名 = 值</div><div class="line">book.save()</div></pre></td></tr></table></figure>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">book.delete()</div></pre></td></tr></table></figure>
+<h2 id="关系（一对多）"><a href="#关系（一对多）" class="headerlink" title="关系（一对多）"></a>关系（一对多）</h2><h3 id="根据图书找英雄对象"><a href="#根据图书找英雄对象" class="headerlink" title="根据图书找英雄对象"></a>根据图书找英雄对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">book.heroinfo_set.all()</div></pre></td></tr></table></figure>
+<h3 id="根据英雄找图书"><a href="#根据英雄找图书" class="headerlink" title="根据英雄找图书"></a>根据英雄找图书</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hero.book</div></pre></td></tr></table></figure>
+<h1 id="Admin"><a href="#Admin" class="headerlink" title="Admin"></a>Admin</h1><h2 id="创建Admin"><a href="#创建Admin" class="headerlink" title="创建Admin"></a>创建Admin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py createsuperuser</div></pre></td></tr></table></figure>
+<h2 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver [IP地址]</div></pre></td></tr></table></figure>
+<h2 id="中文设置"><a href="#中文设置" class="headerlink" title="中文设置"></a>中文设置</h2><p>在settings中修改设置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LANGUAGE_CODE = <span class="string">'zh-Hans'</span></div><div class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></div></pre></td></tr></table></figure></p>
+<h2 id="admin-py定义列显示类"><a href="#admin-py定义列显示类" class="headerlink" title="admin.py定义列显示类"></a>admin.py定义列显示类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</div><div class="line"><span class="keyword">from</span> models <span class="keyword">import</span> BookInfo,HeroInfo</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookInfoAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></div><div class="line">    list_display = [<span class="string">'id'</span>,<span class="string">'title'</span>,<span class="string">'pub_date'</span>]</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HeroInfoAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></div><div class="line">    list_display = [<span class="string">'id'</span>,<span class="string">'name'</span>,<span class="string">'content'</span>,<span class="string">'gender'</span>,<span class="string">'book'</span>]</div><div class="line">    </div><div class="line">admin.site.register(BookInfo,BookInfoAdmin)</div><div class="line">admin.site.register(HeroInfo,HeroInfoAdmin)</div></pre></td></tr></table></figure>
+<h1 id="模版template"><a href="#模版template" class="headerlink" title="模版template"></a>模版template</h1><h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; title &#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% for i in list %&#125;</div><div class="line">&#123;&#123;i&#125;&#125;</div><div class="line">&#123;% endfor %&#125;</div></pre></td></tr></table></figure>
+<h1 id="静态文件处理"><a href="#静态文件处理" class="headerlink" title="静态文件处理"></a>静态文件处理</h1><blockquote>
+<p>Django中HTML不算作<strong>静态文件</strong>，而是<strong>模版</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  物理存储路径</div><div class="line">STATIC_URL = <span class="string">'/static/'</span></div><div class="line"><span class="comment"># 逻辑存储路径</span></div><div class="line">STATICFILES_DIRS = [</div><div class="line">    os.path.join(BASE_DIR,<span class="string">'static'</span>)</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>在HTML标签中使用static标签</p>
+<blockquote>
+<p>实际使用中静态文件路径处理交给Nginx处理，不需要Django处理<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% load static from staticfiles%&#125;</div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;% static "</span><span class="attr">img</span>/<span class="attr">001.jpg</span>"%&#125;"&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="浏览器向服务器发出请求的过程"><a href="#浏览器向服务器发出请求的过程" class="headerlink" title="浏览器向服务器发出请求的过程"></a>浏览器向服务器发出请求的过程</h2><ol>
+<li>将请求报文，封装成HttpRequest</li>
+<li>进行url解析</li>
+<li>调用视图，将request对象传入</li>
+<li>调用模版，完成渲染</li>
+<li>在视图中return结果</li>
+</ol>
+<blockquote>
+<p><strong>中间件</strong>在没有侵入源代码的情况下，干预、影响整个处理过程的某个环节，即IOC（MVC模式中使用），面向切面编程</p>
+</blockquote>
+<ol>
+<li><p>写方法<br>在应用目录下创建middleware.py文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">my_mid</span>:</span></div><div class="line">    <span class="comment"># 加载时的初始化</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'--------------init'</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self,request)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'--------------request'</span></div><div class="line">    <span class="comment"># 在视图执行之前调用</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_view</span><span class="params">(self,request, view_func, view_args, view_kwargs)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'--------------view'</span></div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_template_response</span><span class="params">(self,request, response)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'--------------template'</span></div><div class="line">        <span class="keyword">return</span> response</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_response</span><span class="params">(self,request, response)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'--------------response'</span></div><div class="line">        <span class="keyword">return</span> response</div></pre></td></tr></table></figure>
+</li>
+<li><p>注册称为中间件 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MIDDLEWARE_CLASSES = (</div><div class="line">    ...</div><div class="line">    <span class="string">'booktest.middleware.my_mid'</span>,</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="Admin站点"><a href="#Admin站点" class="headerlink" title="Admin站点"></a>Admin站点</h1><h2 id="修改用户信息"><a href="#修改用户信息" class="headerlink" title="修改用户信息"></a>修改用户信息</h2><p>在终端执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python manage.py shell</div><div class="line">&gt;&gt;&gt;</div><div class="line">from django.contrib.auth.models import User</div><div class="line">u = User.objects.get(username=&apos;python&apos;)</div><div class="line">u.set_password(&apos;123456&apos;)</div><div class="line">u.save()</div></pre></td></tr></table></figure></p>
+<h2 id="列表页选项"><a href="#列表页选项" class="headerlink" title="列表页选项"></a>列表页选项</h2><h3 id="每页显示条数"><a href="#每页显示条数" class="headerlink" title="每页显示条数"></a>每页显示条数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list_per_page = <span class="number">10</span></div></pre></td></tr></table></figure>
+<h3 id="操作选项位置"><a href="#操作选项位置" class="headerlink" title="操作选项位置"></a>操作选项位置</h3><p>True：显示/False：不显示<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">actions_on_top = <span class="keyword">True</span></div><div class="line">actions_on_bottom = <span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<h3 id="显示列"><a href="#显示列" class="headerlink" title="显示列"></a>显示列</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list_display = [<span class="string">'id'</span>,<span class="string">'atitle'</span>]</div></pre></td></tr></table></figure>
+<h1 id="城市选择联动"><a href="#城市选择联动" class="headerlink" title="城市选择联动"></a>城市选择联动</h1><blockquote>
+<p>使用jQuery中的$.get方法实现</p>
+</blockquote>
+<h1 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h1><blockquote>
+<p>Django提供了数据分页的类，定义在django/core/paginator.py中</p>
+</blockquote>
+<h2 id="Paginator对象"><a href="#Paginator对象" class="headerlink" title="Paginator对象"></a>Paginator对象</h2><blockquote>
+<p>用于对大量数据进行分页处理</p>
+</blockquote>
+<ul>
+<li>‘方法init(列表,int)’：返回分页对象，参数为列表数据，int表示每页数据的条数 </li>
+<li>‘属性count’：总共有多少条数据</li>
+<li>‘属性num_pages’：表示页面的总数</li>
+<li>‘属性page_range’：页面的索引，从1开始</li>
+<li>‘方法page(m)’：返回Page对象，表示第m页的数据，下标从1开始</li>
+</ul>
+<h2 id="Page对象"><a href="#Page对象" class="headerlink" title="Page对象"></a>Page对象</h2><blockquote>
+<p>某一页的数据</p>
+</blockquote>
+<ul>
+<li>调用Paginator对象的page()方法返回Page对象，不需要手动构造</li>
+<li><code>属性object_list</code>：返回当前页对象的列表</li>
+<li><code>属性number</code>：返回第几页，从1开始</li>
+<li><code>属性paginator</code>：当前页对应的Paginator对象</li>
+<li><code>方法has_next()</code>：如果有下一页返回True</li>
+<li><code>方法has_previous()</code>：如果有上一页返回True</li>
+<li><code>方法len()</code>：返回当前页面对象的个数</li>
+<li><code>迭代页面对象</code>：访问当前页面中的每个对象</li>
+</ul>
+<p></p><p></p> 传递到浏览器，是带格式的<br>从后台传输过来的数据把符号都转义了<br>&lt; p &gt;<p></p>
+<p>
+
+</p><h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><h1 id="celery"><a href="#celery" class="headerlink" title="celery"></a>celery</h1><h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><ol>
+<li>浏览器：发起请求</li>
+<li>Nginx：如果静态文件读取磁盘返回，如果不是静态文件，将请求信息转发uWSGI</li>
+<li>uWSGI：接收请求，进行url匹配，找到请求的视图函数，调用执行并返回响应</li>
+</ol>
+<h2 id="WSGI协议："><a href="#WSGI协议：" class="headerlink" title="WSGI协议："></a>WSGI协议：</h2><p>规定了2个模块：</p>
+<ul>
+<li>application</li>
+<li>setting</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/18/python_Python与数据库交互/" rel="next" title="Python与数据库交互">
+                <i class="fa fa-chevron-left"></i> Python与数据库交互
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/21/python_Django创建项目/" rel="prev" title="Django创建项目">
+                Django创建项目 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT技术学习博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#传统MVC模式"><span class="nav-number">1.</span> <span class="nav-text">传统MVC模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django的MVT模式"><span class="nav-number">2.</span> <span class="nav-text">Django的MVT模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">3.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包"><span class="nav-number">3.1.</span> <span class="nav-text">安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python虚拟环境"><span class="nav-number">3.2.</span> <span class="nav-text">python虚拟环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装虚拟环境"><span class="nav-number">3.2.1.</span> <span class="nav-text">安装虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">3.2.2.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用（切换）虚拟环境"><span class="nav-number">3.2.3.</span> <span class="nav-text">使用（切换）虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出虚拟环境"><span class="nav-number">3.2.4.</span> <span class="nav-text">退出虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前使用虚拟环境路径"><span class="nav-number">3.2.5.</span> <span class="nav-text">查看当前使用虚拟环境路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有包列表"><span class="nav-number">3.2.6.</span> <span class="nav-text">查看所有包列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除虚拟环境"><span class="nav-number">3.2.7.</span> <span class="nav-text">删除虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在虚拟环境安装包"><span class="nav-number">3.2.8.</span> <span class="nav-text">在虚拟环境安装包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Django项目"><span class="nav-number">4.</span> <span class="nav-text">创建Django项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟环境-1"><span class="nav-number">4.1.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换虚拟环境"><span class="nav-number">4.2.</span> <span class="nav-text">切换虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Django项目-1"><span class="nav-number">4.3.</span> <span class="nav-text">创建Django项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Django应用"><span class="nav-number">4.4.</span> <span class="nav-text">创建Django应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装应用"><span class="nav-number">4.5.</span> <span class="nav-text">安装应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用模型Model（数据）"><span class="nav-number">5.</span> <span class="nav-text">使用模型Model（数据）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义模型类（从需求中分析获得）"><span class="nav-number">5.1.</span> <span class="nav-text">定义模型类（从需求中分析获得）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成迁移"><span class="nav-number">5.2.</span> <span class="nav-text">生成迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行迁移"><span class="nav-number">5.3.</span> <span class="nav-text">执行迁移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据操作命令"><span class="nav-number">6.</span> <span class="nav-text">数据操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入shell操作API"><span class="nav-number">6.1.</span> <span class="nav-text">进入shell操作API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出shell"><span class="nav-number">6.2.</span> <span class="nav-text">退出shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入类"><span class="nav-number">6.3.</span> <span class="nav-text">引入类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">6.4.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">6.5.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改"><span class="nav-number">6.6.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">6.7.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系（一对多）"><span class="nav-number">6.8.</span> <span class="nav-text">关系（一对多）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据图书找英雄对象"><span class="nav-number">6.8.1.</span> <span class="nav-text">根据图书找英雄对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据英雄找图书"><span class="nav-number">6.8.2.</span> <span class="nav-text">根据英雄找图书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Admin"><span class="nav-number">7.</span> <span class="nav-text">Admin</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Admin"><span class="nav-number">7.1.</span> <span class="nav-text">创建Admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行服务器"><span class="nav-number">7.2.</span> <span class="nav-text">运行服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中文设置"><span class="nav-number">7.3.</span> <span class="nav-text">中文设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#admin-py定义列显示类"><span class="nav-number">7.4.</span> <span class="nav-text">admin.py定义列显示类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模版template"><span class="nav-number">8.</span> <span class="nav-text">模版template</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">8.1.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">8.2.</span> <span class="nav-text">循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态文件处理"><span class="nav-number">9.</span> <span class="nav-text">静态文件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中间件"><span class="nav-number">10.</span> <span class="nav-text">中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器向服务器发出请求的过程"><span class="nav-number">10.1.</span> <span class="nav-text">浏览器向服务器发出请求的过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Admin站点"><span class="nav-number">11.</span> <span class="nav-text">Admin站点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改用户信息"><span class="nav-number">11.1.</span> <span class="nav-text">修改用户信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表页选项"><span class="nav-number">11.2.</span> <span class="nav-text">列表页选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每页显示条数"><span class="nav-number">11.2.1.</span> <span class="nav-text">每页显示条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作选项位置"><span class="nav-number">11.2.2.</span> <span class="nav-text">操作选项位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示列"><span class="nav-number">11.2.3.</span> <span class="nav-text">显示列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#城市选择联动"><span class="nav-number">12.</span> <span class="nav-text">城市选择联动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分页"><span class="nav-number">13.</span> <span class="nav-text">分页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paginator对象"><span class="nav-number">13.1.</span> <span class="nav-text">Paginator对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Page对象"><span class="nav-number">13.2.</span> <span class="nav-text">Page对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发送邮件"><span class="nav-number">14.</span> <span class="nav-text">发送邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#celery"><span class="nav-number">15.</span> <span class="nav-text">celery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number">16.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WSGI协议："><span class="nav-number">16.1.</span> <span class="nav-text">WSGI协议：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

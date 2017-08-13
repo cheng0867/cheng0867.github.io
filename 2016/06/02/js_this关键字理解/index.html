@@ -1,0 +1,664 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="this关键字在c++，Java中都提供了这个关键字，在刚开始学习时觉得有难度，但是只要理解了，用起来就方便多了，下面通过本篇文章给大家详解js里this关键字的理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this关键字理解">
+<meta property="og:url" content="http://www.oneskk.com/2016/06/02/js_this关键字理解/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="this关键字在c++，Java中都提供了这个关键字，在刚开始学习时觉得有难度，但是只要理解了，用起来就方便多了，下面通过本篇文章给大家详解js里this关键字的理解。">
+<meta property="og:updated_time" content="2017-08-13T20:27:48.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="this关键字理解">
+<meta name="twitter:description" content="this关键字在c++，Java中都提供了这个关键字，在刚开始学习时觉得有难度，但是只要理解了，用起来就方便多了，下面通过本篇文章给大家详解js里this关键字的理解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/06/02/js_this关键字理解/"/>
+
+
+
+
+
+  <title> this关键字理解 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/06/02/js_this关键字理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                this关键字理解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-02T00:00:00+08:00">
+                2016-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note "><p>this关键字在c++，Java中都提供了这个关键字，在刚开始学习时觉得有难度，但是只要理解了，用起来就方便多了，下面通过本篇文章给大家详解js里this关键字的理解。</p>
+</div>
+<a id="more"></a>
+<p>关于this，是很多前端面试必考的题目，有时候在网上看到这些题目，自己试了一下，额，还真的错了！在实际开发中，也会遇到 this 的问题（虽然一些类库会帮我们处理），例如在使用一些框架的时候，例如:knockout，有时候不明白为什么不直接使用this,而要把 this 作为参数传入。<br>1、不像C#，this一定是指向当前对象。<br>js的this指向是不确定的，也就是说是可以动态改变的。call/apply 就是用于改变this指向的函数，这样设计可以让代码更加灵活，复用性更高。<br>2、this 一般情况下，都是指向函数的拥有者。<br>这一点很重要！这一点很重要！这一点很重要！<br>这也是一道常见的面试题，如下代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">　　<span class="keyword">var</span> number = <span class="number">1</span>;</div><div class="line">　　<span class="keyword">var</span> obj = &#123;</div><div class="line">  　　 <span class="attr">number</span>: <span class="number">2</span>,</div><div class="line">  　　<span class="attr">showNumber</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    　　<span class="keyword">this</span>.number = <span class="number">3</span>;</div><div class="line">    　　(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         </div><div class="line">      　　<span class="built_in">console</span>.log(<span class="keyword">this</span>.number);</div><div class="line">    　　&#125;)();</div><div class="line">    　　<span class="built_in">console</span>.log(<span class="keyword">this</span>.number);</div><div class="line">  　　&#125;</div><div class="line">　　&#125;;</div><div class="line">　　obj.showNumber();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>由于<code>showNumber</code>方法的拥有者是obj，所以this.number=3; this 指向的就是 obj 的属性 number。<br>同理，第二个 console.log 打印的也是属性 number。<br>为什么第二点说一般情况下this都是指向函数的拥有者，因为有特殊情况。函数自执行就是特殊情况，在函数自执行里，this 指向的是：window。所以第一个 console.log 打印的是 window 的属性 number。<br>所以要加一点：<br>3、在函数自执行里，this 指向的是 window 对象。<br>扩展，关于this，还有一个地方比较让人模糊的是在 dom 事件里，通常有如下3种情况：<br>如下：<br>1、使用标签属性注册事件，此时this 指向的是 window 对象。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"按钮"</span> <span class="attr">onClick</span>=<span class="string">"test()"</span>/&gt;</span></div><div class="line">  function test()&#123;alert(this)&#125;</div></pre></td></tr></table></figure></p>
+<p>2、对于1，要让 this 指向 input，可以将 this 作为参数传递。<br>3、使用 addEventListener 等注册。此时this 也是指向 input。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"test"</span>).addEventListener(<span class="string">"click"</span>,test);</div></pre></td></tr></table></figure></p>
+<p>在面向对象编程语言中，对于this关键字我们是非常熟悉的。比如C++、C#和Java等都提供了这个关键字，虽然在开始学习的时候觉得比较难，但只要理解了，用起来是非常方便和意义确定的。JavaScript也提供了这个this关键字，不过用起来就比经典OO语言中要”混乱”的多了。<br>下面就来看看，在javascript中各种this的使用方法有什么混乱之处？<br>1、在HTML元素事件属性中inline方式使用this关键字：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 可以在里面使用this </div><div class="line">"&gt;division element</div><div class="line"> // 可以在里面使用this</div><div class="line"> "&gt;division element</div></pre></td></tr></table></figure></p>
+<p>我们一般比较常用的方法是在此使用：javascirpt: EventHandler(this)，这样的形式。不过这里其实可以写任何合法的JavaScript语句，要是高兴在此定义个类也可以(不过将会是个内部类)。这里的原理是脚本引擎生成了一个div实例对象的匿名成员方法，而onclick指向这个方法。<br>2、用DOM方式在事件处理函数中使用this关键字：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">division element</div><div class="line"> </div><div class="line"> <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'elmtDiv'</span>); </div><div class="line"> div.attachEvent(<span class="string">'onclick'</span>, EventHandler); </div><div class="line">  </div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">EventHandler</span>(<span class="params"></span>) </span></div><div class="line"> &#123; </div><div class="line"> <span class="comment">// 在此使用this </span></div><div class="line"> &#125; </div><div class="line">   </div><div class="line"><span class="comment">// --&gt;</span></div><div class="line">  </div><div class="line">division element</div><div class="line"> </div><div class="line"> <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'elmtDiv'</span>);</div><div class="line"> div.attachEvent(<span class="string">'onclick'</span>, EventHandler);</div><div class="line"> </div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">EventHandler</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="comment">// 在此使用this</span></div><div class="line"> &#125;</div><div class="line">  </div><div class="line"><span class="comment">// --&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这时的EventHandler()方法中的this关键字，指示的对象是IE的window对象。这是因为EventHandler只是一个普通的函数，对于attachEvent后，脚本引擎对它的调用和div对象本身没有任何的关系。同时你可以再看看EventHandler的caller属性，它是等于null的。如果我们要在这个方法中获得div对象引用，应该使用：this.event.srcElement。<br>3、用DHTML方式在事件处理函数中使用this关键字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">division element</div><div class="line">   </div><div class="line">lt;mce:script language=&quot;javascript&quot;&gt;</div><div class="line">var div = document.getElementById(&apos;elmtDiv&apos;); </div><div class="line">div.onclick = function() </div><div class="line">&#123; </div><div class="line"> // 在此使用this </div><div class="line">&#125;; </div><div class="line">  </div><div class="line">/ --&gt;</div><div class="line">  </div><div class="line">division element</div><div class="line"> </div><div class="line"> var div = document.getElementById(&apos;elmtDiv&apos;);</div><div class="line"> div.onclick = function()</div><div class="line"> &#123;</div><div class="line"> // 在此使用this</div><div class="line"> &#125;;</div><div class="line">  </div><div class="line">// --&gt;</div></pre></td></tr></table></figure></p>
+<p>这里的this关键字指示的内容是div元素对象实例，在脚本中使用DHTML方式直接为div.onclick赋值一个EventHandler的方法，等于为div对象实例添加一个成员方法。这种方式和第一种方法的区别是，第一种方法是使用HTML方式，而这里是DHTML方式，后者脚本解析引擎不会再生成匿名方法。<br>4、类定义中使用this关键字：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="keyword">var</span> myName = <span class="string">'jsclass'</span>; </div><div class="line"><span class="keyword">this</span>.m_Name = <span class="string">'JSClass'</span>; </div><div class="line">&#125; </div><div class="line">  </div><div class="line">JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line">alert(myName + <span class="string">', '</span> + <span class="keyword">this</span>.m_Name); </div><div class="line">&#125;; </div><div class="line">  </div><div class="line"><span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass(); </div><div class="line">jc.ToString();</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="keyword">var</span> myName = <span class="string">'jsclass'</span>;</div><div class="line"> <span class="keyword">this</span>.m_Name = <span class="string">'JSClass'</span>;</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> alert(myName + <span class="string">', '</span> + <span class="keyword">this</span>.m_Name);</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> <span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass();</div><div class="line"> jc.ToString();</div></pre></td></tr></table></figure></p>
+<p>这是JavaScript模拟类定义中对this的使用，这个和其它的OO语言中的情况非常的相识。但是这里要求成员属性和方法必须使用this关键字来引用，运行上面的程序会被告知myName未定义。<br>5、为脚本引擎内部对象添加原形方法中的this关键字：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>.<span class="title">prototype</span>.<span class="title">GetName</span> = <span class="title">function</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="keyword">var</span> fnName = <span class="keyword">this</span>.toString(); </div><div class="line">fnName = fnName.substr(<span class="number">0</span>, fnName.indexOf(<span class="string">'('</span>)); </div><div class="line">fnName = fnName.replace(<span class="regexp">/^function/</span>, <span class="string">''</span>); </div><div class="line"><span class="keyword">return</span> fnName.replace(<span class="regexp">/(^\s+)|(\s+$)/g</span>, <span class="string">''</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125; </div><div class="line">alert(foo.GetName()); </div><div class="line"> <span class="function"><span class="keyword">function</span>.<span class="title">prototype</span>.<span class="title">GetName</span> = <span class="title">function</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="keyword">var</span> fnName = <span class="keyword">this</span>.toString();</div><div class="line"> fnName = fnName.substr(<span class="number">0</span>, fnName.indexOf(<span class="string">'('</span>));</div><div class="line"> fnName = fnName.replace(<span class="regexp">/^function/</span>, <span class="string">''</span>);</div><div class="line"> <span class="keyword">return</span> fnName.replace(<span class="regexp">/(^\s+)|(\s+$)/g</span>, <span class="string">''</span>);</div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"> alert(foo.GetName());</div></pre></td></tr></table></figure></p>
+<p>这里的this指代的是被添加原形的类的实例，和4中类定义有些相似，没有什么太特别的地方。<br>6、结合2&amp;4，说一个比较迷惑的this关键字使用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">view plaincopy to clipboardprint?</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="keyword">this</span>.m_Text = <span class="string">'division element'</span>; </div><div class="line"><span class="keyword">this</span>.m_Element = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>); </div><div class="line"><span class="keyword">this</span>.m_Element.innerHTML = <span class="keyword">this</span>.m_Text; </div><div class="line">   </div><div class="line"><span class="keyword">this</span>.m_Element.attachEvent(<span class="string">'onclick'</span>, <span class="keyword">this</span>.ToString); </div><div class="line">&#125; </div><div class="line">   </div><div class="line">JSClass.prototype.Render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.m_Element); </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line">alert(<span class="keyword">this</span>.m_Text); </div><div class="line">&#125;; </div><div class="line">  </div><div class="line"><span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass(); </div><div class="line">jc.Render(); </div><div class="line">jc.ToString();</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="keyword">this</span>.m_Text = <span class="string">'division element'</span>;</div><div class="line"> <span class="keyword">this</span>.m_Element = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>);</div><div class="line"> <span class="keyword">this</span>.m_Element.innerHTML = <span class="keyword">this</span>.m_Text;</div><div class="line">   </div><div class="line"> <span class="keyword">this</span>.m_Element.attachEvent(<span class="string">'onclick'</span>, <span class="keyword">this</span>.ToString);</div><div class="line"> &#125;</div><div class="line">   </div><div class="line"> JSClass.prototype.Render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.m_Element);</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> alert(<span class="keyword">this</span>.m_Text);</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> <span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass();</div><div class="line"> jc.Render();</div><div class="line"> jc.ToString();</div></pre></td></tr></table></figure></p>
+<p>我就说说结果，页面运行后会显示：”division element”，确定后点击文字”division element”，将会显示：”undefined”。<br>7、CSS的expression表达式中使用this关键字：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">height: expression(this.parentElement.height);"&gt; </div><div class="line"> division element </div><div class="line">   </div><div class="line"> height: expression(this.parentElement.height);"&gt;</div><div class="line"> division element</div></pre></td></tr></table></figure></p>
+<p>这里的this看作和1中的一样就可以了，它也是指代div元素对象实例本身。<br>8、函数中的内部函数中使用this关键字：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">view plaincopy to clipboardprint?</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">OuterFoo</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="keyword">this</span>.Name = <span class="string">'Outer Name'</span>; </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">InnerFoo</span>(<span class="params"></span>) </span></div><div class="line">&#123; </div><div class="line"><span class="keyword">var</span> Name = <span class="string">'Inner Name'</span>; </div><div class="line">alert(Name + <span class="string">', '</span> + <span class="keyword">this</span>.Name); </div><div class="line">&#125; </div><div class="line"><span class="keyword">return</span> InnerFoo; </div><div class="line">&#125; </div><div class="line">OuterFoo()();</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">OuterFoo</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="keyword">this</span>.Name = <span class="string">'Outer Name'</span>;</div><div class="line">  </div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">InnerFoo</span>(<span class="params"></span>)</span></div><div class="line"> &#123;</div><div class="line"> <span class="keyword">var</span> Name = <span class="string">'Inner Name'</span>;</div><div class="line"> alert(Name + <span class="string">', '</span> + <span class="keyword">this</span>.Name);</div><div class="line"> &#125;</div><div class="line"> <span class="keyword">return</span> InnerFoo;</div><div class="line"> &#125;</div><div class="line"> OuterFoo()();</div></pre></td></tr></table></figure></p>
+<p>运行结果显示是：”Inner Name, Outer Name”。按我们在2中的讲解，这里的结果如果是”Inner Name, undefined”似乎更合理些吧？但是正确的结果确实是前者，这是由于JavaScript变量作用域的问题决定的，详细了解推荐参看”原来JScript中的关键字’var’还是有文章的”一文及回复。<br>归纳起来，JavaScript中的this用法有以下3种（详细用法参原文）：<br>1.在HTML元素事件属性 或 CSS的expression表达式 中inline方式使用this关键字——对应原文的1、7<br>2.在事件处理函数中使用this关键字——对应原文的2、3<br>其中可分为两种方式<br>(1)DOM方式——此种方式的结果是this指向窗口（window）对象<br>(2)DHTML方式——此种方式的结果是this指向div元素对象实例<br>3.在类定义中使用this关键字并在其 内部函数 或 成员函数（主要是prototype产生）中使用——对应原文的4、5、8<br>需要说明的是，在函数也是个对象，因此需要区分 变量定义 和 成员变量定义，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">view plaincopy to clipboardprint?</div><div class="line"> </div><div class="line"><span class="keyword">var</span> variableName;    <span class="comment">//变量定义 </span></div><div class="line"><span class="comment">//作用域：函数定义范围内 </span></div><div class="line"><span class="comment">//使用方法：直接使用variableName </span></div><div class="line"><span class="keyword">this</span>.varName;      <span class="comment">//成员变量定义 </span></div><div class="line"><span class="comment">//作用域：函数对象定义范围内及其成员函数中 </span></div><div class="line"><span class="comment">//使用方法：this.varName</span></div><div class="line"><span class="keyword">var</span> variableName;    <span class="comment">//变量定义</span></div><div class="line"><span class="comment">//作用域：函数定义范围内</span></div><div class="line"><span class="comment">//使用方法：直接使用variableName</span></div><div class="line"><span class="keyword">this</span>.varName;      <span class="comment">//成员变量定义</span></div><div class="line"><span class="comment">//作用域：函数对象定义范围内及其成员函数中</span></div><div class="line"><span class="comment">//使用方法：this.varName</span></div></pre></td></tr></table></figure></p>
+<p>以上归纳出的三类this的使用方法中，第一种比较容易理解，这里对原文中第6点提到的程序进行了测试和改进如下，以说明上述后两种使用方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">view plaincopy to clipboardprint?</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>) </span></div><div class="line">    &#123; </div><div class="line">      <span class="keyword">var</span> varText = <span class="string">"func variable!"</span>;                 <span class="comment">//函数中的普通变量 </span></div><div class="line">      <span class="keyword">this</span>.m_Text = <span class="string">'func member!'</span>;                    <span class="comment">//函数类的成员变量 </span></div><div class="line">      <span class="keyword">this</span>.m_Element = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>);   <span class="comment">//成员变量，创建一个div对象 </span></div><div class="line">      <span class="keyword">this</span>.m_Element.innerHTML = varText;             <span class="comment">//使用函数的普通变量 </span></div><div class="line">      <span class="keyword">this</span>.m_Element.attachEvent(<span class="string">'onclick'</span>, <span class="keyword">this</span>.ToString);  <span class="comment">//给这个对象的事件连上处理函数 </span></div><div class="line">      <span class="keyword">this</span>.newElement = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>); </div><div class="line">      <span class="keyword">this</span>.newElement.innerHTML = <span class="string">"new element"</span>;  </div><div class="line">      <span class="keyword">this</span>.newElement.m_Text = <span class="string">"new element text!"</span>;      <span class="comment">//给创建的对象建个成员 </span></div><div class="line">      <span class="keyword">this</span>.newElement.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">      &#123; </div><div class="line">        alert(<span class="keyword">this</span>.m_Text);                       <span class="comment">//指向div对象的成员 </span></div><div class="line">      &#125;; </div><div class="line">    &#125; </div><div class="line">    </div><div class="line">    JSClass.prototype.Render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">    &#123; </div><div class="line">      <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.m_Element);       <span class="comment">//把div对象挂在窗口上 </span></div><div class="line">      <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.newElement); </div><div class="line">    &#125;   </div><div class="line">  </div><div class="line">    JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line">    &#123; </div><div class="line">      alert(<span class="keyword">this</span>.m_Text);                         <span class="comment">//指向窗口（window）对象 </span></div><div class="line">    &#125;; </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initialize</span>(<span class="params"></span>)</span>&#123; </div><div class="line">      <span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass(); </div><div class="line">      jc.Render(); </div><div class="line">      jc.ToString();                             <span class="comment">//里面的this指向JSClass类的实例，里面有m_Text成员 </span></div><div class="line">    &#125; </div><div class="line">     </div><div class="line"><span class="comment">// --&gt; </span></div><div class="line"> </div><div class="line">    initialize(); </div><div class="line">     </div><div class="line"><span class="comment">// --&gt; </span></div><div class="line">   </div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">JSClass</span>(<span class="params"></span>)</span></div><div class="line">  &#123;</div><div class="line">   <span class="keyword">var</span> varText = <span class="string">"func variable!"</span>;     <span class="comment">//函数中的普通变量</span></div><div class="line">    <span class="keyword">this</span>.m_Text = <span class="string">'func member!'</span>;     <span class="comment">//函数类的成员变量</span></div><div class="line">    <span class="keyword">this</span>.m_Element = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>); <span class="comment">//成员变量，创建一个div对象</span></div><div class="line">    <span class="keyword">this</span>.m_Element.innerHTML = varText;    <span class="comment">//使用函数的普通变量</span></div><div class="line">    <span class="keyword">this</span>.m_Element.attachEvent(<span class="string">'onclick'</span>, <span class="keyword">this</span>.ToString); <span class="comment">//给这个对象的事件连上处理函数</span></div><div class="line">    <span class="keyword">this</span>.newElement = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>);</div><div class="line">    <span class="keyword">this</span>.newElement.innerHTML = <span class="string">"new element"</span>;</div><div class="line">    <span class="keyword">this</span>.newElement.m_Text = <span class="string">"new element text!"</span>;  <span class="comment">//给创建的对象建个成员</span></div><div class="line">    <span class="keyword">this</span>.newElement.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">   &#123;</div><div class="line">     alert(<span class="keyword">this</span>.m_Text);      <span class="comment">//指向div对象的成员</span></div><div class="line">   &#125;;</div><div class="line">  &#125;</div><div class="line">   </div><div class="line">  JSClass.prototype.Render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">  &#123;</div><div class="line">    <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.m_Element);  <span class="comment">//把div对象挂在窗口上</span></div><div class="line">    <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.newElement);</div><div class="line">  &#125;  </div><div class="line"> </div><div class="line">  JSClass.prototype.ToString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">  &#123;</div><div class="line">    alert(<span class="keyword">this</span>.m_Text);       <span class="comment">//指向窗口（window）对象</span></div><div class="line">  &#125;;</div><div class="line"> </div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">initialize</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> jc = <span class="keyword">new</span> JSClass();</div><div class="line">   jc.Render();</div><div class="line">   jc.ToString();        <span class="comment">//里面的this指向JSClass类的实例，里面有m_Text成员</span></div><div class="line">  &#125;</div><div class="line">   </div><div class="line"><span class="comment">// --&gt;</span></div><div class="line"> </div><div class="line">   initialize();</div><div class="line">   </div><div class="line"><span class="comment">// --&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面的代码执行结果是：<br>页面加载时，弹出对话框，输出func member!<br>页面上显示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">func variable!</div><div class="line"><span class="keyword">new</span> element</div></pre></td></tr></table></figure></p>
+<p>单击func variable时，弹出对话框，显示undefined<br>——因为这时toString函数里的this指针指向window<br>单击new element时，弹出对话框显示new element text!<br>——因为这时toString函数里的this指针指向div元素，而该元素已经定义了m_Text成员（this.newElement.m_Text = “new element text!”）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/28/数据库_MongoDB笔记/" rel="next" title="MongoDB笔记">
+                <i class="fa fa-chevron-left"></i> MongoDB笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/11/数据库_MySQL数据类型/" rel="prev" title="MySQL数据类型">
+                MySQL数据类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

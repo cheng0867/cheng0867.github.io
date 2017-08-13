@@ -1,0 +1,936 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Emmet插件可自动补全代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emmet快捷操作">
+<meta property="og:url" content="http://www.oneskk.com/2016/05/08/工具_sublime之Emmet快捷操作/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="Emmet插件可自动补全代码">
+<meta property="og:updated_time" content="2017-08-13T20:34:59.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emmet快捷操作">
+<meta name="twitter:description" content="Emmet插件可自动补全代码">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/05/08/工具_sublime之Emmet快捷操作/"/>
+
+
+
+
+
+  <title> Emmet快捷操作 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/05/08/工具_sublime之Emmet快捷操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Emmet快捷操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-08T00:00:00+08:00">
+                2016-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note info"><p>Emmet插件可自动补全代码</p>
+</div>
+<a id="more"></a>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="子节点：-gt"><a href="#子节点：-gt" class="headerlink" title="子节点：&gt;"></a>子节点：&gt;</h2><p><code>nav&gt;ul&gt;li</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="兄弟节点："><a href="#兄弟节点：" class="headerlink" title="兄弟节点：+"></a>兄弟节点：+</h2><p><code>div+p+bq</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="提升："><a href="#提升：" class="headerlink" title="提升：^"></a>提升：^</h2><p><code>div+div&gt;p&gt;span+em^bq</code> 其中<code>^</code>左边内容在上，右边内容在下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>div+div&gt;p&gt;span+em^^bq</code> 使用<code>^^</code>跳出当前父级节点<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="分组："><a href="#分组：" class="headerlink" title="分组：()"></a>分组：()</h2><p><code>div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dl</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="倍数："><a href="#倍数：" class="headerlink" title="倍数：*"></a>倍数：*</h2><p><code>ul&gt;li*5</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="项编号："><a href="#项编号：" class="headerlink" title="项编号：$"></a>项编号：$</h2><p><code>ul&gt;li.item$*5</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>h$[title=item$]{Header $}*3</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">title</span>=<span class="string">"item1"</span>&gt;</span>Header 1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">title</span>=<span class="string">"item2"</span>&gt;</span>Header 2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">title</span>=<span class="string">"item3"</span>&gt;</span>Header 3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>ul&gt;li.item$$$*5</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item001"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item002"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item003"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item004"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item005"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>ul&gt;li.item$@-*5</code> 其中<code>@-</code>转为倒序<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>ul&gt;li.item$@3*5</code> 从3起始，个数为5<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item6"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item7"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="ID和Class属性"><a href="#ID和Class属性" class="headerlink" title="ID和Class属性"></a>ID和Class属性</h2><p><code>#header</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>.title</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>form#search.wide</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">class</span>=<span class="string">"wide"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>p.class1.class2.class3</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"class1 class2 class3"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="自定属性"><a href="#自定属性" class="headerlink" title="自定属性"></a>自定属性</h2><p><code>p[title=&quot;hello world&quot;]</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">title</span>=<span class="string">"hello world"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>td[rowspan=2 colspan=3 title]</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"2"</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">title</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>[a=&quot;value1&quot; b=&quot;value2&quot;]</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">a</span>=<span class="string">"value1"</span> <span class="attr">b</span>=<span class="string">"value2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="文本："><a href="#文本：" class="headerlink" title="文本：{}"></a>文本：{}</h2><p><code>a{click me}</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>p&gt;{click}+a{here}+{to continue}</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>click<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>here<span class="tag">&lt;/<span class="name">a</span>&gt;</span>to continue<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="隐式标签名"><a href="#隐式标签名" class="headerlink" title="隐式标签名"></a>隐式标签名</h2><p><code>.class1</code>默认为<code>div</code>标签<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"class1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>em&gt;.item</code>em中默认为<code>span</code>标签<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"class1"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>ul&gt;.item*3</code>ul中默认为<code>li</code>标签<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>table&gt;.row&gt;.col</code>table标签中默认为<code>tr</code>标签，其次默认为<code>td</code>标签<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><blockquote>
+<p>所有未知缩写都会变成<strong>标签</strong>，如：<code>foo</code> ——&gt; <code>&lt;foo&gt;&lt;/foo&gt;</code></p>
+</blockquote>
+<h2 id="构建html-5基础结构，别名：html-5"><a href="#构建html-5基础结构，别名：html-5" class="headerlink" title="! 构建html 5基础结构，别名：html:5"></a><code>!</code> 构建html 5基础结构，别名：<code>html:5</code></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><code>a</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>a:link</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>a:mail</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="换行-分割线"><a href="#换行-分割线" class="headerlink" title="换行 / 分割线"></a>换行 / 分割线</h2><p><code>br</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>hr</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="样式链接"><a href="#样式链接" class="headerlink" title="样式链接"></a>样式链接</h2><p><code>link</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>link:css</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"style.css"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>link:print</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"print.css"</span> <span class="attr">media</span>=<span class="string">"print"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>link:favicon</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="元信息"><a href="#元信息" class="headerlink" title="元信息"></a>元信息</h2><p><code>meta</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>meta:utf</code> <strong>编码：utf-8</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=UTF-8"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>meta:vp</code> <strong>兼容移动端</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>meta:compat</code> <strong>兼容IE7</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="样式标签"><a href="#样式标签" class="headerlink" title="样式标签"></a>样式标签</h2><p><code>style</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="脚本标签"><a href="#脚本标签" class="headerlink" title="脚本标签"></a>脚本标签</h2><p><code>script</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>script:src</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h2><p><code>form</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>form:get/post</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>inp</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:</code> n</p>
+<ul>
+<li>n = <code>h</code> -&gt; hidden</li>
+<li><code>t</code> -&gt; text</li>
+<li><code>p</code> -&gt; password</li>
+<li><code>c</code> -&gt; checkbox</li>
+<li><code>r</code> -&gt; radio</li>
+<li><code>f</code> -&gt; file</li>
+<li><code>s</code> -&gt; submit</li>
+<li><code>i</code> -&gt; image</li>
+<li><code>b</code> -&gt; button<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>input:search</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:url</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"url"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:date/datetime/datetime-local/month/weeb/time</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"datetime"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"datetime-local"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"month"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"week"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:number</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:color</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"color"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:range</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>input:reset</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p><code>btn:</code>n</p>
+<ul>
+<li>n = <code>r</code> -&gt; reset</li>
+<li>n = <code>s</code> -&gt; submit<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"reset"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="IE兼容"><a href="#IE兼容" class="headerlink" title="IE兼容"></a>IE兼容</h2><p><code>c</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--  --&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>cc:ie6</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if lte IE 6]&gt;</span></div><div class="line">    </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p><code>cc:ie</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if IE]&gt;</span></div><div class="line">    </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p><code>cc:noie</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if !IE]&gt;&lt;!--&gt;</span></div><div class="line">    </div><div class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p><code>pos:</code>n</p>
+<ul>
+<li>n = <code>s</code> -&gt; static</li>
+<li>n = <code>a</code> -&gt; absolute</li>
+<li>n = <code>r</code> -&gt; relative</li>
+<li>n = <code>f</code> -&gt; fixed</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">static</span>;</div><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</div><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</div><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">fixed</span>;</div></pre></td></tr></table></figure>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><p><code>fl:</code> n</p>
+<ul>
+<li>n = <code>n</code> -&gt; none</li>
+<li>n = <code>l</code> -&gt; left     </li>
+<li>n = <code>r</code> -&gt; right</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">float</span>: <span class="selector-tag">none</span>;</div><div class="line"><span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</div><div class="line"><span class="selector-tag">float</span>: <span class="selector-tag">right</span>;</div></pre></td></tr></table></figure>
+<p><code>cl:</code> n</p>
+<ul>
+<li>n = <code>n</code> -&gt; none</li>
+<li>n = <code>l</code> -&gt; left</li>
+<li>n = <code>r</code> -&gt; right</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">clear</span>: <span class="selector-tag">none</span>;</div><div class="line"><span class="selector-tag">clear</span>: <span class="selector-tag">left</span>;</div><div class="line"><span class="selector-tag">clear</span>: <span class="selector-tag">right</span>;</div></pre></td></tr></table></figure>
+<h2 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h2><p><code>d:</code> n</p>
+<ul>
+<li>n = <code>n</code> -&gt; none</li>
+<li><code>b</code> -&gt; block</li>
+<li><code>i</code> -&gt; inline</li>
+<li><code>ib</code> -&gt; inline-block</li>
+<li><code>li</code> -&gt; list-item</li>
+<li><code>tb</code> -&gt; table</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">none</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">inline</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">list-item</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">table</span>;</div></pre></td></tr></table></figure>
+<p><code>v:</code> n<br>n = <code>v</code> -&gt; visible<br>n = <code>h</code> -&gt; hidden</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">visibility</span>: <span class="selector-tag">visible</span>;</div><div class="line"><span class="selector-tag">visibility</span>: <span class="selector-tag">hidden</span>;</div></pre></td></tr></table></figure>
+<p><code>ov[x/y]:</code> n</p>
+<ul>
+<li>n = <code>v</code> -&gt; visible</li>
+<li>n = <code>h</code> -&gt; hidden</li>
+<li>n = <code>s</code> -&gt; scroll</li>
+<li>n = <code>a</code> -&gt; auto</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">visible</span>;</div><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</div><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">scroll</span>;</div><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">auto</span>;</div></pre></td></tr></table></figure>
+<h2 id="边距"><a href="#边距" class="headerlink" title="边距"></a>边距</h2><p><code>m[x]:</code>n</p>
+<ul>
+<li>x = <code>t</code> -&gt; -top</li>
+<li>x = <code>b</code> -&gt; -bottom</li>
+<li>x = <code>l</code> -&gt; -left</li>
+<li>x = <code>r</code> -&gt; -right</li>
+<li>n = <code>a</code> -&gt; auto</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">margin-top</span>: ;</div><div class="line"><span class="selector-tag">margin-bottom</span>: ;</div><div class="line"><span class="selector-tag">margin-left</span>: ;</div><div class="line"><span class="selector-tag">margin-right</span>: ;</div><div class="line"><span class="selector-tag">margin</span>: <span class="selector-tag">auto</span>;</div></pre></td></tr></table></figure>
+<p><code>p[x]:</code>n</p>
+<ul>
+<li>x = <code>t</code> -&gt; -top</li>
+<li>x = <code>b</code> -&gt; -bottom</li>
+<li>x = <code>l</code> -&gt; -left</li>
+<li>x = <code>r</code> -&gt; -right</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">padding-top</span>: ;</div><div class="line"><span class="selector-tag">padding-bottom</span>: ;</div><div class="line"><span class="selector-tag">padding-left</span>: ;</div><div class="line"><span class="selector-tag">padding-right</span>: ;</div></pre></td></tr></table></figure>
+<h2 id="盒子大小"><a href="#盒子大小" class="headerlink" title="盒子大小"></a>盒子大小</h2><p><code>bxz:</code> n</p>
+<ul>
+<li>n = <code>cb</code> -&gt; content-box</li>
+<li>n = <code>bb</code> -&gt; border-box</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-box-sizing</span>: <span class="selector-tag">content-box</span>;</div><div class="line"><span class="selector-tag">-moz-box-sizing</span>: <span class="selector-tag">content-box</span>;</div><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">content-box</span>;</div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-box-sizing</span>: <span class="selector-tag">border-box</span>;</div><div class="line"><span class="selector-tag">-moz-box-sizing</span>: <span class="selector-tag">border-box</span>;</div><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span>;</div></pre></td></tr></table></figure>
+<p><code>bxsh</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-box-shadow</span>: <span class="selector-tag">inset</span> <span class="selector-tag">hoff</span> <span class="selector-tag">voff</span> <span class="selector-tag">blur</span> <span class="selector-tag">color</span>;</div><div class="line"><span class="selector-tag">box-shadow</span>: <span class="selector-tag">inset</span> <span class="selector-tag">hoff</span> <span class="selector-tag">voff</span> <span class="selector-tag">blur</span> <span class="selector-tag">color</span>;</div></pre></td></tr></table></figure>
+<p><code>w/h[:a]</code><br>a = auto</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">width</span>: <span class="selector-tag">auto</span>;</div><div class="line"><span class="selector-tag">height</span>: <span class="selector-tag">auto</span>;</div></pre></td></tr></table></figure>
+<p>maw/h[:n]<br>n = none</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">max-width</span>: <span class="selector-tag">none</span>;</div><div class="line"><span class="selector-tag">max-height</span>: <span class="selector-tag">none</span>;</div></pre></td></tr></table></figure>
+<p>miw/h</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">min-width</span>: ;</div><div class="line"><span class="selector-tag">min-height</span>: ;</div></pre></td></tr></table></figure>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><code>f+</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font</span>: 1<span class="selector-tag">em</span> <span class="selector-tag">Arial</span>,<span class="selector-tag">sans-serif</span>;</div></pre></td></tr></table></figure>
+<p><code>fw:</code> n</p>
+<ul>
+<li>n = <code>n</code> -&gt; normal</li>
+<li>n = <code>b</code> -&gt; bold</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font-weight</span>: <span class="selector-tag">normal</span>;</div><div class="line"><span class="selector-tag">font-weight</span>: <span class="selector-tag">bold</span>;</div></pre></td></tr></table></figure>
+<p><code>fs:</code> n</p>
+<ul>
+<li>n = <code>n</code> -&gt; normal</li>
+<li>n = <code>i</code> -&gt; italic</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font-style</span>: <span class="selector-tag">normal</span>;</div><div class="line"><span class="selector-tag">font-style</span>: <span class="selector-tag">italic</span>;</div></pre></td></tr></table></figure>
+<p><code>fz</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font-size</span>: ;</div></pre></td></tr></table></figure>
+<p><code>ff:a</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font-family</span>: <span class="selector-tag">Arial</span>, "<span class="selector-tag">Helvetica</span> <span class="selector-tag">Neue</span>", <span class="selector-tag">Helvetica</span>, <span class="selector-tag">sans-serif</span>;</div></pre></td></tr></table></figure>
+<h2 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h2><p><code>va:</code>n</p>
+<ul>
+<li>n = <code>t</code></li>
+<li>n = <code>m</code></li>
+<li>n = <code>b</code></li>
+<li>n = sup</li>
+<li>n = sub</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">top</span>;</div><div class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">middle</span>;</div><div class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">bottom</span>;</div><div class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">super</span>;</div><div class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">sub</span>;</div></pre></td></tr></table></figure>
+<p><code>ta:</code>n</p>
+<ul>
+<li>n = <code>l</code></li>
+<li>n = <code>c</code></li>
+<li>n = <code>r</code></li>
+<li>n = <code>j</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">left</span>;</div><div class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>;</div><div class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">right</span>;</div><div class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</div></pre></td></tr></table></figure>
+<p><code>td:</code>n</p>
+<ul>
+<li>n = <code>n</code></li>
+<li>n = <code>u</code></li>
+<li>n = <code>o</code></li>
+<li>n = <code>l</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">none</span>;</div><div class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">underline</span>;</div><div class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">overline</span>;</div><div class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">line-through</span>;</div></pre></td></tr></table></figure>
+<p><code>ti:-</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-indent</span>: <span class="selector-tag">-9999px</span>;</div></pre></td></tr></table></figure>
+<p><code>tsh</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-shadow</span>: <span class="selector-tag">hoff</span> <span class="selector-tag">voff</span> <span class="selector-tag">blur</span> <span class="selector-id">#000</span>;</div></pre></td></tr></table></figure>
+<p><code>tsh:r</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-shadow</span>: <span class="selector-tag">h</span> <span class="selector-tag">v</span> <span class="selector-tag">blur</span> <span class="selector-tag">rgb</span>(0, 0, 0);</div></pre></td></tr></table></figure>
+<p><code>tsh:ra</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-shadow</span>: <span class="selector-tag">h</span> <span class="selector-tag">v</span> <span class="selector-tag">blur</span> <span class="selector-tag">rgba</span>(0, 0, 0, <span class="selector-class">.5</span>);</div></pre></td></tr></table></figure>
+<p><code>lh</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">line-height</span>: ;</div></pre></td></tr></table></figure>
+<p><code>whs:nw</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</div></pre></td></tr></table></figure>
+<p><code>wob:ba</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-ms-word-break</span>: <span class="selector-tag">break-all</span>;</div><div class="line"><span class="selector-tag">word-break</span>: <span class="selector-tag">break-all</span>;</div></pre></td></tr></table></figure>
+<p><code>wow:b</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">word-wrap</span>: <span class="selector-tag">break-word</span>;</div></pre></td></tr></table></figure>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><code>bg+</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fff</span> <span class="selector-tag">url</span>() 0 0 <span class="selector-tag">no-repeat</span>;</div></pre></td></tr></table></figure>
+<p><code>bgsz:ct</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-background-size</span>: <span class="selector-tag">contain</span>;</div><div class="line"><span class="selector-tag">background-size</span>: <span class="selector-tag">contain</span>;</div></pre></td></tr></table></figure>
+<p><code>bgsz:cv</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-background-size</span>: <span class="selector-tag">cover</span>;</div><div class="line"><span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</div></pre></td></tr></table></figure>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p><code>c</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">color</span>: <span class="selector-id">#000</span>;</div></pre></td></tr></table></figure>
+<p><code>c:r</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">color</span>: <span class="selector-tag">rgb</span>(0, 0, 0);</div></pre></td></tr></table></figure>
+<p><code>c:ra</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">color</span>: <span class="selector-tag">rgba</span>(0, 0, 0, <span class="selector-class">.5</span>);</div></pre></td></tr></table></figure>
+<p><code>op</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">opacity</span>: ;</div></pre></td></tr></table></figure>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p><code>bd[n]+</code></p>
+<ul>
+<li>n = <code>t</code></li>
+<li>n = <code>b</code></li>
+<li>n = <code>l</code></li>
+<li>n = <code>r</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</div><div class="line"><span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</div><div class="line"><span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</div><div class="line"><span class="selector-tag">border-left</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</div><div class="line"><span class="selector-tag">border-right</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</div></pre></td></tr></table></figure>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p><code>!</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!<span class="selector-tag">important</span></div></pre></td></tr></table></figure>
+<p><code>@f+</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: <span class="string">'FontName'</span>;</div><div class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot'</span>);</div><div class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</div><div class="line">         <span class="built_in">url</span>(<span class="string">'FileName.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</div><div class="line">         <span class="built_in">url</span>(<span class="string">'FileName.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</div><div class="line">         <span class="built_in">url</span>(<span class="string">'FileName.svg#FontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</div><div class="line">    <span class="attribute">font-style</span>: normal;</div><div class="line">    <span class="attribute">font-weight</span>: normal;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>@i, @import</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> url();</div></pre></td></tr></table></figure>
+<p><code>@kf</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> identifier &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;  &#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;  &#125;</div><div class="line">&#125;</div><div class="line">@-<span class="keyword">o</span>-<span class="keyword">keyframes</span> identifier &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;  &#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;  &#125;</div><div class="line">&#125;</div><div class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> identifier &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;  &#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> identifier &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;  &#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>@m, @media</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen &#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>anim-</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-animation</span>: <span class="selector-tag">name</span> <span class="selector-tag">duration</span> <span class="selector-tag">timing-function</span> <span class="selector-tag">delay</span> <span class="selector-tag">iteration-count</span> <span class="selector-tag">direction</span> <span class="selector-tag">fill-mode</span>;</div><div class="line"><span class="selector-tag">-o-animation</span>: <span class="selector-tag">name</span> <span class="selector-tag">duration</span> <span class="selector-tag">timing-function</span> <span class="selector-tag">delay</span> <span class="selector-tag">iteration-count</span> <span class="selector-tag">direction</span> <span class="selector-tag">fill-mode</span>;</div><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">name</span> <span class="selector-tag">duration</span> <span class="selector-tag">timing-function</span> <span class="selector-tag">delay</span> <span class="selector-tag">iteration-count</span> <span class="selector-tag">direction</span> <span class="selector-tag">fill-mode</span>;</div></pre></td></tr></table></figure>
+<p><code>tov:e</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-ms-text-overflow</span>: <span class="selector-tag">ellipsis</span>;</div><div class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</div></pre></td></tr></table></figure>
+<p><code>trf:</code>n</p>
+<ul>
+<li>n = <code>r</code></li>
+<li>n = <code>sc</code></li>
+<li>n = <code>sk[x/y]</code></li>
+<li>n = <code>t</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">-ms-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">-o-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">angle</span>);</div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scale</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">-ms-transform</span>: <span class="selector-tag">scale</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">-o-transform</span>: <span class="selector-tag">scale</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">skewY</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">-ms-transform</span>: <span class="selector-tag">skewY</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">-o-transform</span>: <span class="selector-tag">skewY</span>(<span class="selector-tag">angle</span>);</div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">skewY</span>(<span class="selector-tag">angle</span>);</div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">-ms-transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">-o-transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>, <span class="selector-tag">y</span>);</div></pre></td></tr></table></figure>
+<p><code>us</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-user-select</span>: ;</div><div class="line"><span class="selector-tag">-moz-user-select</span>: ;</div><div class="line"><span class="selector-tag">-ms-user-select</span>: ;</div><div class="line"><span class="selector-tag">-o-user-select</span>: ;</div><div class="line"><span class="selector-tag">user-select</span>: ;</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考：<a href="http://emmet.evget.com/#XSL" target="_blank" rel="external">http://emmet.evget.com/#XSL</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/06/html_H5标签兼容写法/" rel="next" title="H5标签兼容写法">
+                <i class="fa fa-chevron-left"></i> H5标签兼容写法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/11/数据库_MySQL操作/" rel="prev" title="MySQL常用操作">
+                MySQL常用操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#子节点：-gt"><span class="nav-number">1.1.</span> <span class="nav-text">子节点：></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兄弟节点："><span class="nav-number">1.2.</span> <span class="nav-text">兄弟节点：+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升："><span class="nav-number">1.3.</span> <span class="nav-text">提升：^</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组："><span class="nav-number">1.4.</span> <span class="nav-text">分组：()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倍数："><span class="nav-number">1.5.</span> <span class="nav-text">倍数：*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项编号："><span class="nav-number">1.6.</span> <span class="nav-text">项编号：$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID和Class属性"><span class="nav-number">1.7.</span> <span class="nav-text">ID和Class属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定属性"><span class="nav-number">1.8.</span> <span class="nav-text">自定属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本："><span class="nav-number">1.9.</span> <span class="nav-text">文本：{}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式标签名"><span class="nav-number">1.10.</span> <span class="nav-text">隐式标签名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建html-5基础结构，别名：html-5"><span class="nav-number">2.1.</span> <span class="nav-text">! 构建html 5基础结构，别名：html:5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.2.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换行-分割线"><span class="nav-number">2.3.</span> <span class="nav-text">换行 / 分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式链接"><span class="nav-number">2.4.</span> <span class="nav-text">样式链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元信息"><span class="nav-number">2.5.</span> <span class="nav-text">元信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式标签"><span class="nav-number">2.6.</span> <span class="nav-text">样式标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本标签"><span class="nav-number">2.7.</span> <span class="nav-text">脚本标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单标签"><span class="nav-number">2.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按钮"><span class="nav-number">2.9.</span> <span class="nav-text">按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE兼容"><span class="nav-number">2.10.</span> <span class="nav-text">IE兼容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">3.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">3.1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动"><span class="nav-number">3.2.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示"><span class="nav-number">3.3.</span> <span class="nav-text">显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边距"><span class="nav-number">3.4.</span> <span class="nav-text">边距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子大小"><span class="nav-number">3.5.</span> <span class="nav-text">盒子大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">3.6.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字"><span class="nav-number">3.7.</span> <span class="nav-text">文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">3.8.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">3.9.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框"><span class="nav-number">3.10.</span> <span class="nav-text">边框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">3.11.</span> <span class="nav-text">其它</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

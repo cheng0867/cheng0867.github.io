@@ -1,0 +1,873 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="stylus 预编译样式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stylus指南">
+<meta property="og:url" content="http://www.oneskk.com/2016/02/22/css_stylus/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="stylus 预编译样式">
+<meta property="og:updated_time" content="2017-08-13T20:04:17.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="stylus指南">
+<meta name="twitter:description" content="stylus 预编译样式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/02/22/css_stylus/"/>
+
+
+
+
+
+  <title> stylus指南 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/02/22/css_stylus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                stylus指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-22T00:00:00+08:00">
+                2016-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note warning"><p>stylus 预编译样式</p>
+</div>
+<a id="more"></a>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><blockquote>
+<p>stylus需要<strong>node</strong>支持，安装stylus前需要安装node</p>
+</blockquote>
+<h2 id="安装stylus"><a href="#安装stylus" class="headerlink" title="安装stylus"></a>安装stylus</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install stylus -g   # -g为全局安装</div></pre></td></tr></table></figure>
+<h2 id="监听stylus文件修改：–watch"><a href="#监听stylus文件修改：–watch" class="headerlink" title="监听stylus文件修改：–watch"></a>监听stylus文件修改：–watch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stylus --watch test.styl</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h2 id="缩排"><a href="#缩排" class="headerlink" title="缩排"></a>缩排</h2><blockquote>
+<p><strong><code>stylus</code></strong>基于<strong>缩进</strong>，因此空格有重要意义，所以使用<strong>缩排</strong>和<strong>凹排</strong>代替<strong>花括号</strong></p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">color</span> white</div></pre></td></tr></table></figure>
+<p>以上代码对应<strong><code>css</code></strong>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为了便于阅读，可以使用<strong>冒号</strong>作为分割：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">color</span>: white</div></pre></td></tr></table></figure></p>
+<h2 id="规则集"><a href="#规则集" class="headerlink" title="规则集"></a>规则集</h2><blockquote>
+<p>使用<strong>逗号</strong>对多个选择器同时定义属性</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">textarea</span>, <span class="selector-tag">input</span></div><div class="line">    <span class="attribute">border</span> <span class="number">1px</span> solid <span class="number">#eee</span></div></pre></td></tr></table></figure>
+<p>或<strong>换行</strong>，效果是一样的<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">textarea</span></div><div class="line"><span class="selector-tag">input</span></div><div class="line">    <span class="attribute">border</span> <span class="number">1px</span> solid <span class="number">#eee</span></div></pre></td></tr></table></figure></p>
+<p>以上代码对应<strong><code>css</code></strong>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">textarea</span>, <span class="selector-tag">input</span>&#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>该规则的<strong>例外情况</strong>就是长得像属性选择器，例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo bar baz</div><div class="line">&gt; <span class="selector-tag">input</span></div><div class="line">    <span class="attribute">border</span> <span class="number">1px</span> solid</div></pre></td></tr></table></figure></p>
+<p>为解决这个问题，可以在尾部加个逗号<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foo bar baz,</div><div class="line"><span class="selector-tag">form</span> <span class="selector-tag">input</span>,</div><div class="line">&gt; <span class="selector-tag">a</span></div><div class="line">    <span class="attribute">border</span> <span class="number">1px</span> solid</div></pre></td></tr></table></figure></p>
+<h2 id="父级引用：-amp"><a href="#父级引用：-amp" class="headerlink" title="父级引用：&amp;"></a>父级引用：&amp;</h2><p>字符 <strong><code>&amp;</code></strong> 指向父选择器<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">textarea</span></div><div class="line"><span class="selector-tag">input</span></div><div class="line">    <span class="attribute">color</span> <span class="number">#a7a7a7</span></div><div class="line">    &amp;:hover</div><div class="line">        <span class="attribute">color</span> <span class="number">#000</span></div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">textarea</span>, <span class="selector-tag">input</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#a7a7a7</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">textarea</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="消除歧义"><a href="#消除歧义" class="headerlink" title="消除歧义"></a>消除歧义</h2><p>由于类似<code>padding -n</code>表达式既可解释为减法运算，也可以解释为一元负号属性。为避免歧义，使用括号包裹表达式：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">pad</span><span class="params">(n)</span></span></div><div class="line">    <span class="attribute">padding</span> (- n)</div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    pad(<span class="number">5px</span>)</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: -<span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><blockquote>
+<p>指定表达式为变量，然后在样式中贯穿使用：</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">font-size</span> = <span class="number">14px</span></div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">font</span> font-size Arial, sans-serif</div></pre></td></tr></table></figure>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">font</span>: <span class="number">14px</span> Arial, sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用变量组成一个<strong>表达式列表</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">font-size</span> = <span class="number">14px</span></div><div class="line"><span class="attribute">font</span> = font-size <span class="string">"Lucida Grande"</span>, Arial</div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">font</span> font sans-serif</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">font</span>: <span class="number">14px</span> <span class="string">"Lucida Grande"</span>, Arial sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>变量名或函数名，也可以包含<strong><code>$</code></strong>符号：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$font</span>-size = <span class="number">14px</span></div><div class="line"><span class="selector-tag">body</span> </div><div class="line">    <span class="attribute">font</span> <span class="variable">$font</span>-size sans-serif</div></pre></td></tr></table></figure></p>
+<h2 id="属性查找"><a href="#属性查找" class="headerlink" title="属性查找"></a>属性查找</h2><blockquote>
+<p>不需要分配值给变量就可以定义引用属性</p>
+</blockquote>
+<p>使用<strong>变量</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#logo</span></div><div class="line">    <span class="attribute">position</span>: absolute</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span></div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span></div><div class="line">    <span class="attribute">width</span>: w = <span class="number">150px</span></div><div class="line">    <span class="attribute">height</span>: h = <span class="number">80px</span></div><div class="line">    <span class="attribute">margin-left</span>: -(w / <span class="number">2</span>)</div><div class="line">    <span class="attribute">margin-top</span>: -(h / <span class="number">2</span>)</div></pre></td></tr></table></figure></p>
+<p>用 <strong><code>@</code></strong> 加属性名来访问对应属性名的值<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#logo</span></div><div class="line">    <span class="attribute">position</span>:absolute</div><div class="line">    <span class="attribute">top</span>:<span class="number">50%</span></div><div class="line">    <span class="attribute">left</span>:<span class="number">50%</span></div><div class="line">    <span class="attribute">width</span>:<span class="number">150px</span></div><div class="line">    <span class="attribute">height</span>:<span class="number">80px</span></div><div class="line">    <span class="attribute">margin-left</span>:-(@width / <span class="number">2</span>)</div><div class="line">    <span class="attribute">margin-top</span>:-(@height / <span class="number">2</span>)</div><div class="line">``` </div><div class="line">有条件的定义属性，如果未指定属性`unless @属性名`</div><div class="line">```stylus</div><div class="line"><span class="function"><span class="title">position</span><span class="params">()</span></span></div><div class="line">    <span class="attribute">position</span>: arguments</div><div class="line">    <span class="attribute">z-index</span>:<span class="number">1</span> unless @z-index</div><div class="line"></div><div class="line"><span class="selector-id">#logo</span></div><div class="line">    <span class="attribute">z-index</span>:<span class="number">20</span></div><div class="line">    <span class="attribute">position</span>:absolute</div><div class="line"></div><div class="line"><span class="selector-id">#logo2</span></div><div class="line">    <span class="attribute">position</span>:absolute</div></pre></td></tr></table></figure></p>
+<p>属性会向上冒泡查找属性，或返回null<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">color</span>:red</div><div class="line">    <span class="selector-tag">ul</span></div><div class="line">        <span class="selector-tag">li</span></div><div class="line">            <span class="attribute">color</span>:blue</div><div class="line">            <span class="selector-tag">a</span></div><div class="line">                <span class="attribute">background-color</span>:@color</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h1><blockquote>
+<p>stylus支持通过使用<strong>花括号</strong>字符包围表达式来插入值，其会变成标识符的一部分</p>
+</blockquote>
+<p><strong>私有前缀</strong>属性扩展：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">vendor</span><span class="params">(prop, args)</span></span></div><div class="line">    -webkit-&#123;prop&#125; args</div><div class="line">    -moz-&#123;prop&#125; args</div><div class="line">    &#123;prop&#125; args</div><div class="line"></div><div class="line"><span class="function"><span class="title">border-radius</span><span class="params">()</span></span></div><div class="line">    vendor(<span class="string">"border-radius"</span>, arguments)</div><div class="line"></div><div class="line"><span class="function"><span class="title">box-shadow</span><span class="params">()</span></span></div><div class="line">    vendor(<span class="string">"box-shadow"</span>, arguments)</div><div class="line"></div><div class="line"><span class="selector-tag">button</span></div><div class="line">    <span class="attribute">border-radius</span> <span class="number">1px</span> <span class="number">2px</span> / <span class="number">3px</span> <span class="number">4px</span></div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">button</span> &#123;</div><div class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">1px</span> <span class="number">2px</span>/<span class="number">3px</span> <span class="number">4px</span>;</div><div class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">1px</span> <span class="number">2px</span>/<span class="number">3px</span> <span class="number">4px</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">1px</span> <span class="number">2px</span>/<span class="number">3px</span> <span class="number">4px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="选择器插值"><a href="#选择器插值" class="headerlink" title="选择器插值"></a>选择器插值</h2><blockquote>
+<p>插值也可在选择器上起作用</p>
+</blockquote>
+<p>指定表格前5行的高度<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">table</span></div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></div><div class="line">        <span class="selector-tag">tr</span>:nth-child(&#123;row&#125;)</div><div class="line">            <span class="attribute">height</span>: <span class="number">10px</span> * row</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p>以下运算符优先级<strong>从高到低</strong>排列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[]</div><div class="line">! ~ + -</div><div class="line">is defined</div><div class="line">** * / %</div><div class="line">+ -</div><div class="line">... ..</div><div class="line">&lt;= &gt;= &lt; &gt;</div><div class="line">in</div><div class="line">== is != is not isnt</div><div class="line">is a</div><div class="line">&amp;&amp; and || or</div><div class="line">?:</div><div class="line">= := ?= += -= *= /= %=</div><div class="line">not </div><div class="line">if unless</div></pre></td></tr></table></figure></p>
+<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><blockquote>
+<p>包括：<code>!，not，-，+，~</code><br>其中：<code>!，not，-</code>为取反</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">not <span class="selector-tag">a</span> or <span class="selector-tag">b</span></div><div class="line"><span class="comment">//返回false，解析为：not (a or b)</span></div></pre></td></tr></table></figure>
+<h2 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h2><blockquote>
+<p>下标运算符[]，允许通过<strong>索引</strong>获取表达式内部值。</p>
+</blockquote>
+<h2 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h2><blockquote>
+<p>界限操作符：(..)<br>范围操作符：(…)</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>..<span class="number">5</span></div><div class="line"><span class="comment">//返回：1 2 3 4 5</span></div><div class="line"><span class="number">1</span>...<span class="number">5</span></div><div class="line"><span class="comment">//返回：1 2 3 4</span></div></pre></td></tr></table></figure>
+<h2 id="加减："><a href="#加减：" class="headerlink" title="加减：+ -"></a>加减：+ -</h2><blockquote>
+<p>二元加乘运算其<strong>单位</strong>会转化，或使用默认字面量值</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="number">15px</span> - <span class="number">5px</span></div><div class="line"><span class="comment">// 返回 10px</span></div><div class="line"><span class="number">5</span> - <span class="number">2</span></div><div class="line"><span class="comment">// 返回 3</span></div><div class="line"><span class="number">5in</span> - <span class="number">50mm</span></div><div class="line"><span class="comment">// 返回 3.031in</span></div><div class="line"><span class="number">5s</span> - <span class="number">1000ms</span></div><div class="line"><span class="comment">// 返回 4s</span></div><div class="line"><span class="number">20mm</span> + <span class="number">4in</span></div><div class="line"><span class="comment">// 返回 121.6mm</span></div><div class="line"><span class="string">"foo "</span> + <span class="string">"bar"</span></div><div class="line"><span class="comment">// 返回 "foo bar"</span></div><div class="line"><span class="string">"num"</span> + <span class="number">15</span></div><div class="line"><span class="comment">// 返回 "num 15"</span></div></pre></td></tr></table></figure>
+<h2 id="乘除："><a href="#乘除：" class="headerlink" title="乘除：/ * %"></a>乘除：<code>/ * %</code></h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2000ms + (1s * 2)</div><div class="line">// 返回 4000ms</div><div class="line">5s / 2</div><div class="line">// 返回 2.5s</div><div class="line">4 % 2</div><div class="line">// 返回 0</div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：当在属性值内使用<code>/</code>时候，<strong>必须</strong>用括号包住，否则会根据其字面意思处理，如font-size/line-height<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">font</span>: <span class="number">14px</span>/<span class="number">1.5</span>;</div></pre></td></tr></table></figure></p>
+<p>以下代码等同于14px除以1.5：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">font</span>:(<span class="number">14px</span>/<span class="number">1.5</span>)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只有<code>/</code>操作符的时候需要这样</p>
+</blockquote>
+<h2 id="指数："><a href="#指数：" class="headerlink" title="指数：**"></a>指数：<code>**</code></h2><p>指数操作符：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2 ** 8</div><div class="line">// 返回：2的8次幂，即256</div></pre></td></tr></table></figure></p>
+<h2 id="相等于关系运算：-gt-lt-gt-lt"><a href="#相等于关系运算：-gt-lt-gt-lt" class="headerlink" title="相等于关系运算：== != &gt;= &lt;= &gt; &lt;"></a>相等于关系运算：<code>== != &gt;= &lt;= &gt; &lt;</code></h2><blockquote>
+<p>相等运算可以被用来等同单位、颜色、字符串甚至标识符。</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="number">5</span> == <span class="number">5</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">10</span> &gt; <span class="number">5</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">#fff</span> == <span class="number">#fff</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">true == false</div><div class="line"><span class="comment">// 返回 false</span></div><div class="line">wahoo == yay</div><div class="line"><span class="comment">// 返回 false</span></div><div class="line">wahoo == wahoo</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="string">"test"</span> == <span class="string">"test"</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">true is true</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="string">"hey"</span> is not <span class="string">"bye"</span></div><div class="line"><span class="comment">// 返回 ture</span></div><div class="line"><span class="string">"hey"</span> isnt <span class="string">"bye"</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">(foo bar) == (foo bar)</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>) == (<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>) == (<span class="number">1</span> <span class="number">1</span> <span class="number">3</span>)</div><div class="line"><span class="comment">// 返回 false</span></div></pre></td></tr></table></figure>
+<p>只有精确值才能匹配，如：<code>0 == false</code> 和 <code>null == false</code> 均返回<code>false</code><br><strong>别名</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">==  is</div><div class="line">!=  is not</div><div class="line">!=  isnt</div></pre></td></tr></table></figure></p>
+<h2 id="真与假"><a href="#真与假" class="headerlink" title="真与假"></a>真与假</h2><p>返回<code>true</code>的例子：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">0%</span></div><div class="line"><span class="number">0px</span></div><div class="line"><span class="number">1px</span></div><div class="line">-<span class="number">1</span></div><div class="line">-<span class="number">1px</span></div><div class="line">hey</div><div class="line"><span class="string">"hey"</span></div><div class="line">(<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>)</div><div class="line">(<span class="string">""</span> <span class="string">""</span>)</div></pre></td></tr></table></figure></p>
+<p>返回<code>false</code>的例子：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line">null</div><div class="line">false</div><div class="line"><span class="string">""</span></div></pre></td></tr></table></figure></p>
+<h2 id="逻辑操作符：-amp-amp-or"><a href="#逻辑操作符：-amp-amp-or" class="headerlink" title="逻辑操作符：&amp;&amp; || or"></a>逻辑操作符：<code>&amp;&amp; || or</code></h2><blockquote>
+<p>逻辑操作符 <code>&amp;&amp;</code> 和 <code>||</code> ，别名为 <code>and</code> / <code>or</code>，它们优先级相同</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">5 &amp;&amp; 3</div><div class="line">// 返回 3</div><div class="line">0 || 5</div><div class="line">// 返回 5</div><div class="line">0 &amp;&amp; 5</div><div class="line">// 返回 0</div></pre></td></tr></table></figure>
+<h2 id="存在操作符：in"><a href="#存在操作符：in" class="headerlink" title="存在操作符：in"></a>存在操作符：<code>in</code></h2><blockquote>
+<p>检查左边内容是否在右边的表达式中</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nums = <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></div><div class="line"><span class="number">1</span> <span class="keyword">in</span> nums</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">5</span> <span class="keyword">in</span> nums</div><div class="line"><span class="comment">// 返回 false</span></div></pre></td></tr></table></figure>
+<p>一些<strong>未定义</strong>标识符：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">words = foo bar baz</div><div class="line">bar <span class="keyword">in</span> words</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">HEY <span class="keyword">in</span> words</div><div class="line"><span class="comment">// 返回 false</span></div></pre></td></tr></table></figure></p>
+<p><strong>元组</strong>同样适用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vals = (error <span class="string">"one"</span>) (error <span class="string">"two"</span>)</div><div class="line">error <span class="keyword">in</span> vals</div><div class="line"><span class="comment">// 返回 false</span></div><div class="line">(error <span class="string">"one"</span>) <span class="keyword">in</span> vals</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line">(error <span class="string">"something"</span>) <span class="keyword">in</span> vals</div><div class="line"><span class="comment">// 返回 false</span></div></pre></td></tr></table></figure></p>
+<p><strong>混合书写</strong>同样适用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">pad</span><span class="params">(types = padding, n = <span class="number">5px</span>)</span></span></div><div class="line">    <span class="keyword">if</span> <span class="attribute">padding</span> in types</div><div class="line">        <span class="attribute">padding</span> n</div><div class="line">    <span class="keyword">if</span> <span class="attribute">margin</span> in types</div><div class="line">        <span class="attribute">margin</span> n</div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    pad()</div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    pad(<span class="attribute">margin</span>)</div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    pad(<span class="attribute">padding</span> margin, <span class="number">10px</span>)</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="条件赋值："><a href="#条件赋值：" class="headerlink" title="条件赋值：?= :="></a>条件赋值：<code>?= :=</code></h2><blockquote>
+<p>条件复制操作符<code>?=</code>（别名<code>?:</code>），可以无需破坏旧值（如存在）定义变量</p>
+</blockquote>
+<p>如果没有颜色，则默认为白色，以下代码效果相同：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">color</span> := white</div><div class="line"><span class="attribute">color</span> ?= white</div><div class="line"><span class="attribute">color</span> = color is defined ? color : white</div></pre></td></tr></table></figure></p>
+<p>如果使用等号<code>=</code>，只是赋值，但当使用<code>?=</code>，若已定义则不起作用<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">color</span> = white</div><div class="line"><span class="attribute">color</span> ?= black</div><div class="line"></div><div class="line"><span class="attribute">color</span></div><div class="line"><span class="comment">// 返回 white</span></div></pre></td></tr></table></figure></p>
+<h2 id="实例检查：is-a"><a href="#实例检查：is-a" class="headerlink" title="实例检查：is a"></a>实例检查：<code>is a</code></h2><blockquote>
+<p>stylus提供一个二元运算符叫做<code>is a</code>，用作类型检查</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">15</span> is <span class="selector-tag">a</span> <span class="string">"unit"</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">#fff</span> is <span class="selector-tag">a</span> <span class="string">"rgba"</span></div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">15</span> is <span class="selector-tag">a</span> <span class="string">"rgba"</span></div><div class="line"><span class="comment">// 返回 false</span></div></pre></td></tr></table></figure>
+<p>也可使用内置函数<code>type()</code>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">type</span><span class="params">(<span class="number">#fff</span>)</span></span> == <span class="string">"rgba"</span></div><div class="line"><span class="comment">// 返回 true</span></div></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：<code>color</code>是唯一的特殊情况，当左边是<code>RGBA</code>或者<code>HSLA</code>节点时，都为<code>true</code></p>
+<h2 id="变量定义：is-defined"><a href="#变量定义：is-defined" class="headerlink" title="变量定义：is defined"></a>变量定义：is defined</h2><blockquote>
+<p>此伪二元运算符右边无值，左边无计算。用来检查变量<strong>是否已分配值</strong></p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">foo is defined</div><div class="line"><span class="comment">// 返回 false</span></div><div class="line">foo = <span class="number">15px</span></div><div class="line">foo is defined</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="number">#fff</span> is defined</div><div class="line"><span class="comment">// 返回 'invalid "is defined" check on non-variable #fff'</span></div></pre></td></tr></table></figure>
+<p>使用内置方法<code>lookup(name)</code>动态查找：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">name = <span class="string">"blue"</span></div><div class="line"><span class="function"><span class="title">lookup</span><span class="params">(<span class="string">"light-"</span> + name)</span></span></div><div class="line"><span class="comment">// 返回 null</span></div><div class="line"></div><div class="line">light-blue = <span class="number">#80e2e9</span></div><div class="line"><span class="function"><span class="title">lookup</span><span class="params">(<span class="string">"light-"</span> + name)</span></span></div><div class="line"><span class="comment">// 返回 #80e2e9</span></div></pre></td></tr></table></figure></p>
+<p>该操作符必不可少，因为一个未定义的标识符仍是<strong>真值</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="keyword">if</span> ohnoes</div><div class="line">        <span class="attribute">padding</span> <span class="number">5px</span></div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">padding </span>:<span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>安全的书写方式<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> </div><div class="line">    <span class="keyword">if</span> ohnoes is defined</div><div class="line">        <span class="attribute">padding</span> <span class="number">5px</span></div></pre></td></tr></table></figure></p>
+<h2 id="三元"><a href="#三元" class="headerlink" title="三元"></a>三元</h2><blockquote>
+<p>三元运算符，即三个操作对象的操作符（条件表达式、真表达式、假表达式）</p>
+</blockquote>
+<p>内置函数<code>unit()</code>添加单位<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">num = 15</div><div class="line">num ? unit(num, "px") : 20px</div><div class="line">// 返回 15px</div></pre></td></tr></table></figure></p>
+<h2 id="铸造"><a href="#铸造" class="headerlink" title="铸造"></a>铸造</h2><blockquote>
+<p>使用语法(expr)unit可用来强制后缀，较unit()简洁</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">body</div><div class="line">    n = 5</div><div class="line">    foo: (n)em</div><div class="line">    foo: (n)%</div><div class="line">    foo: (n + 5)%</div><div class="line">    foo: (n * 5)px</div><div class="line">    foo: unit(n + 5, "%")</div><div class="line">    foo: unit(5 + 180 / 2, deg)</div></pre></td></tr></table></figure>
+<h2 id="颜色操作"><a href="#颜色操作" class="headerlink" title="颜色操作"></a>颜色操作</h2><blockquote>
+<p>颜色操作提供了简洁，富有表现力的方式来改变其组成</p>
+</blockquote>
+<p>颜色<strong>相加</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">#0e0</span> + <span class="number">#0e0</span></div><div class="line"><span class="comment">// 返回 #0f0</span></div></pre></td></tr></table></figure></p>
+<p>增加/减少<strong>亮度</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">#888</span> + <span class="number">50%</span></div><div class="line"><span class="comment">// 返回 #c3c3c3</span></div><div class="line"></div><div class="line"><span class="number">#888</span> - <span class="number">50%</span></div><div class="line"><span class="comment">// 返回 #444</span></div></pre></td></tr></table></figure></p>
+<p>增加<strong>度数(deg)</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#foo</span> + <span class="number">50deg</span></div><div class="line"><span class="comment">// 返回 #ffd500</span></div></pre></td></tr></table></figure></p>
+<h2 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h2><blockquote>
+<p>格式化字符串模样的字符串<code>%</code>可以用来生成字面量值，通过传参给内置<code>s()</code>方法</p>
+</blockquote>
+<p>多个值需要括起来：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">"-webkit-gradient(%s, %s, %s)" % (linear (0 0) (0 100%))</div><div class="line">// 返回 -webkit-gradient(linear, 0 0, 0 100%)</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="混合书写（Mixins）"><a href="#混合书写（Mixins）" class="headerlink" title="混合书写（Mixins）"></a>混合书写（Mixins）</h1><h2 id="混入"><a href="#混入" class="headerlink" title="混入"></a>混入</h2><blockquote>
+<p>混入和函数定义方法一致，但是应用却有很大不同</p>
+</blockquote>
+<p>使用<strong>函数方式</strong>调用为方法，使用<strong>属性方式</strong>调用为混入：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">border-radius</span><span class="params">(n)</span></span></div><div class="line">    -webkit-<span class="attribute">border-radius</span> n</div><div class="line">    -moz-<span class="attribute">border-radius</span> n</div><div class="line">    <span class="attribute">border-radius</span> n</div><div class="line"></div><div class="line"><span class="selector-tag">form</span> <span class="selector-tag">input</span>[type=button]</div><div class="line">    <span class="attribute">border-radius</span>(<span class="number">5px</span>)</div><div class="line"></div><div class="line"><span class="selector-tag">form</span> <span class="selector-tag">input</span>[type=image]</div><div class="line">    <span class="attribute">border-radius</span>:<span class="number">5px</span></div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">form</span> <span class="selector-tag">input</span><span class="selector-attr">[type=button]</span> &#123;</div><div class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">form</span> <span class="selector-tag">input</span><span class="selector-attr">[type=image]</span> &#123;</div><div class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>多参数传递，使用<code>arguments</code>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">border-radius</span><span class="params">()</span></span></div><div class="line">    -webkit-<span class="attribute">border-radius</span> arguments</div><div class="line">    -moz-<span class="attribute">border-radius</span> arguments</div><div class="line">    <span class="attribute">border-radius</span> arguments</div><div class="line"></div><div class="line"><span class="selector-class">.box</span></div><div class="line">    <span class="attribute">border-radius</span> <span class="number">1px</span> <span class="number">2px</span> / <span class="number">3px</span> <span class="number">4px</span></div></pre></td></tr></table></figure></p>
+<p>特定<strong>私有前缀</strong>支持——如IE浏览器透明度：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">support-for-ie ?= true</div><div class="line"></div><div class="line">opacity(n)</div><div class="line">  opacity n</div><div class="line">  if support-for-ie</div><div class="line">    filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')</div><div class="line"></div><div class="line">#logo</div><div class="line">  &amp;:hover</div><div class="line">    opacity 0.5</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#logo</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">  <span class="attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="built_in">Alpha</span>(Opacity=50);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="父级引用"><a href="#父级引用" class="headerlink" title="父级引用"></a>父级引用</h2><blockquote>
+<p>混合书写可以用父级引用字符<code>&amp;</code>，继承父级，而不需要再添加</p>
+</blockquote>
+<p>定义条纹表格：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">stripe</span><span class="params">(even = <span class="number">#fff</span>, odd = <span class="number">#eee</span>)</span></span></div><div class="line">    <span class="selector-tag">tr</span></div><div class="line">        <span class="attribute">background-color</span> odd</div><div class="line">        &amp;<span class="selector-class">.even</span></div><div class="line">        &amp;:nth-child(even)</div><div class="line">            <span class="attribute">background-color</span> even</div></pre></td></tr></table></figure></p>
+<p>混合书写：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">table</span></div><div class="line">    stripe()</div><div class="line">    <span class="selector-tag">td</span></div><div class="line">        <span class="attribute">padding</span> <span class="number">4px</span> <span class="number">10px</span></div><div class="line"></div><div class="line">table<span class="selector-id">#users</span></div><div class="line">    stripe(<span class="number">#303030</span>, <span class="number">#494848</span>)</div><div class="line">    <span class="selector-tag">td</span></div><div class="line">        <span class="attribute">color</span> white</div></pre></td></tr></table></figure></p>
+<p>也可无需父引用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">stripe</span><span class="params">(even = <span class="number">#fff</span>, odd = <span class="number">#eee</span>)</span></span></div><div class="line">    <span class="selector-tag">tr</span></div><div class="line">        <span class="attribute">background-color</span> odd</div><div class="line">    <span class="selector-tag">tr</span><span class="selector-class">.even</span></div><div class="line">    <span class="selector-tag">tr</span>:nth-child(even)</div><div class="line">        <span class="attribute">background-color</span> even</div></pre></td></tr></table></figure></p>
+<p>把<code>stripe()</code>当作属性调用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stripe <span class="number">#fff</span> <span class="number">#000</span></div></pre></td></tr></table></figure></p>
+<h2 id="混合书写中的混合书写"><a href="#混合书写中的混合书写" class="headerlink" title="混合书写中的混合书写"></a>混合书写中的混合书写</h2><blockquote>
+<p>混合书写可以用其它混合书写，建立在它们自己的属性和选择器上</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">inline-list</span><span class="params">()</span></span></div><div class="line">    <span class="selector-tag">li</span> </div><div class="line">        <span class="attribute">display</span> inline</div><div class="line"></div><div class="line"><span class="function"><span class="title">comma-list</span><span class="params">()</span></span></div><div class="line">    inline-list()</div><div class="line">    <span class="selector-tag">li</span></div><div class="line">        &amp;:after</div><div class="line">            <span class="attribute">content</span> <span class="string">', '</span></div><div class="line">        &amp;:last-child:after</div><div class="line">            <span class="attribute">content</span> <span class="string">''</span></div><div class="line"></div><div class="line"><span class="selector-tag">ul</span></div><div class="line">    comma-list()</div></pre></td></tr></table></figure>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">', '</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="方法（Functions）"><a href="#方法（Functions）" class="headerlink" title="方法（Functions）"></a>方法（Functions）</h1><blockquote>
+<p>方法的定义与混入(mixins)一致；但可以有返回值</p>
+</blockquote>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p><strong>定义一个方法</strong>：两个数相加<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add</span><span class="params">(a, b)</span></span></div><div class="line">    <span class="selector-tag">a</span> + b</div></pre></td></tr></table></figure></p>
+<p><strong>调用方法</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">padding</span> add(<span class="number">10px</span>, <span class="number">5</span>)</div></pre></td></tr></table></figure></p>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h2><blockquote>
+<p>可选参数一般有默认的给定表达</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add</span><span class="params">(a, b = a)</span></span></div><div class="line">    <span class="selector-tag">a</span> + <span class="selector-tag">b</span></div><div class="line"><span class="function"><span class="title">add</span><span class="params">(<span class="number">10</span>, <span class="number">5</span>)</span></span></div><div class="line"><span class="comment">// 返回 15</span></div><div class="line"><span class="function"><span class="title">add</span><span class="params">(<span class="number">10</span>)</span></span></div><div class="line"><span class="comment">// 返回 20</span></div></pre></td></tr></table></figure>
+<p>可以使用<strong>函数调用</strong>作为默认值：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add</span><span class="params">(a, b = unit(a, px)</span></span>)</div><div class="line">    <span class="selector-tag">a</span> + b</div></pre></td></tr></table></figure></p>
+<h2 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h2><blockquote>
+<p>可以在函数内添加更复杂的方法</p>
+</blockquote>
+<p>使用内置函数<code>unit()</code>改变单位为<code>px</code>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add</span><span class="params">(a, b = a)</span></span></div><div class="line">    <span class="selector-tag">a</span> = unit(<span class="selector-tag">a</span>, px)</div><div class="line">    <span class="selector-tag">b</span> = unit(<span class="selector-tag">b</span>, px)</div><div class="line">    <span class="selector-tag">a</span> + <span class="selector-tag">b</span></div><div class="line">    </div><div class="line"><span class="function"><span class="title">add</span><span class="params">(<span class="number">15%</span>, <span class="number">10deg</span>)</span></span></div><div class="line"><span class="comment">// 返回 25px</span></div></pre></td></tr></table></figure></p>
+<h2 id="多个返回值"><a href="#多个返回值" class="headerlink" title="多个返回值"></a>多个返回值</h2><blockquote>
+<p>stylus的函数可以返回多个值，就像给变量赋多个值</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sizes = <span class="number">15px</span> <span class="number">10px</span></div><div class="line"></div><div class="line">sizes[<span class="number">0</span>]</div><div class="line"><span class="comment">// 返回 15px</span></div></pre></td></tr></table></figure>
+<p>在函数中返回多个值<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">sizes</span><span class="params">()</span></span></div><div class="line">    <span class="number">15px</span> <span class="number">10px</span></div><div class="line">  </div><div class="line"><span class="function"><span class="title">sizes</span><span class="params">()</span></span>[<span class="number">0</span>]</div><div class="line"><span class="comment">// 返回 15px</span></div></pre></td></tr></table></figure></p>
+<p><strong>特殊情况</strong>返回值是标识符：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">swap</span><span class="params">(a, b)</span></span></div><div class="line">    <span class="selector-tag">b</span> a</div></pre></td></tr></table></figure></p>
+<p><strong>解决</strong>使用括号，或<code>return</code>关键字<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">swap</span><span class="params">(a, b)</span></span></div><div class="line">    (<span class="selector-tag">b</span> a)</div><div class="line"><span class="function"><span class="title">swap</span><span class="params">(a, b)</span></span></div><div class="line">    return <span class="selector-tag">b</span> a</div></pre></td></tr></table></figure></p>
+<h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>创建一个函数，检查参数是否是字符串或缩进</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">stringish</span><span class="params">(val)</span></span></div><div class="line">    <span class="keyword">if</span> val is <span class="selector-tag">a</span> <span class="string">"string"</span> or val is <span class="selector-tag">a</span> <span class="string">"indent"</span></div><div class="line">        yes</div><div class="line">    <span class="keyword">else</span></div><div class="line">        no</div><div class="line"></div><div class="line"><span class="function"><span class="title">stringish</span><span class="params">(<span class="string">"yay"</span>)</span></span> == yes</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="function"><span class="title">stringish</span><span class="params">(yay)</span></span> == yes</div><div class="line"><span class="comment">// 返回 true</span></div><div class="line"><span class="function"><span class="title">stringish</span><span class="params">(<span class="number">0</span>)</span></span> == no</div><div class="line"><span class="comment">// 返回 true</span></div></pre></td></tr></table></figure>
+<p>另一个例子<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">compare</span><span class="params">(a, b)</span></span></div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">a</span> &gt; <span class="selector-tag">b</span></div><div class="line">        higher</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> <span class="selector-tag">a</span> &lt; <span class="selector-tag">b</span></div><div class="line">        lower</div><div class="line">    <span class="keyword">else</span></div><div class="line">        equal</div><div class="line">        </div><div class="line"><span class="function"><span class="title">compare</span><span class="params">(<span class="number">5</span>, <span class="number">2</span>)</span></span></div><div class="line"><span class="comment">// 返回 higher</span></div><div class="line"><span class="function"><span class="title">compare</span><span class="params">(<span class="number">1</span>, <span class="number">5</span>)</span></span></div><div class="line"><span class="comment">// 返回 lower</span></div><div class="line"><span class="function"><span class="title">compare</span><span class="params">(<span class="number">10</span>, <span class="number">10</span>)</span></span></div><div class="line"><span class="comment">// 返回 equal</span></div></pre></td></tr></table></figure></p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><blockquote>
+<p>给函数起个别名，使用<strong>等于号</strong></p>
+</blockquote>
+<p>给函数<code>add</code>添加别名<code>plus</code>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">plus = add</div><div class="line"></div><div class="line"><span class="function"><span class="title">plus</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span></div><div class="line"><span class="comment">// 返回 3</span></div></pre></td></tr></table></figure></p>
+<h2 id="变量函数"><a href="#变量函数" class="headerlink" title="变量函数"></a>变量函数</h2><blockquote>
+<p>stylus支持把函数当作变量传递到新的函数中</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">invoke</span><span class="params">(unit(a, b, fn)</span></span></div><div class="line">    fn(<span class="selector-tag">a</span>, b)</div><div class="line"></div><div class="line"><span class="function"><span class="title">add</span><span class="params">(a, b)</span></span></div><div class="line">    <span class="selector-tag">a</span> + <span class="selector-tag">b</span></div><div class="line"></div><div class="line"><span class="function"><span class="title">avg</span><span class="params">(a, b)</span></span></div><div class="line">    (<span class="selector-tag">a</span> + b) / <span class="number">2</span></div><div class="line"></div><div class="line"><span class="selector-tag">body</span></div><div class="line">    <span class="attribute">padding</span> invoke(<span class="number">5</span>, <span class="number">10</span>, add)</div><div class="line">    <span class="attribute">padding</span> invoke(<span class="number">5</span>, <span class="number">10</span>, avg)</div></pre></td></tr></table></figure>
+<p>等同于<code>css</code>：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">15</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">7.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
+<p><code>arguments</code>是所有函数都有的<strong>局部变量</strong>，包含传递的所有参数</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">sum</span><span class="params">()</span></span></div><div class="line">    n = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> arguments</div><div class="line">        n = n + num</div><div class="line">        </div><div class="line"><span class="function"><span class="title">sum</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span></span></div><div class="line"><span class="comment">// 返回 15</span></div></pre></td></tr></table></figure>
+<h2 id="哈希示例"><a href="#哈希示例" class="headerlink" title="哈希示例"></a>哈希示例</h2><blockquote>
+<p>定义get(hash, key)方法，用来返回key值或null，遍历键值对，如果键值匹配，返回对应的值</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">get</span><span class="params">(hash, key)</span></span></div><div class="line">    return pair[<span class="number">1</span>] <span class="keyword">if</span> pair[<span class="number">0</span>] == key <span class="keyword">for</span> pair <span class="keyword">in</span> hash</div><div class="line"></div><div class="line">hash = (one <span class="number">1</span>) (two <span class="number">2</span>) (three <span class="number">3</span>)</div><div class="line"><span class="function"><span class="title">get</span><span class="params">(hash, two)</span></span></div><div class="line"><span class="comment">// 返回 2</span></div><div class="line"><span class="function"><span class="title">get</span><span class="params">(hash, three)</span></span></div><div class="line"><span class="comment">// 返回 3</span></div><div class="line"><span class="function"><span class="title">get</span><span class="params">(hash, something)</span></span></div><div class="line"><span class="comment">// 返回 null</span></div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考：<a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank" rel="external">http://www.zhangxinxu.com/jq/stylus/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/20/linux之samba/" rel="next" title="Linux之Samba">
+                <i class="fa fa-chevron-left"></i> Linux之Samba
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/26/工具_sublime插件安装/" rel="prev" title="sublime插件">
+                sublime插件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装stylus"><span class="nav-number">1.1.</span> <span class="nav-text">安装stylus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听stylus文件修改：–watch"><span class="nav-number">1.2.</span> <span class="nav-text">监听stylus文件修改：–watch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缩排"><span class="nav-number">2.1.</span> <span class="nav-text">缩排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则集"><span class="nav-number">2.2.</span> <span class="nav-text">规则集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父级引用：-amp"><span class="nav-number">2.3.</span> <span class="nav-text">父级引用：&</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消除歧义"><span class="nav-number">2.4.</span> <span class="nav-text">消除歧义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性查找"><span class="nav-number">3.1.</span> <span class="nav-text">属性查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插值"><span class="nav-number">4.</span> <span class="nav-text">插值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器插值"><span class="nav-number">4.1.</span> <span class="nav-text">选择器插值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">5.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符优先级"><span class="nav-number">5.1.</span> <span class="nav-text">运算符优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一元运算符"><span class="nav-number">5.2.</span> <span class="nav-text">一元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元运算符"><span class="nav-number">5.3.</span> <span class="nav-text">二元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围"><span class="nav-number">5.4.</span> <span class="nav-text">范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加减："><span class="nav-number">5.5.</span> <span class="nav-text">加减：+ -</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乘除："><span class="nav-number">5.6.</span> <span class="nav-text">乘除：/ * %</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数："><span class="nav-number">5.7.</span> <span class="nav-text">指数：**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相等于关系运算：-gt-lt-gt-lt"><span class="nav-number">5.8.</span> <span class="nav-text">相等于关系运算：== != >= <= > <</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真与假"><span class="nav-number">5.9.</span> <span class="nav-text">真与假</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑操作符：-amp-amp-or"><span class="nav-number">5.10.</span> <span class="nav-text">逻辑操作符：&& || or</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在操作符：in"><span class="nav-number">5.11.</span> <span class="nav-text">存在操作符：in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件赋值："><span class="nav-number">5.12.</span> <span class="nav-text">条件赋值：?= :=</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例检查：is-a"><span class="nav-number">5.13.</span> <span class="nav-text">实例检查：is a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量定义：is-defined"><span class="nav-number">5.14.</span> <span class="nav-text">变量定义：is defined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元"><span class="nav-number">5.15.</span> <span class="nav-text">三元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#铸造"><span class="nav-number">5.16.</span> <span class="nav-text">铸造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色操作"><span class="nav-number">5.17.</span> <span class="nav-text">颜色操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化字符串"><span class="nav-number">5.18.</span> <span class="nav-text">格式化字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#混合书写（Mixins）"><span class="nav-number">6.</span> <span class="nav-text">混合书写（Mixins）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#混入"><span class="nav-number">6.1.</span> <span class="nav-text">混入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父级引用"><span class="nav-number">6.2.</span> <span class="nav-text">父级引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合书写中的混合书写"><span class="nav-number">6.3.</span> <span class="nav-text">混合书写中的混合书写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法（Functions）"><span class="nav-number">7.</span> <span class="nav-text">方法（Functions）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#返回值"><span class="nav-number">7.1.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认参数"><span class="nav-number">7.2.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数体"><span class="nav-number">7.3.</span> <span class="nav-text">函数体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个返回值"><span class="nav-number">7.4.</span> <span class="nav-text">多个返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件"><span class="nav-number">7.5.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#别名"><span class="nav-number">7.6.</span> <span class="nav-text">别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量函数"><span class="nav-number">7.7.</span> <span class="nav-text">变量函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">7.8.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希示例"><span class="nav-number">7.9.</span> <span class="nav-text">哈希示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

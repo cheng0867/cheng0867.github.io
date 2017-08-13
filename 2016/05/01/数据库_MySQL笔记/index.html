@@ -1,0 +1,789 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="MySQL笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL笔记">
+<meta property="og:url" content="http://www.oneskk.com/2016/05/01/数据库_MySQL笔记/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="MySQL笔记">
+<meta property="og:updated_time" content="2017-08-13T20:14:03.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL笔记">
+<meta name="twitter:description" content="MySQL笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/05/01/数据库_MySQL笔记/"/>
+
+
+
+
+
+  <title> MySQL笔记 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/05/01/数据库_MySQL笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySQL笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-01T00:00:00+08:00">
+                2016-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note success"><p>MySQL笔记</p>
+</div>
+<a id="more"></a>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>在终端输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pmysql</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>-u</code>：指定登录<strong>用户名</strong></li>
+<li><code>-p</code>：登录用户的<strong>密码</strong></li>
+<li><code>-h</code>：指定登录的<strong>服务器IP</strong></li>
+</ul>
+<hr>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="查看所有数据库"><a href="#查看所有数据库" class="headerlink" title="查看所有数据库"></a>查看所有数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</div></pre></td></tr></table></figure>
+<h3 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> 数据库名;</div></pre></td></tr></table></figure>
+<h3 id="查看当前操作数据库"><a href="#查看当前操作数据库" class="headerlink" title="查看当前操作数据库"></a>查看当前操作数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</div></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 [<span class="keyword">charset</span> utf8];</div></pre></td></tr></table></figure>
+<p><code>注：</code>如果创建表时没有<strong>设置编码</strong>，则之后需在<strong>数据库</strong>和<strong>数据表</strong>都设置编码才能正确<strong>显示中文</strong></p>
+<p><strong>(1)先设置数据库编码</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">database</span> db_python <span class="keyword">charset</span> utf8;</div></pre></td></tr></table></figure></p>
+<p><strong>(2)再设置数据表编码</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> dp_info <span class="keyword">convert</span> <span class="keyword">to</span> <span class="keyword">charset</span> utf8;</div></pre></td></tr></table></figure></p>
+<h3 id="删除指定数据库"><a href="#删除指定数据库" class="headerlink" title="删除指定数据库"></a>删除指定数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><h3 id="查看数据库中的所有表"><a href="#查看数据库中的所有表" class="headerlink" title="查看数据库中的所有表"></a>查看数据库中的所有表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</div></pre></td></tr></table></figure>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</div><div class="line">    字段名 <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<p><strong>示例1</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> classes(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>示例2</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> students(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    gender <span class="built_in">bit</span> defualt <span class="number">1</span>,</div><div class="line">    hometown <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">    clsid <span class="built_in">int</span> <span class="keyword">unsigned</span>,</div><div class="line">    isdelete <span class="built_in">bit</span> <span class="keyword">default</span> <span class="number">0</span>,</div><div class="line">    foreign <span class="keyword">key</span>(clsid) <span class="keyword">references</span> classes(<span class="keyword">id</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>示例3</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_hero(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span>;</div><div class="line">    name varchar(10) unique not null,</div><div class="line">    age tinyint unsigned default 0,</div><div class="line">    gender <span class="keyword">set</span>(<span class="string">"男"</span>, <span class="string">"女"</span>),</div><div class="line">    state <span class="built_in">varchar</span>(<span class="number">10</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3 id="查看表的创建信息"><a href="#查看表的创建信息" class="headerlink" title="查看表的创建信息"></a>查看表的创建信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">desc 表名;</div></pre></td></tr></table></figure>
+<h3 id="查看创建表时的SQL语句"><a href="#查看创建表时的SQL语句" class="headerlink" title="查看创建表时的SQL语句"></a>查看创建表时的SQL语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</div></pre></td></tr></table></figure>
+<h3 id="添加表字段"><a href="#添加表字段" class="headerlink" title="添加表字段"></a>添加表字段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">add</span> birthday datetime <span class="keyword">default</span> <span class="string">'1990-01-01'</span>;</div></pre></td></tr></table></figure>
+<h3 id="修改字段信息并修改字段名"><a href="#修改字段信息并修改字段名" class="headerlink" title="修改字段信息并修改字段名"></a>修改字段信息并修改字段名</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">change</span> <span class="keyword">name</span> <span class="keyword">names</span> <span class="built_in">varchar</span>(<span class="number">10</span>);</div></pre></td></tr></table></figure>
+<h3 id="修改字段信息"><a href="#修改字段信息" class="headerlink" title="修改字段信息"></a>修改字段信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">modify</span> hometown varcahr(<span class="number">30</span>);</div></pre></td></tr></table></figure>
+<h3 id="删除表字段"><a href="#删除表字段" class="headerlink" title="删除表字段"></a>删除表字段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">drop</span> isdelete;</div></pre></td></tr></table></figure>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> sutdents;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="数据项操作"><a href="#数据项操作" class="headerlink" title="数据项操作"></a>数据项操作</h2><h3 id="在表中添加数据"><a href="#在表中添加数据" class="headerlink" title="在表中添加数据"></a>在表中添加数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> [<span class="keyword">into</span>] 表名(字段) <span class="keyword">values</span>(数据字段<span class="number">1</span>),(数据字段<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p><strong>示例1</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> classes <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">"e'meipai"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> classes <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">"shaolinsi"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> clases <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">"mingjiao"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="number">0</span>,<span class="string">"miejue"</span>,<span class="number">1</span>,<span class="string">"e'meipai"</span>,<span class="number">1</span>,<span class="string">"1645-08-01"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="number">0</span>,<span class="string">"chengkun"</span>,<span class="number">1</span>,<span class="string">"shaolinsi"</span>,<span class="number">3</span>,<span class="string">"1645-05-02"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="number">0</span>,<span class="string">"baimei"</span>,<span class="number">0</span>,<span class="string">"mingjiao"</span>,<span class="number">3</span>,<span class="string">"1645-01-01"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="number">0</span>,<span class="string">"qingyi"</span>,<span class="number">1</span>,<span class="string">"mingjiao"</span>,<span class="number">3</span>,<span class="string">"1655-01-01"</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>示例2</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"曹操"</span>,<span class="string">"45"</span>,<span class="string">"男"</span>,<span class="string">"魏"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"刘备"</span>,<span class="string">"43"</span>,<span class="string">"男"</span>,<span class="string">"蜀"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"孙权"</span>,<span class="string">"42"</span>,<span class="string">"男"</span>,<span class="string">"吴"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"诸葛亮"</span>,<span class="string">"36"</span>,<span class="string">"男"</span>,<span class="string">"蜀"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"司马懿"</span>,<span class="string">"35"</span>,<span class="string">"男"</span>,<span class="string">"魏"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender) <span class="keyword">values</span>(<span class="string">"貂蝉"</span>,<span class="string">"22"</span>,<span class="string">"女"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender) <span class="keyword">values</span>(<span class="string">"吕布"</span>,<span class="string">"30"</span>,<span class="string">"男"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender) <span class="keyword">values</span>(<span class="string">"小乔"</span>,<span class="string">"20"</span>,<span class="string">"女"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"关羽"</span>,<span class="string">"35"</span>,<span class="string">"男"</span>,<span class="string">"蜀"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, gender, state) <span class="keyword">values</span>(<span class="string">"孙尚香"</span>,<span class="string">"女"</span>,<span class="string">"吴"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"张飞"</span>,<span class="string">"33"</span>,<span class="string">"男"</span>,<span class="string">"蜀"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, gender, state) <span class="keyword">values</span>(<span class="string">"小张飞"</span>,<span class="string">"男"</span>,<span class="string">"吴"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, gender, state) <span class="keyword">values</span>(<span class="string">"小张飞儿"</span>,<span class="string">"33"</span>,<span class="string">"男"</span>,<span class="string">"蜀"</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_hero(<span class="keyword">name</span>, age, state) <span class="keyword">values</span>(<span class="string">"张小飞儿"</span>,<span class="string">"33"</span>,<span class="string">"蜀"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="插入指定字段数据"><a href="#插入指定字段数据" class="headerlink" title="插入指定字段数据"></a>插入指定字段数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> classes(<span class="keyword">name</span>) <span class="keyword">values</span>(<span class="string">"wudang"</span>);</div></pre></td></tr></table></figure>
+<p><code>注：</code>主键唯一非空，重复则<strong>报错</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into classes(id, name) values(3, "gaibang"); # 报错</div></pre></td></tr></table></figure></p>
+<p><strong>可以自定义字段位置插值</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> </div><div class="line">students(<span class="keyword">name</span>, birthday, hometown, clsid) </div><div class="line"><span class="keyword">values</span>(<span class="string">"yuanqiao"</span>,<span class="string">"1845-01-01"</span>,<span class="string">"wudang"</span>,<span class="number">9</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="修改指定数据"><a href="#修改指定数据" class="headerlink" title="修改指定数据"></a>修改指定数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> classes <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">"anjiao"</span> <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">4</span>;</div></pre></td></tr></table></figure>
+<h3 id="删除指定数据"><a href="#删除指定数据" class="headerlink" title="删除指定数据"></a>删除指定数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> students <span class="keyword">where</span> clsid=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><h4 id="查询全部"><a href="#查询全部" class="headerlink" title="查询全部"></a>查询全部</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero;</div></pre></td></tr></table></figure>
+<h4 id="指定字段查询"><a href="#指定字段查询" class="headerlink" title="指定字段查询"></a>指定字段查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>, age, state <span class="keyword">from</span> t_hero;</div></pre></td></tr></table></figure>
+<h4 id="比较查询"><a href="#比较查询" class="headerlink" title="比较查询"></a>比较查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age &lt; <span class="number">30</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>常用比较符号：<code>=</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>!=</code></p>
+</blockquote>
+<h4 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h4><p><code>and：</code>指定多个条件，必须同时满足<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age&gt;<span class="number">20</span> <span class="keyword">and</span> state=<span class="string">"吴"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>or：</code>指定多个条件，满足任意一个条件即可<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age&gt;<span class="number">30</span> <span class="keyword">or</span> state=<span class="string">"吴"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>not：</code>不满足指定条件<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> <span class="keyword">not</span> age&gt;<span class="number">30</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="模糊查询（like）"><a href="#模糊查询（like）" class="headerlink" title="模糊查询（like）"></a>模糊查询（like）</h4><p><code>%：</code>代表任意多个的任意字符<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"%张飞%"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>_：</code>代表一个任意字符，如果多个_则表示多个任意字符<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"_张飞"</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="固定范围查询"><a href="#固定范围查询" class="headerlink" title="固定范围查询"></a>固定范围查询</h4><p><code>in：</code>表示查询的值在指定的集合内<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age <span class="keyword">in</span> (<span class="number">30</span>, <span class="number">45</span>);</div></pre></td></tr></table></figure></p>
+<p><code>not in：</code>表示查询的值不再指定的集合内<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">30</span>, <span class="number">45</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="区间范围查询"><a href="#区间范围查询" class="headerlink" title="区间范围查询"></a>区间范围查询</h4><p><code>between and：</code>查询的数据在指定的范围区间内，满足条件即可<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">30</span> <span class="keyword">and</span> <span class="number">40</span>;</div></pre></td></tr></table></figure></p>
+<p><code>not between and：</code>查询的数据不再指定的范围区间内，满足条件即可<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> age <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">30</span> <span class="keyword">and</span> <span class="number">40</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="空值查询"><a href="#空值查询" class="headerlink" title="空值查询"></a>空值查询</h4><p><code>is null：</code>表示查询结果为空的数据<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> state <span class="keyword">is</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure></p>
+<p><code>is not null：</code>表示查询结果不为空的数据<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> state <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><p><code>count：</code>统计个数<br><code>as：</code>可以为查询结果列表头起别名<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="string">"年龄大于30的人数"</span> <span class="keyword">from</span> t_hero <span class="keyword">where</span> age&gt;<span class="number">30</span>;</div></pre></td></tr></table></figure></p>
+<p><code>max：</code>统计某个列里的最大值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">max</span>(age) <span class="keyword">as</span> <span class="string">"蜀国的最大年龄"</span> <span class="keyword">from</span> t_hero <span class="keyword">where</span> state=<span class="string">"蜀"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>min：</code>统计某个列里的最小值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">min</span>(age) <span class="keyword">as</span> <span class="string">"魏国的最小年龄"</span> <span class="keyword">from</span> t_hero <span class="keyword">where</span> state=<span class="string">"魏"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>sum：</code>统计某一列的数据之和<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(age) <span class="keyword">as</span> <span class="string">"魏国的年龄总和"</span> <span class="keyword">from</span> t_hero <span class="keyword">where</span> state=<span class="string">"魏"</span>;</div></pre></td></tr></table></figure></p>
+<p><code>avg：</code>统计某一列数据的平均值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(age) <span class="keyword">as</span> <span class="string">"魏国的平均年龄"</span> <span class="keyword">from</span> t_hero <span class="keyword">where</span> state=<span class="string">"魏"</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="分组操作"><a href="#分组操作" class="headerlink" title="分组操作"></a>分组操作</h4><p><code>group by：</code>对数据进行分组，单独使用没有任何意义，需要配合聚合函数<br><code>group_concat()：</code>将指定列数据拼接到一起<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> state, <span class="keyword">group_concat</span>(<span class="keyword">name</span>) <span class="keyword">from</span> t_hero <span class="keyword">group</span> <span class="keyword">by</span> state;</div><div class="line"><span class="keyword">select</span> gender, <span class="keyword">sum</span>(age) <span class="keyword">from</span> t_hero <span class="keyword">group</span> <span class="keyword">by</span> gender;</div></pre></td></tr></table></figure></p>
+<p><code>having：</code>限制select的输出结果<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> state, <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="keyword">num</span> <span class="keyword">from</span> t_hero <span class="keyword">group</span> <span class="keyword">by</span> state <span class="keyword">having</span> <span class="keyword">num</span>&gt;=<span class="number">3</span>;</div><div class="line"><span class="keyword">select</span> state, <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="keyword">num</span> <span class="keyword">from</span> t_hero <span class="keyword">group</span> <span class="keyword">by</span> state <span class="keyword">having</span> state=<span class="string">"蜀"</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p><code>order by：</code>对指定的列进行排序，<br><code>ASC：</code>默认顺序（从小的大）<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">ASC</span>;</div></pre></td></tr></table></figure></p>
+<p><code>DESC：</code>倒序排列<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
+<p>配合<code>where</code>条件排序<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> state=<span class="string">"蜀"</span> <span class="keyword">and</span> gender=<span class="string">"男"</span> <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><p><code>limit：</code>第一个参数表示起始位置（下标0开始），第二个参数表示显示个数<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">3</span>;</div></pre></td></tr></table></figure></p>
+<p>配合<code>where</code>条件分页<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_hero <span class="keyword">where</span> state <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">20</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><p><code>inner join on：</code>内连接<br><strong>默认内连接</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book, t_bookType</div><div class="line"><span class="keyword">where</span> t_book.bookTypeId = t_bookType.id;</div></pre></td></tr></table></figure></p>
+<p><strong>隐式连接</strong>（即给每张表起别名）<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb, t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">where</span> tb.bookTypeId = tby.id;</div></pre></td></tr></table></figure></p>
+<p><strong>显示连接</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb</div><div class="line"><span class="keyword">inner</span> <span class="keyword">join</span> t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">on</span> tb.bookTypeId = tby.id;</div></pre></td></tr></table></figure></p>
+<p><code>left join on：</code>左连接，两张表查询，左表完整显示数据<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_bookType</div><div class="line"><span class="keyword">on</span> t_book.bookTypeId = t_bookType.id;</div><div class="line"></div><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tb.author, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb</div><div class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">on</span> tb.bookTypeId = tby.id;</div></pre></td></tr></table></figure></p>
+<p><code>right join on：</code>右连接，完整显示右表数据<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">right</span> <span class="keyword">join</span> t_bookType</div><div class="line"><span class="keyword">on</span> t_book.bookTypeId = t_bookType.id;</div><div class="line"></div><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tb.author, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb</div><div class="line"><span class="keyword">right</span> <span class="keyword">join</span> t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">on</span> tb.bookTypeId = tby.id;</div></pre></td></tr></table></figure></p>
+<p><code>union：</code>全连接<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tb.author, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb</div><div class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">on</span> tb.bookTypeId = tby.id</div><div class="line"><span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> tb.bookName, tb.price, tb.author, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book <span class="keyword">as</span> tb</div><div class="line"><span class="keyword">right</span> <span class="keyword">join</span> t_bookType <span class="keyword">as</span> tby</div><div class="line"><span class="keyword">on</span> tb.bookTypeId = tby.id;</div><div class="line"></div><div class="line"><span class="keyword">select</span> tb.bookName, tb.author, tby.bookTypeName</div><div class="line"><span class="keyword">from</span> t_book tb, t_bookType tby</div><div class="line"><span class="keyword">where</span> tb.bookTypeId = tby.id <span class="keyword">and</span> tb.price &gt; <span class="number">30</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p><code>in：</code>在select返回的集合中查找<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * </div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">where</span> bookTypeId</div><div class="line"><span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t_bookType);</div></pre></td></tr></table></figure></p>
+<p><code>not in：</code>和in相反<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">where</span> bookTypeId</div><div class="line"><span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t_bookType);</div></pre></td></tr></table></figure></p>
+<p><code>exists：</code>返回true或false<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">where</span> <span class="keyword">exists</span></div><div class="line">(<span class="keyword">select</span> * <span class="keyword">from</span> t_bookType);</div></pre></td></tr></table></figure></p>
+<p><code>not exists：</code>与exists相反<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> *</div><div class="line"><span class="keyword">from</span> t_book</div><div class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span></div><div class="line">(<span class="keyword">select</span> * <span class="keyword">from</span> t_bookType);</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h2><h3 id="修改Mysql配置文件"><a href="#修改Mysql配置文件" class="headerlink" title="修改Mysql配置文件"></a>修改Mysql配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf</div></pre></td></tr></table></figure>
+<h3 id="Mysql服务"><a href="#Mysql服务" class="headerlink" title="Mysql服务"></a>Mysql服务</h3><p><strong>重启</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure></p>
+<p><strong>停止</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql stop</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><code>begin：</code>事务的开始<br><code>commit：</code>提交事务<br>所有事务在提交之前，都是临时性的，并没有真正执行<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">begin</span>;</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_bookType(bookTypeName) <span class="keyword">values</span>(<span class="string">"玄幻类"</span>);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_bookType;</div><div class="line"><span class="keyword">commit</span>;</div></pre></td></tr></table></figure></p>
+<p><code>rollback：</code>事务提交之前可以回滚到之前操作</p>
+<hr>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="单列索引"><a href="#单列索引" class="headerlink" title="单列索引"></a>单列索引</h3><p><code>index：</code>创建普通索引<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_user1(</div><div class="line"><span class="keyword">id</span> <span class="built_in">int</span>,</div><div class="line">username <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">index</span> (username)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><code>unique idnex：</code>唯一索引<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_user2(</div><div class="line"><span class="keyword">id</span> <span class="built_in">int</span>,</div><div class="line">username <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">unique</span> <span class="keyword">index</span> index_unique_username(username)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3 id="多列索引"><a href="#多列索引" class="headerlink" title="多列索引"></a>多列索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_user3(</div><div class="line"><span class="keyword">id</span> <span class="built_in">int</span>,</div><div class="line">username <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</div><div class="line"><span class="keyword">index</span> index_username_password(username, <span class="keyword">password</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="在已有表上创建索引"><a href="#在已有表上创建索引" class="headerlink" title="在已有表上创建索引"></a>在已有表上创建索引</h3><p><strong>普通索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_id <span class="keyword">on</span> t_user4(<span class="keyword">id</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>唯一索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span> index_unique_username <span class="keyword">on</span> t_user4(username);</div></pre></td></tr></table></figure></p>
+<p><strong>多列索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_username_password</div><div class="line"><span class="keyword">on</span> t_user4(username, <span class="keyword">password</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="在已有表上修改索引"><a href="#在已有表上修改索引" class="headerlink" title="在已有表上修改索引"></a>在已有表上修改索引</h3><p><strong>普通索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t_user5 <span class="keyword">add</span> <span class="keyword">index</span> index_username(username);</div></pre></td></tr></table></figure></p>
+<p><strong>唯一索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t_user5 <span class="keyword">add</span> <span class="keyword">unique</span> <span class="keyword">index</span> index_password(passowrd);</div></pre></td></tr></table></figure></p>
+<p><strong>多列索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t_user5 <span class="keyword">add</span> <span class="keyword">index</span> index_username_password(username, <span class="keyword">password</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="查看表中已有索引"><a href="#查看表中已有索引" class="headerlink" title="查看表中已有索引"></a>查看表中已有索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> t_user5;</div></pre></td></tr></table></figure>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p><strong>删除表索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t_user5 <span class="keyword">drop</span> <span class="keyword">index</span> index_username;</div></pre></td></tr></table></figure></p>
+<p><strong>删除指定索引</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">index</span> index_username <span class="keyword">on</span> t_user5;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="创建t-student和t-score表"><a href="#创建t-student和t-score表" class="headerlink" title="创建t_student和t_score表"></a>创建t_student和t_score表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_student(</div><div class="line"><span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span> primary <span class="keyword">key</span>,    # 学号</div><div class="line"><span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,  # 姓名</div><div class="line">gender <span class="built_in">varchar</span>(<span class="number">10</span>), # 性别</div><div class="line">birth <span class="keyword">year</span>, # 出生年份</div><div class="line">department <span class="built_in">varchar</span>(<span class="number">20</span>), # 院系</div><div class="line">address <span class="built_in">varchar</span>(<span class="number">50</span>) # 家庭住址</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_score(</div><div class="line"><span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span> primary <span class="keyword">key</span> auto_increment,  # 编号</div><div class="line">stu_id <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,    # 学号</div><div class="line">cls_name <span class="built_in">varchar</span>(<span class="number">20</span>),   # 课程名</div><div class="line">score <span class="built_in">int</span>(<span class="number">10</span>)   # 分数</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="为表插入数据"><a href="#为表插入数据" class="headerlink" title="为表插入数据"></a>为表插入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">901</span>,<span class="string">'乔峰'</span>, <span class="string">'男'</span>,<span class="number">1985</span>,<span class="string">'计算机系'</span>, <span class="string">'北京市海淀区'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">902</span>,<span class="string">'段誉'</span>, <span class="string">'男'</span>,<span class="number">1986</span>,<span class="string">'中文系'</span>, <span class="string">'云南省大理市'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">903</span>,<span class="string">'虚竹'</span>, <span class="string">'女'</span>,<span class="number">1990</span>,<span class="string">'中文系'</span>, <span class="string">'安徽省合肥市'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">904</span>,<span class="string">'慕容复'</span>, <span class="string">'男'</span>,<span class="number">1990</span>,<span class="string">'英语系'</span>, <span class="string">'辽宁省沈阳市'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">905</span>,<span class="string">'王语嫣'</span>, <span class="string">'女'</span>,<span class="number">1991</span>,<span class="string">'英语系'</span>, <span class="string">'福建省厦门市'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student <span class="keyword">VALUES</span>( <span class="number">906</span>,<span class="string">'丁春秋'</span>, <span class="string">'男'</span>,<span class="number">1988</span>,<span class="string">'计算机系'</span>, <span class="string">'安徽省黄山市'</span>);</div><div class="line"></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">901</span>, <span class="string">'计算机'</span>,<span class="number">98</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">901</span>, <span class="string">'英语'</span>, <span class="number">80</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">902</span>, <span class="string">'计算机'</span>,<span class="number">65</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">902</span>, <span class="string">'中文'</span>,<span class="number">88</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">903</span>, <span class="string">'中文'</span>,<span class="number">95</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">904</span>, <span class="string">'计算机'</span>,<span class="number">70</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">904</span>, <span class="string">'英语'</span>,<span class="number">92</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">905</span>, <span class="string">'英语'</span>,<span class="number">94</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">906</span>, <span class="string">'计算机'</span>,<span class="number">90</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_score <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="number">906</span>, <span class="string">'英语'</span>,<span class="number">85</span>);</div></pre></td></tr></table></figure>
+<h3 id="查询t-student表的所有数据"><a href="#查询t-student表的所有数据" class="headerlink" title="查询t_student表的所有数据"></a>查询t_student表的所有数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_sutdent;</div></pre></td></tr></table></figure>
+<h3 id="查询t-student表的第2条到第4条数据"><a href="#查询t-student表的第2条到第4条数据" class="headerlink" title="查询t_student表的第2条到第4条数据"></a>查询t_student表的第2条到第4条数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_student <span class="keyword">limit</span> <span class="number">1</span>,<span class="number">3</span>;</div></pre></td></tr></table></figure>
+<h3 id="从t-student中查询学号-id-、姓名-name-、院系-department"><a href="#从t-student中查询学号-id-、姓名-name-、院系-department" class="headerlink" title="从t_student中查询学号(id)、姓名(name)、院系(department)"></a>从t_student中查询学号(id)、姓名(name)、院系(department)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, department <span class="keyword">from</span> t_student;</div></pre></td></tr></table></figure>
+<h3 id="从t-student中查询计算机系和英语系的学生信息"><a href="#从t-student中查询计算机系和英语系的学生信息" class="headerlink" title="从t_student中查询计算机系和英语系的学生信息"></a>从t_student中查询计算机系和英语系的学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_student <span class="keyword">where</span> department <span class="keyword">in</span> (<span class="string">"计算机系"</span>,<span class="string">"英语系"</span>);</div></pre></td></tr></table></figure>
+<h3 id="从t-student中查询年龄22-26岁的学生信息"><a href="#从t-student中查询年龄22-26岁的学生信息" class="headerlink" title="从t_student中查询年龄22~26岁的学生信息"></a>从t_student中查询年龄22~26岁的学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender <span class="number">2017</span>-birth <span class="keyword">as</span> age, department, address</div><div class="line"><span class="keyword">from</span> t_student</div><div class="line"><span class="keyword">where</span> <span class="number">2017</span>-birth <span class="keyword">between</span> <span class="number">22</span> <span class="keyword">and</span> <span class="number">26</span>;</div></pre></td></tr></table></figure>
+<h3 id="从t-student中查询每个院系有多少人"><a href="#从t-student中查询每个院系有多少人" class="headerlink" title="从t_student中查询每个院系有多少人"></a>从t_student中查询每个院系有多少人</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> department, <span class="keyword">count</span>(<span class="keyword">id</span>) <span class="keyword">from</span> t_student <span class="keyword">group</span> <span class="keyword">by</span> department;</div></pre></td></tr></table></figure>
+<h3 id="从t-score中查询每科最高分"><a href="#从t-score中查询每科最高分" class="headerlink" title="从t_score中查询每科最高分"></a>从t_score中查询每科最高分</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> cls_name, <span class="keyword">max</span>(score) <span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> cls_name;</div></pre></td></tr></table></figure>
+<h3 id="查询慕容复的考试科目-cls-name-和考试成绩-score"><a href="#查询慕容复的考试科目-cls-name-和考试成绩-score" class="headerlink" title="查询慕容复的考试科目(cls_name)和考试成绩(score)"></a>查询慕容复的考试科目(cls_name)和考试成绩(score)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> cls_name, score</div><div class="line"><span class="keyword">from</span> t_score <span class="keyword">where</span> stu_id=(<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t_student <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">"慕容复"</span>);</div></pre></td></tr></table></figure>
+<h3 id="用连接的方式查询所有学生的信息和考试信息"><a href="#用连接的方式查询所有学生的信息和考试信息" class="headerlink" title="用连接的方式查询所有学生的信息和考试信息"></a>用连接的方式查询所有学生的信息和考试信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> t_student.id,<span class="keyword">name</span>,gender,birth,department,address,cls_name,score</div><div class="line"><span class="keyword">from</span> t_student, t_score</div><div class="line"><span class="keyword">where</span> t_student.id=t_score.stu_id</div></pre></td></tr></table></figure>
+<h3 id="计算每个学生总成绩"><a href="#计算每个学生总成绩" class="headerlink" title="计算每个学生总成绩"></a>计算每个学生总成绩</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> t_student.id,<span class="keyword">name</span>,<span class="keyword">sum</span>(score)</div><div class="line"><span class="keyword">from</span> t_student, t_score</div><div class="line"><span class="keyword">where</span> t_student.id=t_score.stu_id</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">id</span>;</div></pre></td></tr></table></figure>
+<h3 id="计算每个考试科目的平均成绩"><a href="#计算每个考试科目的平均成绩" class="headerlink" title="计算每个考试科目的平均成绩"></a>计算每个考试科目的平均成绩</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> cls_name, <span class="keyword">avg</span>(score)</div><div class="line"><span class="keyword">from</span> t_score</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> cls_name;</div></pre></td></tr></table></figure>
+<h3 id="查询计算机成绩低于95的学生信息"><a href="#查询计算机成绩低于95的学生信息" class="headerlink" title="查询计算机成绩低于95的学生信息"></a>查询计算机成绩低于95的学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_student</div><div class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span></div><div class="line">(<span class="keyword">select</span> stu_id <span class="keyword">from</span> t_score</div><div class="line"><span class="keyword">where</span> cls_name=<span class="string">"计算机"</span> <span class="keyword">and</span> score&lt;<span class="number">95</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="查询同时参加计算机和英语课程的学生信息"><a href="#查询同时参加计算机和英语课程的学生信息" class="headerlink" title="查询同时参加计算机和英语课程的学生信息"></a>查询同时参加计算机和英语课程的学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> a.* <span class="keyword">from</span> t_student a, t_score b, t_score c</div><div class="line"><span class="keyword">where</span> a.id = b.stu_id</div><div class="line"><span class="keyword">and</span> b.cls_name = <span class="string">"计算机"</span></div><div class="line"><span class="keyword">and</span> a.id = c.stu_id</div><div class="line"><span class="keyword">and</span> c.cls_name = <span class="string">"英语"</span>;</div></pre></td></tr></table></figure>
+<h3 id="将计算机考试成绩按从高到底排序"><a href="#将计算机考试成绩按从高到底排序" class="headerlink" title="将计算机考试成绩按从高到底排序"></a>将计算机考试成绩按从高到底排序</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> stu_id, score</div><div class="line"><span class="keyword">from</span> t_score <span class="keyword">where</span> cls_name=<span class="string">"计算机"</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> score <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
+<h3 id="从t-student表和t-score表中查询学生的学号，输出合并查询结果"><a href="#从t-student表和t-score表中查询学生的学号，输出合并查询结果" class="headerlink" title="从t_student表和t_score表中查询学生的学号，输出合并查询结果"></a>从t_student表和t_score表中查询学生的学号，输出合并查询结果</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t_student</div><div class="line"><span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> stu_id <span class="keyword">from</span> t_score;</div></pre></td></tr></table></figure>
+<h3 id="查询姓丁或王的同学姓名、院系、科目、成绩"><a href="#查询姓丁或王的同学姓名、院系、科目、成绩" class="headerlink" title="查询姓丁或王的同学姓名、院系、科目、成绩"></a>查询姓丁或王的同学姓名、院系、科目、成绩</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> t_student.name,t_score.score </div><div class="line"><span class="keyword">from</span> t_student,t_score </div><div class="line"><span class="keyword">where</span> (<span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"王%"</span> <span class="keyword">or</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"丁%"</span>) </div><div class="line"><span class="keyword">and</span></div><div class="line">t_student.id=t_score.stu_id;</div></pre></td></tr></table></figure>
+<h3 id="查询都是安徽的学生姓名、年龄、院系、科目、成绩"><a href="#查询都是安徽的学生姓名、年龄、院系、科目、成绩" class="headerlink" title="查询都是安徽的学生姓名、年龄、院系、科目、成绩"></a>查询都是安徽的学生姓名、年龄、院系、科目、成绩</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> t_student.name,t_student.address,t_score.score </div><div class="line"><span class="keyword">from</span> t_student,t_score </div><div class="line"><span class="keyword">where</span> address <span class="keyword">like</span> <span class="string">"安徽%"</span> </div><div class="line"><span class="keyword">and</span></div><div class="line">t_student.id = t_score.stu_id;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/30/python_面向对象例子/" rel="next" title="python面向对象例子">
+                <i class="fa fa-chevron-left"></i> python面向对象例子
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/04/js_事件使用指南/" rel="prev" title="js事件使用指南">
+                js事件使用指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接数据库"><span class="nav-number">1.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">2.</span> <span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有数据库"><span class="nav-number">2.1.</span> <span class="nav-text">查看所有数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换数据库"><span class="nav-number">2.2.</span> <span class="nav-text">切换数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前操作数据库"><span class="nav-number">2.3.</span> <span class="nav-text">查看当前操作数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.4.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定数据库"><span class="nav-number">2.5.</span> <span class="nav-text">删除指定数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表操作"><span class="nav-number">3.</span> <span class="nav-text">数据表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据库中的所有表"><span class="nav-number">3.1.</span> <span class="nav-text">查看数据库中的所有表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">3.2.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表的创建信息"><span class="nav-number">3.3.</span> <span class="nav-text">查看表的创建信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看创建表时的SQL语句"><span class="nav-number">3.4.</span> <span class="nav-text">查看创建表时的SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加表字段"><span class="nav-number">3.5.</span> <span class="nav-text">添加表字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段信息并修改字段名"><span class="nav-number">3.6.</span> <span class="nav-text">修改字段信息并修改字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段信息"><span class="nav-number">3.7.</span> <span class="nav-text">修改字段信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表字段"><span class="nav-number">3.8.</span> <span class="nav-text">删除表字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表"><span class="nav-number">3.9.</span> <span class="nav-text">删除表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据项操作"><span class="nav-number">4.</span> <span class="nav-text">数据项操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在表中添加数据"><span class="nav-number">4.1.</span> <span class="nav-text">在表中添加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入指定字段数据"><span class="nav-number">4.2.</span> <span class="nav-text">插入指定字段数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改指定数据"><span class="nav-number">4.3.</span> <span class="nav-text">修改指定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定数据"><span class="nav-number">4.4.</span> <span class="nav-text">删除指定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">4.5.</span> <span class="nav-text">查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询全部"><span class="nav-number">4.5.1.</span> <span class="nav-text">查询全部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定字段查询"><span class="nav-number">4.5.2.</span> <span class="nav-text">指定字段查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较查询"><span class="nav-number">4.5.3.</span> <span class="nav-text">比较查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑判断"><span class="nav-number">4.5.4.</span> <span class="nav-text">逻辑判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模糊查询（like）"><span class="nav-number">4.5.5.</span> <span class="nav-text">模糊查询（like）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定范围查询"><span class="nav-number">4.5.6.</span> <span class="nav-text">固定范围查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间范围查询"><span class="nav-number">4.5.7.</span> <span class="nav-text">区间范围查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空值查询"><span class="nav-number">4.5.8.</span> <span class="nav-text">空值查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合函数"><span class="nav-number">4.5.9.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组操作"><span class="nav-number">4.5.10.</span> <span class="nav-text">分组操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序"><span class="nav-number">4.5.11.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页查询"><span class="nav-number">4.5.12.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接查询"><span class="nav-number">4.5.13.</span> <span class="nav-text">连接查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询"><span class="nav-number">4.5.14.</span> <span class="nav-text">子查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置数据库"><span class="nav-number">5.</span> <span class="nav-text">配置数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改Mysql配置文件"><span class="nav-number">5.1.</span> <span class="nav-text">修改Mysql配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql服务"><span class="nav-number">5.2.</span> <span class="nav-text">Mysql服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">6.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">7.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单列索引"><span class="nav-number">7.1.</span> <span class="nav-text">单列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多列索引"><span class="nav-number">7.2.</span> <span class="nav-text">多列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在已有表上创建索引"><span class="nav-number">7.3.</span> <span class="nav-text">在已有表上创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在已有表上修改索引"><span class="nav-number">7.4.</span> <span class="nav-text">在已有表上修改索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表中已有索引"><span class="nav-number">7.5.</span> <span class="nav-text">查看表中已有索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除索引"><span class="nav-number">7.6.</span> <span class="nav-text">删除索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">8.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建t-student和t-score表"><span class="nav-number">8.1.</span> <span class="nav-text">创建t_student和t_score表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为表插入数据"><span class="nav-number">8.2.</span> <span class="nav-text">为表插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询t-student表的所有数据"><span class="nav-number">8.3.</span> <span class="nav-text">查询t_student表的所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询t-student表的第2条到第4条数据"><span class="nav-number">8.4.</span> <span class="nav-text">查询t_student表的第2条到第4条数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-student中查询学号-id-、姓名-name-、院系-department"><span class="nav-number">8.5.</span> <span class="nav-text">从t_student中查询学号(id)、姓名(name)、院系(department)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-student中查询计算机系和英语系的学生信息"><span class="nav-number">8.6.</span> <span class="nav-text">从t_student中查询计算机系和英语系的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-student中查询年龄22-26岁的学生信息"><span class="nav-number">8.7.</span> <span class="nav-text">从t_student中查询年龄22~26岁的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-student中查询每个院系有多少人"><span class="nav-number">8.8.</span> <span class="nav-text">从t_student中查询每个院系有多少人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-score中查询每科最高分"><span class="nav-number">8.9.</span> <span class="nav-text">从t_score中查询每科最高分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询慕容复的考试科目-cls-name-和考试成绩-score"><span class="nav-number">8.10.</span> <span class="nav-text">查询慕容复的考试科目(cls_name)和考试成绩(score)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用连接的方式查询所有学生的信息和考试信息"><span class="nav-number">8.11.</span> <span class="nav-text">用连接的方式查询所有学生的信息和考试信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算每个学生总成绩"><span class="nav-number">8.12.</span> <span class="nav-text">计算每个学生总成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算每个考试科目的平均成绩"><span class="nav-number">8.13.</span> <span class="nav-text">计算每个考试科目的平均成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询计算机成绩低于95的学生信息"><span class="nav-number">8.14.</span> <span class="nav-text">查询计算机成绩低于95的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询同时参加计算机和英语课程的学生信息"><span class="nav-number">8.15.</span> <span class="nav-text">查询同时参加计算机和英语课程的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将计算机考试成绩按从高到底排序"><span class="nav-number">8.16.</span> <span class="nav-text">将计算机考试成绩按从高到底排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从t-student表和t-score表中查询学生的学号，输出合并查询结果"><span class="nav-number">8.17.</span> <span class="nav-text">从t_student表和t_score表中查询学生的学号，输出合并查询结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询姓丁或王的同学姓名、院系、科目、成绩"><span class="nav-number">8.18.</span> <span class="nav-text">查询姓丁或王的同学姓名、院系、科目、成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询都是安徽的学生姓名、年龄、院系、科目、成绩"><span class="nav-number">8.19.</span> <span class="nav-text">查询都是安徽的学生姓名、年龄、院系、科目、成绩</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

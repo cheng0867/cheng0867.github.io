@@ -1,0 +1,836 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="作用域
+递归函数
+匿名函数
+生成器
+迭代器
+闭包
+装饰器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python函数">
+<meta property="og:url" content="http://www.oneskk.com/2016/04/24/python_函数/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="作用域
+递归函数
+匿名函数
+生成器
+迭代器
+闭包
+装饰器">
+<meta property="og:updated_time" content="2017-08-13T20:34:22.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python函数">
+<meta name="twitter:description" content="作用域
+递归函数
+匿名函数
+生成器
+迭代器
+闭包
+装饰器">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/04/24/python_函数/"/>
+
+
+
+
+
+  <title> python函数 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/04/24/python_函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-24T00:00:00+08:00">
+                2016-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note primary"><ol>
+<li>作用域</li>
+<li>递归函数</li>
+<li>匿名函数</li>
+<li>生成器</li>
+<li>迭代器</li>
+<li>闭包</li>
+<li>装饰器</li>
+</ol>
+</div>
+<a id="more"></a>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><blockquote>
+<p>即代码的<strong>作用范围</strong></p>
+</blockquote>
+<h2 id="LEGB规则（优先顺序）"><a href="#LEGB规则（优先顺序）" class="headerlink" title="LEGB规则（优先顺序）"></a>LEGB规则（优先顺序）</h2><p>locals -&gt; enclosing -&gt; globals -&gt; builtins</p>
+<ul>
+<li><code>locals</code>：<strong>局部变量</strong>，当前所在命名空间（如函数、模块），其中：函数的参数也属于命名空间内的变量</li>
+<li><code>enclosing</code>：<strong>外部嵌套函数</strong>的命名空间（如闭包）</li>
+<li><code>globals</code>：<strong>全局变量</strong>，函数定义所在模块的命名空间</li>
+<li><code>builtins</code>：<strong>内建模块</strong>的命名空间</li>
+</ul>
+<hr>
+<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><blockquote>
+<p>一个函数在内部<strong>调用自身</strong>，这个函数就是<strong>递归函数</strong></p>
+</blockquote>
+<p><strong>解决递归问题</strong>：<code>n! = 1 * 2 * 3 * ... * n</code></p>
+<h2 id="示例1（循环）"><a href="#示例1（循环）" class="headerlink" title="示例1（循环）"></a>示例1（循环）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calNum</span><span class="params">(num)</span>:</span></div><div class="line">    i = <span class="number">1</span></div><div class="line">    result = <span class="number">1</span></div><div class="line">    </div><div class="line">    <span class="keyword">while</span> i &lt;= num:</div><div class="line">        result *= i</div><div class="line">        i += <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line">    </div><div class="line"><span class="comment"># 调用</span></div><div class="line">ret = calNum(<span class="number">3</span>)</div><div class="line">print(ret)</div></pre></td></tr></table></figure>
+<h2 id="示例2（递归）"><a href="#示例2（递归）" class="headerlink" title="示例2（递归）"></a>示例2（递归）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calNum</span><span class="params">(num)</span>:</span></div><div class="line">    <span class="keyword">if</span> num &gt;= <span class="number">1</span>:</div><div class="line">        result = num * calNum(num - <span class="number">1</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        result = <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line">    </div><div class="line"><span class="comment"># 调用</span></div><div class="line">ret = calNum(<span class="number">3</span>)</div><div class="line">print(ret)</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><blockquote>
+<p>使用<strong>lambda关键字</strong>创建的小型匿名函数。省略了def声明的标准步骤</p>
+</blockquote>
+<h2 id="lambda函数的语法只包含一个表达式"><a href="#lambda函数的语法只包含一个表达式" class="headerlink" title="lambda函数的语法只包含一个表达式"></a>lambda函数的语法只包含一个表达式</h2><blockquote>
+<p>lambda [arg1 [,arg2,……argn]] : expression(表达式)</p>
+</blockquote>
+<p><strong>示例</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建匿名函数，并指向变量sum</span></div><div class="line">sum = <span class="keyword">lambda</span> arg1, arg2: arg1 + arg2</div><div class="line"></div><div class="line"><span class="comment"># 调用sum函数</span></div><div class="line">print(<span class="string">"计算结果为：%d"</span>%sum(<span class="number">10</span>, <span class="number">20</span>))</div></pre></td></tr></table></figure></p>
+<p><strong>其中</strong>：<code>lambda</code>函数能接受<strong>任何数量的参数</strong>但只能返回<strong>一个表达式</strong>的值<br>匿名函数不能直接调用print，因为lambda需要一个表达式</p>
+<h2 id="lambda应用场景"><a href="#lambda应用场景" class="headerlink" title="lambda应用场景"></a>lambda应用场景</h2><h3 id="作为参数传递"><a href="#作为参数传递" class="headerlink" title="作为参数传递"></a>作为参数传递</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(a, b, opt)</span>:</span></div><div class="line">    print(<span class="string">"a = %d"</span>%a)</div><div class="line">    print(<span class="string">"b = %d"</span>%b)</div><div class="line">    print(<span class="string">"result = %d"</span>%opt(a, b))</div><div class="line">	</div><div class="line">fun(<span class="number">1</span>, <span class="number">2</span>, <span class="keyword">lambda</span> x,y:x+y)</div><div class="line"><span class="comment"># 输出结果：</span></div><div class="line"><span class="comment"># a = 1</span></div><div class="line"><span class="comment"># b = 2</span></div><div class="line"><span class="comment"># result = 3</span></div></pre></td></tr></table></figure>
+<h3 id="作为内置函数的参数"><a href="#作为内置函数的参数" class="headerlink" title="作为内置函数的参数"></a>作为内置函数的参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">stus = [</div><div class="line">    &#123;<span class="string">"name"</span>:<span class="string">"zhangsan"</span>, <span class="string">"age"</span>:<span class="number">18</span>&#125;</div><div class="line">    &#123;<span class="string">"name"</span>:<span class="string">"lisi"</span>, <span class="string">"age"</span>:<span class="number">19</span>&#125;</div><div class="line">    &#123;<span class="string">"name"</span>:<span class="string">"wangwu"</span>, <span class="string">"age"</span>:<span class="number">17</span>&#125;</div><div class="line">]</div><div class="line"></div><div class="line"><span class="comment"># 按name排序</span></div><div class="line">stus.sort(key = <span class="keyword">lambda</span> x:x[<span class="string">"name"</span>])</div><div class="line"><span class="comment"># 打印结果</span></div><div class="line">print(stus)</div><div class="line"></div><div class="line"><span class="comment"># 按age排序</span></div><div class="line">stus.sort(key = <span class="keyword">lambda</span> x:x[<span class="string">"age"</span>])</div><div class="line"></div><div class="line"><span class="comment"># 打印结果</span></div><div class="line">print(stus)</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><blockquote>
+<p>一边循环一边计算的机制，称为<strong>生成器</strong> <code>generator</code></p>
+</blockquote>
+<ul>
+<li>生成器记住上一次返回时在函数体中的<strong>位置</strong>。对生成器函数的第二次（或第N次）调用跳转至该函数中间，而上次调用的所有局部变量都保持不变</li>
+<li>生成器不仅“记住”了<strong>数据状态</strong>，还“记住”了在流控制构造中的<strong>位置</strong></li>
+</ul>
+<h2 id="生成器特点"><a href="#生成器特点" class="headerlink" title="生成器特点"></a>生成器特点</h2><ol>
+<li>节约<strong>内存</strong></li>
+<li>迭代到下一次的调用时，所使用的参数都是第一次所保留下的，即是说，在整个所有函数调用的参数都是第一次所调用时保留的，而不是新创建的</li>
+<li>生成器也是<strong>可迭代对象</strong>，可以使用<code>for</code>迭代</li>
+</ol>
+<h2 id="创建生成器方法1"><a href="#创建生成器方法1" class="headerlink" title="创建生成器方法1"></a>创建生成器方法1</h2><blockquote>
+<p>将列表生成式的<code>[ ]</code>改成<code>( )</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">G = (x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>))</div></pre></td></tr></table></figure>
+<p><strong>启动生成器</strong></p>
+<blockquote>
+<ul>
+<li>可以使用<code>next()</code>函数获得生成器的下一个<strong>返回值</strong></li>
+<li><code>__next__()</code>与<code>next()</code>方法相同</li>
+<li>实际运用中，使用<strong>for循环</strong></li>
+</ul>
+</blockquote>
+<p><strong>输出结果</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(next(G))</div><div class="line">print(G.__next__())</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p><strong>for循环输出结果</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">G = (x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">20</span>))</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> G:</div><div class="line">    print(G.__next__())</div></pre></td></tr></table></figure></p>
+<h2 id="创建生成器方法2"><a href="#创建生成器方法2" class="headerlink" title="创建生成器方法2"></a>创建生成器方法2</h2><blockquote>
+<p>使用<strong><code>yield</code></strong>关键字</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(times)</span>:</span></div><div class="line">    n = <span class="number">0</span></div><div class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> n &lt; times:</div><div class="line">        <span class="keyword">yield</span> b		<span class="comment">#执行时每次在yield位置阻断</span></div><div class="line">        a, b = b, a+b</div><div class="line">        n += <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"done"</span></div><div class="line"></div><div class="line">F = fib(<span class="number">5</span>)</div><div class="line">print(next(F))  <span class="comment"># 调用生成器</span></div></pre></td></tr></table></figure>
+<p><strong>使用send方法调用</strong>：</p>
+<blockquote>
+<p>需要先用<code>next()</code>调用一次</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">F = fib()</div><div class="line">print(next(F))	<span class="comment"># 使用next启动</span></div><div class="line">print(F.send(<span class="string">"haha"</span>))</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><blockquote>
+<p>可以被<code>next()函数</code>调用并不断返回下一个值的对象称为迭代器 <code>Iterator</code></p>
+</blockquote>
+<h2 id="迭代器特点"><a href="#迭代器特点" class="headerlink" title="迭代器特点"></a>迭代器特点</h2><ul>
+<li><strong>迭代</strong>：访问<strong>集合元素</strong>的一种方式</li>
+<li><strong>迭代器</strong>：可以记住<strong>遍历位置</strong>的对象</li>
+<li><strong>Iterable类型</strong>：凡是可作用于<code>for循环</code>的对象</li>
+<li><strong>Iterator类型</strong>：凡是可作用与<code>next()函数</code>的对象</li>
+<li><strong>iter()函数</strong>：集合数据类型如list、dict、str等是Iterable，但不是<strong>Iterator</strong>，可用<code>iter()函数</code>获得一个Iterator对象</li>
+</ul>
+<h2 id="可迭代对象（lterable）"><a href="#可迭代对象（lterable）" class="headerlink" title="可迭代对象（lterable）"></a>可迭代对象（lterable）</h2><p><strong>集合数据类型</strong></p>
+<ul>
+<li>list</li>
+<li>tuple</li>
+<li>dict</li>
+<li>set</li>
+<li>str</li>
+</ul>
+<p><strong>generator</strong></p>
+<ul>
+<li>生成器</li>
+<li>带<strong><code>yield</code></strong>的生成器函数</li>
+</ul>
+<h2 id="判断是否可迭代-isinstance"><a href="#判断是否可迭代-isinstance" class="headerlink" title="判断是否可迭代(isinstance)"></a>判断是否可迭代(isinstance)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入模块</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</div><div class="line">isinstance(object, Iterable)</div></pre></td></tr></table></figure>
+<p><strong>示例</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</div><div class="line">G = (x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</div><div class="line">print(isinstance(G, Iterable))</div></pre></td></tr></table></figure></p>
+<h2 id="iter-函数"><a href="#iter-函数" class="headerlink" title="iter()函数"></a>iter()函数</h2><blockquote>
+<p>使用<code>iter()函数</code>，将Iterable变成<strong>Iterator</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator</div><div class="line">print(isinstance(iter([]), Iterator))</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><blockquote>
+<p>内部函数对外部函数<strong>作用域里(非全局)变量</strong>的引用（非全局变量），则称内部函数为<strong>闭包</strong></p>
+</blockquote>
+<h2 id="闭包优点"><a href="#闭包优点" class="headerlink" title="闭包优点"></a>闭包优点</h2><blockquote>
+<p>闭包具有提高代码复用性的作用</p>
+</blockquote>
+<h2 id="闭包缺点"><a href="#闭包缺点" class="headerlink" title="闭包缺点"></a>闭包缺点</h2><blockquote>
+<p>由于闭包引用了外部函数的局部变量，导致外部函数的局部变量没有及时释放，<strong>消耗内存</strong></p>
+</blockquote>
+<h2 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h2><blockquote>
+<p>局部变量是<strong>可变类型</strong>，如list</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(start=<span class="number">0</span>)</span>:</span></div><div class="line">    count=[start]</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">incr</span><span class="params">()</span>:</span></div><div class="line">        count[<span class="number">0</span>] += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> count[<span class="number">0</span>]</div><div class="line">    <span class="keyword">return</span> incr     <span class="comment"># 此处返回闭包的结果，即内部函数</span></div><div class="line"></div><div class="line">c = counter(<span class="number">10</span>)     <span class="comment"># 此时c指向内部函数</span></div><div class="line">print(c())          <span class="comment"># 调用闭包（内部）函数</span></div></pre></td></tr></table></figure>
+<h2 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h2><blockquote>
+<p>局部变量是<strong>不可变类型</strong>，如str，使用<strong><code>nonlocal</code></strong>（python3）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(start=<span class="number">0</span>)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">incr</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">nonlocal</span> start</div><div class="line">        start += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> start</div><div class="line">    <span class="keyword">return</span> incr</div><div class="line"></div><div class="line">c1 = counter(<span class="number">10</span>)</div><div class="line">print(c1())</div></pre></td></tr></table></figure>
+<h2 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h2><blockquote>
+<p>实际应用例子</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">line_conf</span><span class="params">(a, b)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(x)</span>:</span></div><div class="line">        <span class="keyword">return</span> a * x + b</div><div class="line">    <span class="keyword">return</span> line</div><div class="line"></div><div class="line">line1 = line_conf(<span class="number">1</span>, <span class="number">1</span>)</div><div class="line">line2 = line_conf(<span class="number">4</span>, <span class="number">5</span>)</div><div class="line">print(line1(<span class="number">5</span>))</div><div class="line">print(line2(<span class="number">5</span>))</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><h2 id="编写代码原则"><a href="#编写代码原则" class="headerlink" title="编写代码原则"></a>编写代码原则</h2><ul>
+<li><strong>封闭</strong>：封装已实现的功能代码块，尽量不做更改</li>
+<li><strong>开放</strong>：在原有封装基础上扩展开发</li>
+</ul>
+<h2 id="装饰器解释"><a href="#装饰器解释" class="headerlink" title="装饰器解释"></a>装饰器解释</h2><ol>
+<li>定义<strong>装饰函数</strong>（闭包）</li>
+<li>使用<strong>@语法糖</strong>在<strong>被装饰函数</strong>上加装饰器</li>
+<li>在调用<strong>被装饰函数</strong>时Python解释器将该函数作为<strong>装饰函数</strong>的<strong>参数</strong>传递到装饰函数的<strong>闭包函数</strong>中</li>
+<li>最终输出结果为传递到闭包函数中调用的<strong>被装饰函数</strong>，可在调用之前添加“装饰”代码</li>
+</ol>
+<h2 id="装饰器功能"><a href="#装饰器功能" class="headerlink" title="装饰器功能"></a>装饰器功能</h2><ol>
+<li>引入日志 </li>
+<li>函数执行时间统计</li>
+<li>执行函数前预备处理</li>
+<li>执行函数后清理功能</li>
+<li>权限校验等场景</li>
+<li>缓存</li>
+</ol>
+<h2 id="示例1（函数）"><a href="#示例1（函数）" class="headerlink" title="示例1（函数）"></a>示例1（函数）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义装饰函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">w1</span><span class="params">(func)</span>:</span>   <span class="comment"># 执行到此处，将w1函数加载到内存</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">"验证"</span>)</div><div class="line">        func()</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@w1     # 将装饰器下的函数作为w1（装饰函数）的参数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"f1"</span>)</div><div class="line"></div><div class="line">f1()    <span class="comment"># 调用装饰后的函数</span></div></pre></td></tr></table></figure>
+<h2 id="示例2（类）"><a href="#示例2（类）" class="headerlink" title="示例2（类）"></a>示例2（类）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, func)</span>:</span></div><div class="line">        print(<span class="string">"初始化"</span>)</div><div class="line">        self.__func = func</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"--装饰器中的功能--"</span>)</div><div class="line">        self.__func()</div><div class="line"></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">showpy</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"showpy"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 调用</span></div><div class="line">showpy()</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/15/python_导入模块/" rel="next" title="python导入模块">
+                <i class="fa fa-chevron-left"></i> python导入模块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/24/python_多线程爬虫/" rel="prev" title="python多线程爬虫">
+                python多线程爬虫 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LEGB规则（优先顺序）"><span class="nav-number">1.1.</span> <span class="nav-text">LEGB规则（优先顺序）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归函数"><span class="nav-number">2.</span> <span class="nav-text">递归函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例1（循环）"><span class="nav-number">2.1.</span> <span class="nav-text">示例1（循环）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例2（递归）"><span class="nav-number">2.2.</span> <span class="nav-text">示例2（递归）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名函数"><span class="nav-number">3.</span> <span class="nav-text">匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda函数的语法只包含一个表达式"><span class="nav-number">3.1.</span> <span class="nav-text">lambda函数的语法只包含一个表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda应用场景"><span class="nav-number">3.2.</span> <span class="nav-text">lambda应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为参数传递"><span class="nav-number">3.2.1.</span> <span class="nav-text">作为参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为内置函数的参数"><span class="nav-number">3.2.2.</span> <span class="nav-text">作为内置函数的参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器"><span class="nav-number">4.</span> <span class="nav-text">生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器特点"><span class="nav-number">4.1.</span> <span class="nav-text">生成器特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建生成器方法1"><span class="nav-number">4.2.</span> <span class="nav-text">创建生成器方法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建生成器方法2"><span class="nav-number">4.3.</span> <span class="nav-text">创建生成器方法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器"><span class="nav-number">5.</span> <span class="nav-text">迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器特点"><span class="nav-number">5.1.</span> <span class="nav-text">迭代器特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可迭代对象（lterable）"><span class="nav-number">5.2.</span> <span class="nav-text">可迭代对象（lterable）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否可迭代-isinstance"><span class="nav-number">5.3.</span> <span class="nav-text">判断是否可迭代(isinstance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iter-函数"><span class="nav-number">5.4.</span> <span class="nav-text">iter()函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">6.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包优点"><span class="nav-number">6.1.</span> <span class="nav-text">闭包优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包缺点"><span class="nav-number">6.2.</span> <span class="nav-text">闭包缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例1"><span class="nav-number">6.3.</span> <span class="nav-text">例1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例2"><span class="nav-number">6.4.</span> <span class="nav-text">例2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例3"><span class="nav-number">6.5.</span> <span class="nav-text">例3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#装饰器"><span class="nav-number">7.</span> <span class="nav-text">装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写代码原则"><span class="nav-number">7.1.</span> <span class="nav-text">编写代码原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器解释"><span class="nav-number">7.2.</span> <span class="nav-text">装饰器解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器功能"><span class="nav-number">7.3.</span> <span class="nav-text">装饰器功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例1（函数）"><span class="nav-number">7.4.</span> <span class="nav-text">示例1（函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例2（类）"><span class="nav-number">7.5.</span> <span class="nav-text">示例2（类）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="MySQL的数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据类型">
+<meta property="og:url" content="http://www.oneskk.com/2016/06/11/数据库_MySQL数据类型/index.html">
+<meta property="og:site_name" content="慧海仁心">
+<meta property="og:description" content="MySQL的数据类型">
+<meta property="og:updated_time" content="2017-08-13T20:14:58.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL数据类型">
+<meta name="twitter:description" content="MySQL的数据类型">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.oneskk.com/2016/06/11/数据库_MySQL数据类型/"/>
+
+
+
+
+
+  <title> MySQL数据类型 | 慧海仁心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慧海仁心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.oneskk.com/2016/06/11/数据库_MySQL数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金成">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慧海仁心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySQL数据类型
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
+                2016-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note success"><p>MySQL的数据类型</p>
+</div>
+<a id="more"></a>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><ul>
+<li>整数<ul>
+<li><code>int类型</code></li>
+</ul>
+</li>
+<li>浮点数<ul>
+<li><code>float类型</code>：单精度浮点数值</li>
+<li><code>double类型</code>：双精度浮点数值</li>
+<li><code>decimal类型</code>：精确浮点数值</li>
+</ul>
+</li>
+</ul>
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><ul>
+<li><code>char</code>：固定长度字符串</li>
+<li><code>varchar</code>：可变长度字符串，指定值为最大值</li>
+<li><code>test</code>：存储较大的文本</li>
+<li><code>blob</code>：二进制，一般用于存储图像，声音</li>
+</ul>
+<h2 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> dta(</div><div class="line">    time1 <span class="keyword">time</span>,</div><div class="line">    time2 <span class="built_in">date</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> dta</div><div class="line"><span class="keyword">values</span>(<span class="string">"23:00:22"</span>,<span class="string">"19990303"</span>);</div></pre></td></tr></table></figure>
+<h2 id="数据类型选择"><a href="#数据类型选择" class="headerlink" title="数据类型选择"></a>数据类型选择</h2><ul>
+<li>允许值</li>
+<li>存储效率</li>
+<li>格式和显示要求</li>
+<li>数据处理要求</li>
+<li>排序、索引和比较要求</li>
+</ul>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><ul>
+<li><code>+</code>：加法</li>
+<li><code>-</code>：减法</li>
+<li><code>*</code>：乘法</li>
+<li><code>/</code>：除法（如果除数为0，结果为null）</li>
+<li><code>%</code>：取余</li>
+</ul>
+<blockquote>
+<p>注：如果用字符串表示的数字，用在运算中，将转换为数字的值<br>如果字符串和数字混合不能正确转换，则转换为0</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="string">'100'</span> + <span class="string">'004'</span>;   // 104</div><div class="line"><span class="keyword">select</span> <span class="string">'90AA'</span> + <span class="string">'0'</span>;    // 90</div><div class="line"><span class="keyword">select</span> <span class="string">'10x'</span> * <span class="string">'qwe'</span>;   // 0</div></pre></td></tr></table></figure>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><blockquote>
+<p>对表达式的左和右进行比较，结果为1（真）,0（假）或null（不确定）</p>
+</blockquote>
+<p>默认不区分大小写，使用<code>binary</code>关键字区分</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><blockquote>
+<p>逻辑运算符可以测试1个或多个表达式的逻辑有效性</p>
+</blockquote>
+<p><code>not</code>：取反<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">not</span> <span class="number">1</span>,<span class="keyword">not</span> <span class="number">0</span>,<span class="keyword">not</span> (<span class="number">2</span>=<span class="number">2</span>),<span class="keyword">not</span> (<span class="number">100</span>&gt;<span class="number">20</span>);  // 结果为0,1,0,1</div></pre></td></tr></table></figure></p>
+<p><code>and</code>：和<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> (<span class="number">2</span>=<span class="number">2</span>) <span class="keyword">and</span> (<span class="number">900</span>&lt;<span class="number">100</span>),(<span class="string">'a'</span>=<span class="string">'a'</span>) <span class="keyword">and</span> (<span class="string">'c'</span>&lt;<span class="string">'d'</span>); // 结果为0,1</div></pre></td></tr></table></figure></p>
+<p><code>or</code>：或<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> (<span class="number">2</span>=<span class="number">2</span>) <span class="keyword">or</span> (<span class="number">900</span>&lt;<span class="number">100</span>),(<span class="string">'a'</span>=<span class="string">'a'</span>) <span class="keyword">or</span> (<span class="string">'c'</span>&lt;<span class="string">'d'</span>);   // 结果为1,1</div></pre></td></tr></table></figure></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><ul>
+<li><code>abs()</code>：绝对值</li>
+<li><code>rand()</code>：随机数</li>
+<li><code>round(x,y)</code>：返回参数x的四舍五入的有y位小数的值</li>
+<li><code>pow(x,y)</code>：返回x的y次幂</li>
+<li><code>createst(x1,x2,x3...)</code>：返回集合中最大的值</li>
+<li><code>least(x1,x2,x3,...)</code>：返回集合中最大的值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">abs</span>(<span class="number">-123</span>);   // 取绝对值，结果返回123</div><div class="line"><span class="keyword">select</span> createst(<span class="number">100</span>,<span class="number">88</span>,<span class="number">33</span>,<span class="number">156</span>); // 获取一组数中最大值，结果为156</div></pre></td></tr></table></figure>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><blockquote>
+<p>聚合函数是对表中的数据进行集中概括的，经常用在包含<code>group by</code>从句的<code>select</code>查询中</p>
+</blockquote>
+<ul>
+<li><code>avg(col)</code>：指定列平均值</li>
+<li><code>count(col)</code>：指定列非null值的个数</li>
+<li><code>min(col)</code>：指定列的最小值</li>
+<li><code>max(col)</code>：指定列的最大值</li>
+<li><code>sum(col)</code>：指定列的所有值之和</li>
+<li><code>group_concat(col)</code>：由属于一组的列值连接组合而成的结果</li>
+</ul>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p><code>length()</code>：获取一个字符串的长度<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">length</span>(<span class="string">"aasdfgh"</span>);   // 结果为7</div></pre></td></tr></table></figure></p>
+<p><code>trim()</code>：去除指定格式<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">trim</span>(<span class="string">' red alter '</span>); // 去掉两边空格</div><div class="line"><span class="keyword">select</span> <span class="keyword">trim</span>(<span class="keyword">leading</span> <span class="string">'!'</span> <span class="keyword">from</span> <span class="string">'!!!error!!!'</span>);    // 去掉首部'!'符号</div></pre></td></tr></table></figure></p>
+<p><code>concat()</code>：连接参数成一个字符串<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(<span class="string">'red'</span>,<span class="string">'hot'</span>); // 结果为redhot</div></pre></td></tr></table></figure></p>
+<h2 id="日期时间函数"><a href="#日期时间函数" class="headerlink" title="日期时间函数"></a>日期时间函数</h2><p><code>now()</code>：获取当前的日期和时间，以YYYY-MM-DD HH:MM:SS的格式返回<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">now</span>();   // 返回当前时间</div></pre></td></tr></table></figure></p>
+<p><code>curdate()和curtime()</code>：单独获取日期和时间<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">curtime</span>();   // 当前时间，格式为 HH:MM:SS</div><div class="line"><span class="keyword">select</span> <span class="keyword">curdate</span>();   // 当前日期，格式为 YYYY-MM-DD</div></pre></td></tr></table></figure></p>
+<p><code>week()</code>：返回指定日期是一年的第几个星期<br><code>yearweek()</code>：返回指定日期是哪一年的第几个星期<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">week</span>(<span class="string">'2017-03-01'</span>);  // 结果返回9</div><div class="line"><span class="keyword">select</span> <span class="keyword">yearweek</span>(<span class="string">'20170301'</span>);    // 结果返回201709</div></pre></td></tr></table></figure></p>
+<h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><ul>
+<li><code>encode(str,key)</code>：使用key作为密匙加密字符串str</li>
+<li><code>decode(str,key)</code>：使用key作为密匙解密字符串str</li>
+<li><code>md5()</code>：计算字符串str的MD5校验和</li>
+<li><code>password(str)</code>：返回字符串str的加密版本</li>
+</ul>
+<h2 id="控制流函数"><a href="#控制流函数" class="headerlink" title="控制流函数"></a>控制流函数</h2><p><strong>4个条件操作函数</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">case where[test1] then [result1] ... else[default] <span class="keyword">end</span>; // 如果testN为真，则返回resultN，否则返回default</div><div class="line">case[test] where[val1] then[result] ... else[default] <span class="keyword">end</span>;  // 如果test和valN为真，则返回resultN，否则返回default</div><div class="line">if(test,t,f);   // 如果test为真，返回t，否则返回f</div><div class="line">ifnull(arg1,arg2);  // 如果arg1非空,返回arg1，否则返回arg2</div><div class="line">nullif(arg1,arg2);  // 如果arg1=arg2返回null，否则返回arg1</div></pre></td></tr></table></figure></p>
+<h2 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a>格式化函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">date_format(date,fmt);  // 依照字符串fmt格式化日期date的值</div><div class="line">format(x,y);    // 把x格式化为以逗号隔开的数字序列，y是结果的小数位数</div><div class="line">time_format(time,fmt);  // 依照字符串fmt格式化时间time值</div></pre></td></tr></table></figure>
+<p><strong>实例</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">format</span>(<span class="string">'19920202'</span>,<span class="string">'%Y-%m-%d'</span>);   // 返回1992-02-02</div></pre></td></tr></table></figure></p>
+<h2 id="数据转换函数"><a href="#数据转换函数" class="headerlink" title="数据转换函数"></a>数据转换函数</h2><blockquote>
+<p>使用<code>cast()</code>函数，可以把一个值转化为指定的数据类型</p>
+</blockquote>
+<p>一般情况下，使用数值操作时，字符串会自动转换为数字<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="number">1</span>+<span class="string">'99'</span>;  // 结果为100</div><div class="line"><span class="keyword">select</span> <span class="number">1</span>+<span class="keyword">cast</span>(<span class="string">'99'</span> <span class="keyword">as</span> signed);  // 结果为100</div></pre></td></tr></table></figure></p>
+<h2 id="系统信息函数"><a href="#系统信息函数" class="headerlink" title="系统信息函数"></a>系统信息函数</h2><blockquote>
+<p>一些获取系统本身信息的函数</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">database(); // 返回当前数据库名称</div><div class="line">connection_id();    // 返回当前客户的链接ID</div><div class="line">user() / system_user(); // 返回当前登录用户名</div><div class="line">version();  // 返回MySQL服务器的版本</div></pre></td></tr></table></figure>
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><h2 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h2><blockquote>
+<p>连接的最简单类型就是交叉连接，它是一个表相乘创建一个包含所有内容的产物</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> color, <span class="keyword">attribute</span>; // 结果是两张表的结合体</div></pre></td></tr></table></figure>
+<h2 id="联合"><a href="#联合" class="headerlink" title="联合"></a>联合</h2><blockquote>
+<p>使用<code>union</code>运算符，会自动从组合结果集中消除重复的行</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table1</div><div class="line"><span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table2</div></pre></td></tr></table></figure>
+<h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><h2 id="where-having查询"><a href="#where-having查询" class="headerlink" title="where/having查询"></a>where/having查询</h2><blockquote>
+<p>MySQL可以在where子句或having子句中包含子查询<br>也可在having子句中的比较运算符前使用子查询，从而用它对父查询创建的组进行过滤</p>
+</blockquote>
+<h2 id="in-exists-from查询"><a href="#in-exists-from查询" class="headerlink" title="in/exists/from查询"></a>in/exists/from查询</h2><p><code>in运算符</code>：检测结果中是否存在某个特定的值，如果检测成功就执行外部的查询<br><code>exists运算符</code>：用来查询一个子查询是否产生了结果，只有在返回结果为真时才执行外部查询<br><code>from</code>：在一个select语句的from子句中，可以把子查询的结果作为一个表</p>
+<h1 id="事物处理"><a href="#事物处理" class="headerlink" title="事物处理"></a>事物处理</h1><blockquote>
+<p>一个事物由作为一个单独单元的一个或多个SQL语句组成，这个单元中的每个SQL语句是互相依赖的，而且单元作为一个整体是不可分割的<br>如果单元中的一个语句不能成功完成，整个单元都会回滚，所有影响到的数据将返回到事物开始之前的状态<br>因此，事物中的所有语句都被成功的执行，这个事物才成功执行</p>
+</blockquote>
+<h2 id="事物4个特性"><a href="#事物4个特性" class="headerlink" title="事物4个特性"></a>事物4个特性</h2><ul>
+<li><code>原子性</code>：每个事物都必须被认为是一个不可分割的单元</li>
+<li><code>一致性</code>：不管事物是完全成功还是中途失败，当事物使系统处于一致的状态时存在一致性</li>
+<li><code>孤立性</code>：每个事物在它自己的空间发生，和其它发生在系统中的事物隔离，而且事物的结果值有在它完全被执行时才能看到</li>
+<li><code>持久性</code>：即使系统崩溃，一个提交的事物仍在坚持</li>
+</ul>
+<h2 id="事物声明周期"><a href="#事物声明周期" class="headerlink" title="事物声明周期"></a>事物声明周期</h2><ul>
+<li>使用<code>start transaction</code>命令来标记一个事物的开始，<code>start transaction</code>命令后跟随的是组成事物的SQL语句</li>
+<li>使用<code>begin</code>或<code>begin work</code>命令来初始化一个事物</li>
+<li>使用<code>commit</code>命令标记了事物块的结束，把整个事物保存在磁盘上，</li>
+<li>使用<code>rollback</code>命令撤销所有变化，如果事物包括事物表和非事物表的变化，非事物表的事物处理部分是不能使用<code>rollback</code>命令撤销的</li>
+</ul>
+<h2 id="控制事物行为"><a href="#控制事物行为" class="headerlink" title="控制事物行为"></a>控制事物行为</h2><ul>
+<li><code>autocommit变量</code>：自动提交，默认情况下，MySQL的SQL查询一旦被执行，就会自动向数据库提交结果，如果设置set autocommit=0，随后表的更新不会被保存</li>
+<li><code>transaction isolation level变量</code>：事物孤立级，MySQL默认为repeatable read孤立级，可使用set修改</li>
+</ul>
+<h2 id="事物和性能"><a href="#事物和性能" class="headerlink" title="事物和性能"></a>事物和性能</h2><p>为不向系统添加不适当的负担，使用小事物，两个普遍的策略</p>
+<ol>
+<li>保证所有要求的用户输入在发出<code>start transaction</code>命令执勤啊都是可行的</li>
+<li>尝试把大的事物分成小的事物然后分别执行</li>
+<li>选择合适的孤立级，孤立级越高，性能越低，所以选择合适的孤立级，有助于性能油画</li>
+<li>避免死锁，在一个事物环境中，当两个或多个处于不同序列的客户同时想更新相同的数据时，就会发生死锁，应避免发生死锁</li>
+</ol>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/02/js_this关键字理解/" rel="next" title="this关键字理解">
+                <i class="fa fa-chevron-left"></i> this关键字理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/14/python_Django笔记/" rel="prev" title="Django学习笔记">
+                Django学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="金成" />
+          <p class="site-author-name" itemprop="name">金成</p>
+           
+              <p class="site-description motion-element" itemprop="description">IT学习分享博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数值类型"><span class="nav-number">1.1.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间类型"><span class="nav-number">1.3.</span> <span class="nav-text">日期和时间类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型选择"><span class="nav-number">1.4.</span> <span class="nav-text">数据类型选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">2.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数运算符"><span class="nav-number">2.1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-number">2.2.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">2.3.</span> <span class="nav-text">逻辑运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数学函数"><span class="nav-number">3.1.</span> <span class="nav-text">数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合函数"><span class="nav-number">3.2.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间函数"><span class="nav-number">3.4.</span> <span class="nav-text">日期时间函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密函数"><span class="nav-number">3.5.</span> <span class="nav-text">加密函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制流函数"><span class="nav-number">3.6.</span> <span class="nav-text">控制流函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化函数"><span class="nav-number">3.7.</span> <span class="nav-text">格式化函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据转换函数"><span class="nav-number">3.8.</span> <span class="nav-text">数据转换函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统信息函数"><span class="nav-number">3.9.</span> <span class="nav-text">系统信息函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接"><span class="nav-number">4.</span> <span class="nav-text">连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉连接"><span class="nav-number">4.1.</span> <span class="nav-text">交叉连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合"><span class="nav-number">4.2.</span> <span class="nav-text">联合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子查询"><span class="nav-number">5.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#where-having查询"><span class="nav-number">5.1.</span> <span class="nav-text">where/having查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-exists-from查询"><span class="nav-number">5.2.</span> <span class="nav-text">in/exists/from查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事物处理"><span class="nav-number">6.</span> <span class="nav-text">事物处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事物4个特性"><span class="nav-number">6.1.</span> <span class="nav-text">事物4个特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事物声明周期"><span class="nav-number">6.2.</span> <span class="nav-text">事物声明周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制事物行为"><span class="nav-number">6.3.</span> <span class="nav-text">控制事物行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事物和性能"><span class="nav-number">6.4.</span> <span class="nav-text">事物和性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-number">7.</span> <span class="nav-text">性能优化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金成</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
